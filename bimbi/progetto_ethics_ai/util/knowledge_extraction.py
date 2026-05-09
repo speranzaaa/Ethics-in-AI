@@ -365,33 +365,32 @@ def extract_rules_local_ollama(
     """
     Extract formal clinical rules from Italian guideline text using a local Ollama model.
 
-    This is the LOCAL-INFERENCE extractor, provided for technical comparison and
-    local testing.  It runs entirely on-device with no data leaving the machine,
-    making it suitable for sensitive clinical environments where sending patient
-    data to a cloud API is not permitted.
-
-    The extraction logic, system prompt, and output schema are IDENTICAL to those
-    of extract_rules_openai().  This allows a direct performance comparison between
-    a cloud frontier model (OpenAI) and a local open-weight model (e.g., Llama 3)
-    on the specific task of Italian medical terminology extraction.  Differences
-    in output quality, rule completeness, and terminology fidelity are attributable
-    solely to the model, not to any difference in instructions.
+    This is the PRIMARY extractor for the CDSS.  It runs entirely on-device with
+    no data leaving the machine, making it the privacy-preserving default for
+    sensitive clinical environments.
 
     Ollama is invoked with ``format="json"`` to constrain its output to valid JSON.
     The Ollama server must be running locally (default: http://localhost:11434) and
     the requested model must already be pulled (``ollama pull llama3``).
 
-    NEURO-SYMBOLIC FUSION ROLE:
-      Same as extract_rules_openai() -- returned rules are loaded into
-      EthicalKDEAnomalyDetector.set_prior_knowledge() and contribute additive
-      penalty_weight bonuses to the KDE anomaly signal when a patient record
-      contains the Italian clinical_conditions string.
+    ITALIAN TERMINOLOGY INVARIANT — WHY THE USER TURN REPEATS THE CONSTRAINT:
+      Open-weight models (unlike GPT-4) frequently ignore instructions placed only
+      in the system prompt, especially language-override constraints.  The user turn
+      therefore explicitly repeats the Italian-only requirement, provides the exact
+      JSON schema, and gives worked examples of correct Italian strings.  This
+      redundancy is intentional and has a direct impact on rule quality.
 
-    ITALIAN TERMINOLOGY INVARIANT:
-      The same Italian-language system prompt is used as in the OpenAI extractor.
-      Open-weight models may exhibit lower instruction-following fidelity regarding
-      language constraints.  Post-extraction, verify that clinical_conditions values
-      are in Italian before loading rules into the detector.
+      ``clinical_conditions`` strings MUST remain in Italian (e.g., "fratture
+      multiple", "ustioni", "ematomi") because they are matched case-insensitively
+      against Italian-language fields in the clinical CSV datasets.  Translation to
+      English silently breaks the detection pipeline — a patient-safety risk.
+
+    NEURO-SYMBOLIC FUSION ROLE:
+      Returned rules are loaded into EthicalKDEAnomalyDetector.set_prior_knowledge()
+      and contribute additive penalty_weight bonuses to the KDE anomaly signal when
+      a patient record contains the Italian clinical_conditions string:
+
+          score(x) = -log P_KDE(x) + SUM_i penalty_weight_i * I[condition_i in x]
 
     Parameters
     ----------
@@ -414,10 +413,38 @@ def extract_rules_local_ollama(
     Raises
     ------
     ollama.ResponseError
-        If the Ollama server is unreachable or the model is not found locally.
+        If the model is not found locally (``ollama pull <model_name>`` first).
+    ConnectionRefusedError
+        If the Ollama server is not running (``ollama serve`` or start the app).
     """
     excerpt = text[:max_text_chars]
-    user_message = _USER_MESSAGE_TEMPLATE.format(excerpt=excerpt)
+
+    # The user turn explicitly repeats the Italian-enforcement constraint because
+    # open-weight models frequently ignore system-prompt language instructions.
+    # Echoing the rule here — with examples and the exact JSON schema — significantly
+    # improves compliance with the Italian terminology requirement.
+    user_message = (
+        "Analizza il seguente testo estratto da linee guida mediche italiane "
+        "sul maltrattamento e abuso infantile.\n\n"
+        "VINCOLO ASSOLUTO — TERMINOLOGIA ITALIANA:\n"
+        "Il campo 'clinical_conditions' di OGNI regola DEVE contenere la terminologia "
+        "medica italiana originale, esattamente come appare nel testo sorgente.\n"
+        "NON tradurre MAI in inglese. Esempi corretti: "
+        "'fratture multiple', 'ustioni', 'ematomi', 'lesioni cutanee', "
+        "'trauma cranico', 'ecchimosi', 'sindrome del bambino scosso', "
+        "'lesioni perianali', 'lesioni genitali', 'trascuratezza'.\n"
+        "Una traduzione in inglese causerebbe il MANCATO RILEVAMENTO di condizioni "
+        "cliniche reali nei dataset CSV e costituisce un rischio per la sicurezza "
+        "del paziente.\n\n"
+        "Restituisci SOLO JSON valido con questa struttura esatta:\n"
+        '{"rules": [\n'
+        '  {"rule_id": "R001", "description": "...", '
+        '"clinical_conditions": "<termine italiano esatto>", "penalty_weight": 2.5},\n'
+        '  ...\n'
+        ']}\n\n'
+        "Estrai TUTTE le regole cliniche rilevanti presenti nel testo.\n\n"
+        "TESTO DELLE LINEE GUIDA:\n" + excerpt
+    )
 
     logger.info(
         "[Ollama] Calling model=%s to extract clinical rules from %d chars.",
