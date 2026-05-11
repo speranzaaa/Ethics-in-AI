@@ -138,50 +138,42 @@ def extract_text_from_pdf(pdf_path: str) -> str:
 # the model, not to differences in instruction.
 _EXTRACTION_SYSTEM_PROMPT = """
 Sei un ingegnere della conoscenza medica specializzato nel rilevamento del maltrattamento infantile.
-Il tuo compito e' estrarre regole cliniche strutturate e leggibili da macchina da linee guida mediche italiane.
+Il tuo compito e' estrarre regole cliniche strutturate e leggibili da macchina a partire da linee guida mediche italiane.
 
-ISTRUZIONE CRITICA -- CONSERVAZIONE DELLA TERMINOLOGIA ITALIANA:
-Devi SEMPRE estrarre e conservare la terminologia medica italiana ESATTA cosi' come appare nel testo sorgente.
+Devi SEMPRE estrarre e conservare la terminologia medica italiana ESATTA così come appare nel testo sorgente.
 NON tradurre MAI i termini medici in inglese.
-Il campo "clinical_conditions" DEVE contenere le stringhe italiane originali, ad esempio:
+Il campo "condizione_clinica" DEVE contenere le stringhe italiane originali se presenti, ad esempio:
   "fratture multiple", "lesioni cutanee", "ustioni", "ematomi", "ecchimosi",
   "trauma cranico", "abuso sessuale", "trascuratezza", "ritardo di accesso alle cure",
   "lesioni perianali", "lesioni genitali", "sindrome del bambino scosso".
-Queste stringhe verranno confrontate direttamente con campi di testo italiano
-nei dataset CSV clinici del sistema CDSS (Triage, Sintomi, Dati clinici).
-La traduzione in inglese causerebbe il MANCATO RILEVAMENTO di condizioni cliniche
-reali e costituisce un rischio per la sicurezza del paziente.
 
-Restituisci SOLO un oggetto JSON con una chiave "rules" contenente un array.
+Restituisci SOLO un oggetto JSON con una chiave "regole" contenente un array.
 Ogni elemento dell'array deve avere ESATTAMENTE queste chiavi:
-  "rule_id"             -- identificatore univoco stringa (es. "R001", "R002")
-  "description"         -- una frase concisa che spiega la logica clinica
-  "clinical_conditions" -- stringa ITALIANA della condizione clinica o sintomo esatto
-                           (DEVE essere in italiano, non tradotta)
-  "penalty_weight"      -- float: incremento allo score di anomalia KDE se questa
-                           regola viene violata (valori tipici 0.5-3.0;
-                           usare valori piu' alti per segnali di abuso piu' forti)
+  "rule_id" -- identificatore univoco stringa (es. "R001", "R002")
+  "regola" -- una frase concisa che spiega la logica clinica
+  "condizione_clinica" -- stringa ITALIANA della condizione clinica o sintomo esatto
+  "penalty" -- float: indica la gravità della situazione se questa regola viene violata, attribuisci un valore da 0 a 1 dove 0 indica il caso meno grave e 1 il caso più grave.
 
 Esempio di output corretto:
 {
-  "rules": [
+  "regole": [
     {
       "rule_id": "R001",
-      "description": "Multiple fractures in a child are a strong red flag for non-accidental injury.",
-      "clinical_conditions": "fratture multiple",
-      "penalty_weight": 2.5
+      "descrizione": "Fratture multiple in un bambino sono un forte campanello d'allarme per lesioni non accidentali..",
+      "condizione_clinica": "Fratture multiple",
+      "penalty": 0.8
     },
     {
       "rule_id": "R002",
-      "description": "Skin lesions inconsistent with the reported mechanism of injury.",
-      "clinical_conditions": "lesioni cutanee",
-      "penalty_weight": 1.8
+      "descrizione": "Lesioni cutanee non compatibili con il meccanismo di lesione riportato.",
+      "condizione_clinica": "Lesioni cutanee",
+      "penalty": 0.6
     },
     {
       "rule_id": "R003",
-      "description": "Burns in a child, especially patterned or immersion burns, are highly suspicious.",
-      "clinical_conditions": "ustioni",
-      "penalty_weight": 2.0
+      "descrizione": "Le ustioni nei bambini, soprattutto quelle a forma di schema o da immersione, sono altamente sospette.",
+      "condizione_clinica": "Ustioni",
+      "penalty": 0.7
     }
   ]
 }
@@ -191,7 +183,7 @@ _USER_MESSAGE_TEMPLATE = (
     "Analizza il seguente testo estratto da linee guida mediche italiane "
     "sul maltrattamento e abuso infantile. "
     "Estrai TUTTE le regole cliniche rilevanti come specificato. "
-    "RICORDA: il campo 'clinical_conditions' DEVE contenere la terminologia "
+    "RICORDA: il campo 'condizione_clinica' DEVE contenere la terminologia "
     "medica italiana originale -- mai traduzioni in inglese.\n\n"
     "TESTO DELLE LINEE GUIDA:\n{excerpt}"
 )
@@ -257,10 +249,10 @@ def _parse_and_validate_rules(raw: str, source: str) -> list[dict[str, Any]]:
             continue
         validated.append(
             {
-                "rule_id":             str(rule.get("rule_id", f"R{i + 1:03d}")),
-                "description":         str(rule.get("description", "")),
-                "clinical_conditions": str(rule.get("clinical_conditions", "")),
-                "penalty_weight":      float(rule.get("penalty_weight", 1.0)),
+                "rule_id":            str(rule.get("rule_id", f"R{i + 1:03d}")),
+                "descrizione":        str(rule.get("descrizione", "")),
+                "condizione_clinica": str(rule.get("condizione_clinica", "")),
+                "penalty":            float(rule.get("penalty", 0.0)),
             }
         )
 
@@ -427,7 +419,7 @@ def extract_rules_local_ollama(
         "Analizza il seguente testo estratto da linee guida mediche italiane "
         "sul maltrattamento e abuso infantile.\n\n"
         "VINCOLO ASSOLUTO — TERMINOLOGIA ITALIANA:\n"
-        "Il campo 'clinical_conditions' di OGNI regola DEVE contenere la terminologia "
+        "Il campo 'condizione_clinica' di OGNI regola DEVE contenere la terminologia "
         "medica italiana originale, esattamente come appare nel testo sorgente.\n"
         "NON tradurre MAI in inglese. Esempi corretti: "
         "'fratture multiple', 'ustioni', 'ematomi', 'lesioni cutanee', "
@@ -437,9 +429,9 @@ def extract_rules_local_ollama(
         "cliniche reali nei dataset CSV e costituisce un rischio per la sicurezza "
         "del paziente.\n\n"
         "Restituisci SOLO JSON valido con questa struttura esatta:\n"
-        '{"rules": [\n'
-        '  {"rule_id": "R001", "description": "...", '
-        '"clinical_conditions": "<termine italiano esatto>", "penalty_weight": 2.5},\n'
+        '{"regole": [\n'
+        '  {"rule_id": "R001", "descrizione": "...", '
+        '"condizione_clinica": "<termine italiano esatto>", "penalty": 0.8},\n'
         '  ...\n'
         ']}\n\n'
         "Estrai TUTTE le regole cliniche rilevanti presenti nel testo.\n\n"

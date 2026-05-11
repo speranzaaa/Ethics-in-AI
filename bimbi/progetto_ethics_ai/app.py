@@ -305,7 +305,7 @@ with tab_dashboard:
             st.subheader("Prior Rules Status")
             st.caption("Italian clinical conditions matched against patient record.")
             for rule in rules:
-                condition_text = str(rule.get("clinical_conditions", "")).strip().lower()
+                condition_text = str(rule.get("condizione_clinica", "")).strip().lower()
                 # Replicate _evaluate_rule logic: case-insensitive substring search
                 # over all string-typed cells in the patient row.
                 matched = (
@@ -319,9 +319,9 @@ with tab_dashboard:
                 label = "MATCHED" if matched else "not matched"
                 st.markdown(
                     f"**[{rule.get('rule_id', '?')}]** "
-                    f"`{rule.get('clinical_conditions', '')}` – {label}  \n"
-                    f"penalty +{rule.get('penalty_weight', 0.0):.1f} | "
-                    f"{rule.get('description', '')}"
+                    f"`{rule.get('condizione_clinica', '')}` – {label}  \n"
+                    f"penalty +{rule.get('penalty', 0.0):.2f} | "
+                    f"{rule.get('descrizione', '')}"
                 )
                 st.markdown("---")
     else:
@@ -386,7 +386,7 @@ with tab_xai:
     # Identify which text rules fired.
     triggered_rules = []
     for rule in rules:
-        condition_text = str(rule.get("clinical_conditions", "")).strip().lower()
+        condition_text = str(rule.get("condizione_clinica", "")).strip().lower()
         if condition_text and any(
             isinstance(v, str) and condition_text in v.lower()
             for v in patient_row.values
@@ -400,8 +400,8 @@ with tab_xai:
         )
         for r in triggered_rules:
             st.markdown(
-                f"- **[{r['rule_id']}]** `{r['clinical_conditions']}` – "
-                f"{r['description']} *(+{r['penalty_weight']:.1f} penalty)*"
+                f"- **[{r['rule_id']}]** `{r.get('condizione_clinica', '')}` – "
+                f"{r.get('descrizione', '')} *(+{r.get('penalty', 0.0):.2f} penalty)*"
             )
     else:
         st.info("No Italian text rules matched this patient window.")

@@ -83,7 +83,7 @@ def generate_xai_report(
 
     rules_text = (
         "\n".join(
-            f"  - [{r.get('feature', '?')}] {r.get('description', 'No description')}"
+            f"  - [{r.get('rule_id', '?')}] {r.get('descrizione', 'No description')}"
             for r in triggered_rules
         )
         if triggered_rules

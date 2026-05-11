@@ -198,7 +198,7 @@ class EthicalKDEAnomalyDetector:
             string column of ``row``; ``False`` otherwise or if the condition
             string is empty.
         """
-        condition_text = str(rule.get("clinical_conditions", "")).strip().lower()
+        condition_text = str(rule.get("condizione_clinica", "")).strip().lower()
         if not condition_text:
             return False
 
@@ -263,15 +263,15 @@ class EthicalKDEAnomalyDetector:
         for i, (_, row) in enumerate(X.iterrows()):
             numeric_fv: dict[str, float] = numeric_X.iloc[i].to_dict()
             for rule in self.prior_rules:
-                if "clinical_conditions" in rule and "penalty_weight" in rule:
+                if "condizione_clinica" in rule:
                     # New-style text rule: additive penalty fuses symbolic + statistical.
                     if self._evaluate_rule(row, rule):
-                        adjusted[i] += float(rule["penalty_weight"])
+                        adjusted[i] += float(rule.get("penalty", 0.0))
                         logger.debug(
                             "Sample %d: Italian rule '%s' matched → +%.2f penalty.",
                             i,
-                            rule.get("rule_id", rule.get("clinical_conditions", "?")),
-                            rule["penalty_weight"],
+                            rule.get("rule_id", rule.get("condizione_clinica", "?")),
+                            rule.get("penalty", 0.0),
                         )
                 elif "feature" in rule and "condition" in rule and "threshold" in rule:
                     # Legacy numeric rule: multiplicative amplification.
