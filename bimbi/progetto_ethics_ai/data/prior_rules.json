@@ -279,6 +279,416 @@
       "descrizione": "Madri vittime di violenza e/o del partner in carico ai servizi (Pronto Soccorso, Consultori Familiari, MMG, SERT, Salute Mentale, Centri antiviolenza, Forze dell'Ordine) impongono attenzione alle problematiche del minore coinvolto come vittima di violenza assistita.",
       "condizione_clinica": "minore figlio di donna vittima di violenza",
       "gravità": 0.75
+    },
+    {
+      "descrizione": "Evidenza di lesioni non accidentali nel minore osservate in fase di valutazione sanitaria.",
+      "condizione_clinica": "lesioni non accidentali",
+      "gravità": 0.92
+    },
+    {
+      "descrizione": "Presenza di lesioni genitali e/o infezioni ricorrenti, indicate dal documento tra le lesioni presumibilmente prodotte da abuso fisico e/o sessuale.",
+      "condizione_clinica": "lesioni genitali e/o infezioni ricorrenti",
+      "gravità": 0.88
+    },
+    {
+      "descrizione": "Altre evidenze cliniche che il minore è vittima di abuso sessuale rilevabili nell’area Salute dell’Assessment Framework.",
+      "condizione_clinica": "abuso sessuale",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Frequenti segnalazioni di malattie o lesioni fittizie nel figlio da parte di un genitore, indicatore tipico di abuso per procura.",
+      "condizione_clinica": "malattie o lesioni fittizie nel figlio",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Lesioni fisiche rilevate nel minore, considerate dal documento elemento di gravità che orienta alla segnalazione all’Autorità Giudiziaria minorile.",
+      "condizione_clinica": "lesioni fisiche",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Grave sintomatologia post traumatica connessa a forme di maltrattamento, indicata come elemento di gravità nella valutazione.",
+      "condizione_clinica": "grave sintomatologia post traumatica",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Sessualizzazione traumatica con iper-eccitabilità del comportamento sessuale, attività sessuali improprie e ripetitive, tentativi di aggressione sessuale verso altri.",
+      "condizione_clinica": "sessualizzazione traumatica",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Violenza assistita: il bambino assiste direttamente o indirettamente a violenza fisica, verbale, psicologica, sessuale o economica perpetrata su figure di riferimento.",
+      "condizione_clinica": "violenza assistita",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Esposizione del minore a violenza domestica/intrafamiliare, configurata dal documento come forma di maltrattamento anche in assenza di reato configurato.",
+      "condizione_clinica": "violenza domestica",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Storia di abusi fisici da parte del genitore violento nei confronti del figlio, da indagare attraverso credenze e atteggiamenti del perpetratore verso educazione e disciplina.",
+      "condizione_clinica": "abusi fisici nei confronti del figlio",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Storia di abusi sessuali o violazioni dei confini nei confronti del figlio da parte del genitore violento.",
+      "condizione_clinica": "abusi sessuali o violazioni dei confini nei confronti del figlio",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Abuso emotivo esercitato dal genitore violento verso la madre e/o il figlio, considerato fattore determinante della gravità del danno, anche più distruttivo della violenza fisica.",
+      "condizione_clinica": "abuso emotivo",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Livello di controllo coercitivo e/o manipolativo esercitato dal genitore violento verso il partner e il figlio.",
+      "condizione_clinica": "controllo coercitivo",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Negligenza/grave trascuratezza genitoriale, esplicitamente elencata tra le aree da valutare nei casi di violenza domestica.",
+      "condizione_clinica": "grave trascuratezza genitoriale",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Deprivazione, incuria, maltrattamento e abuso, violenza domestica, indicati come esperienze traumatiche da esplorare nella storia del minore e del genitore.",
+      "condizione_clinica": "incuria",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Ritardo o cattive condizioni igieniche nel periodo perinatale e nell’infanzia, indicatore di difficoltà nelle cure di base.",
+      "condizione_clinica": "cattive condizioni igieniche",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Minacce alla salute del feto procurate dallo stile di vita del genitore in gravidanza e mancanza di controlli regolari.",
+      "condizione_clinica": "minacce alla salute del feto in gravidanza",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Dieta inadeguata e mancata stimolazione del bambino ad apprendere la capacità di cibarsi autonomamente.",
+      "condizione_clinica": "dieta inadeguata",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Bambino fisicamente “spento”, privo di energia, apatico, segnalato nell’Assessment Framework come difficoltà nell’area Salute.",
+      "condizione_clinica": "bambino fisicamente spento, apatico",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Problemi di crescita e/o problemi rilevanti dello sviluppo (difficoltà di apprendimento, autismo, ritardo del linguaggio).",
+      "condizione_clinica": "problemi di crescita e sviluppo",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Disregolazione delle emozioni e degli impulsi associata a stati di allarme e allerta anche in assenza di pericolo reale, espressione sintomatologica trauma-correlata.",
+      "condizione_clinica": "disregolazione delle emozioni e degli impulsi",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Disequilibrio delle regolazioni fisiologiche neurovegetative: dolori addominali, vomito psicogeno, disturbi digestivi funzionali, riconducibili a esposizione traumatica.",
+      "condizione_clinica": "sintomi neurovegetativi digestivi",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Disturbi di tipo asmatico e alterazioni varie del respiro indicati come espressione neurovegetativa di disagio trauma-correlato.",
+      "condizione_clinica": "disturbi respiratori di tipo asmatico",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Tachicardia, ipotensione arteriosa, svenimenti come manifestazioni neurovegetative cardiocircolatorie associate al trauma.",
+      "condizione_clinica": "tachicardia, ipotensione, svenimenti",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Disregolazione dell’attenzione e del comportamento con alterazioni del sistema nervoso centrale che giustificano disturbi del funzionamento cognitivo e della memoria.",
+      "condizione_clinica": "disregolazione dell’attenzione e del comportamento",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Distorsioni nella percezione di sé e nei sistemi di significato: sentimenti di profonda inadeguatezza, disistima e svalorizzazione delle proprie risorse.",
+      "condizione_clinica": "distorsioni nella percezione di sé",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Difficoltà interpersonali con compromissione del contatto empatico, della reciprocità e della regolazione intersoggettiva, espressione di trauma relazionale.",
+      "condizione_clinica": "difficoltà interpersonali",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Sintomi intrusivi: flashback, disagio psicologico e reattività intensa davanti a stimoli che ricordano l’evento traumatico; nei bambini ritualizzazione nel gioco dell’evento traumatico.",
+      "condizione_clinica": "sintomi intrusivi e flashback",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Evitamento di pensieri, luoghi, situazioni e persone legati al trauma, con diminuzione degli interessi, distacco emotivo, fino al blocco dell’affettività.",
+      "condizione_clinica": "evitamento post-traumatico",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Stato di terrore panico nel bambino derivante dalla percezione di pericolo incontrollabile su figura di riferimento, condizione traumatogena in sé.",
+      "condizione_clinica": "stato di terrore panico",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Disorganizzazione dell’attaccamento conseguente a esposizione massiccia a violenza con perdita della funzione esoregolatrice dell’adulto.",
+      "condizione_clinica": "disorganizzazione dell’attaccamento",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Disturbo Traumatico dello Sviluppo (DTS) con minaccia alle funzioni integrative della coscienza, tipico delle esposizioni traumatiche ripetute.",
+      "condizione_clinica": "Disturbo Traumatico dello Sviluppo",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Trauma relazionale e trauma cumulativo con effetto intrinsecamente dissociativo sulle funzioni psicologiche immature del bambino.",
+      "condizione_clinica": "trauma relazionale e cumulativo",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Stile di attaccamento marcatamente insicuro verso i caregiver o altri adulti significativi, indicato come difficoltà nell’area Sviluppo emotivo.",
+      "condizione_clinica": "attaccamento marcatamente insicuro",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Attaccamenti insicuri, disorganizzati o indifferenziati del bambino verso le figure di riferimento.",
+      "condizione_clinica": "attaccamento disorganizzato",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Stati persistenti o ricorrenti di arousal, frustrazione, distress (angoscia) e/o stati affettivi disorganizzati/disregolati nel bambino.",
+      "condizione_clinica": "stati persistenti di arousal e distress",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Difficoltà di attenzione e di concentrazione, comportamento iperattivo/ipoattivo (ritirato).",
+      "condizione_clinica": "iperattività/ipoattività e difficoltà di attenzione",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Stile espressivo delle emozioni carente o inappropriato, persistente umore negativo nel bambino.",
+      "condizione_clinica": "umore persistentemente negativo",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Umore depresso e ansia pervasiva, indicati tra le difficoltà nella regolazione emotiva.",
+      "condizione_clinica": "umore depresso e ansia pervasiva",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Presenza di sintomi post traumatici come reazione a eventi stressanti, indicato come difficoltà nell’area Sviluppo emotivo.",
+      "condizione_clinica": "sintomi post traumatici",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Risposte esagerate o assenti a eventi stressanti, comportamento oppositivo, aggressivo, auto-lesivo o orientato al rischio.",
+      "condizione_clinica": "comportamento auto-lesivo e orientato al rischio",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Comportamento aggressivo e antisociale persistente nel bambino, segnalato come difficoltà nell’Assessment Framework.",
+      "condizione_clinica": "comportamento aggressivo e antisociale",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Autolesionismo (attacco al sé) tipico dell’adolescente esposto a violenza assistita, con espressione esternalizzante del danno evolutivo.",
+      "condizione_clinica": "autolesionismo",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Discontrollo degli impulsi con crisi dirompenti e crisi dissociative, improvviso scadimento del rapporto con il reale, perdita del senso di responsabilità.",
+      "condizione_clinica": "discontrollo degli impulsi",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Uso di sostanze nell’adolescente come espressione esternalizzante del danno evolutivo da esposizione a violenza.",
+      "condizione_clinica": "uso di sostanze in adolescenza",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Promiscuità sessuale nell’adolescente esposto a violenza, indicata tra le espressività esternalizzanti del danno traumatico.",
+      "condizione_clinica": "promiscuità sessuale in adolescenza",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Crisi dissociative con improvviso scadimento del rapporto con il reale e crollo del giudizio critico, frequenti in adolescenti esposti a violenza assistita.",
+      "condizione_clinica": "crisi dissociative",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Danno agli apprendimenti con ritiro dell’impegno scolastico e formativo nell’adolescente esposto a violenza assistita.",
+      "condizione_clinica": "ritiro scolastico e danno agli apprendimenti",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Senso dei confini compromesso, sfiducia e sospettosità, indicati tra i sintomi clinici dell’attaccamento nei bambini esposti a traumi complessi.",
+      "condizione_clinica": "senso dei confini compromesso",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Analgesia, disturbi nella coordinazione, nell’equilibrio e nella regolazione del tono corporeo, indicati tra le funzioni biologiche alterate da trauma complesso.",
+      "condizione_clinica": "analgesia e disturbi sensomotori",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Somatizzazione con vari problemi medici (dolore pelvico, asma, problemi dermatologici, disturbi autoimmuni, pseudocolpi apoplettici) nei bambini esposti a traumi complessi.",
+      "condizione_clinica": "somatizzazione",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Alessitimia: difficoltà a identificare e a esprimere i sentimenti e a descrivere i propri stati interni, indicata tra le compromissioni della regolazione affettiva.",
+      "condizione_clinica": "alessitimia",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Dissociazione con alterazione dello stato di consapevolezza, amnesia, depersonalizzazione, derealizzazione, compromissione della memoria episodica.",
+      "condizione_clinica": "dissociazione",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Due o più stati distinti di consapevolezza nel bambino esposto a traumi complessi, indicatore severo di dissociazione strutturata.",
+      "condizione_clinica": "stati distinti di consapevolezza",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Aggressività auto ed eterodiretta nel bambino con incapacità di modulare gli impulsi, indicata tra i sintomi del controllo del comportamento nei traumi complessi.",
+      "condizione_clinica": "aggressività auto ed eterodiretta",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Disturbi del sonno e disturbi alimentari nel bambino esposto a trauma complesso.",
+      "condizione_clinica": "disturbi del sonno e alimentari",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Riproposizione di contenuti e aspetti emotivi correlati agli eventi traumatici nel comportamento o nel gioco (temi di violenza, sessuali).",
+      "condizione_clinica": "riproposizione traumatica nel gioco",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Mancanza di un senso del Sé continuo e prevedibile, mancanza del senso di separatezza, disturbi dell’immagine corporea nei bambini con trauma complesso.",
+      "condizione_clinica": "disturbi del concetto di sé",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Scarsa autostima e senso di colpa e vergogna pervasivi nel bambino esposto a violenza assistita o trauma complesso.",
+      "condizione_clinica": "vissuti di colpa e vergogna",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Difficoltà di apprendimento, disturbi nello sviluppo del linguaggio e compromissione dell’orientamento spazio-temporale nei bambini con trauma complesso.",
+      "condizione_clinica": "difficoltà di apprendimento e linguaggio",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Psicopatologia del genitore e/o abuso di sostanze, identificati come fattori di rischio rilevanti per il maltrattamento del figlio.",
+      "condizione_clinica": "psicopatologia genitoriale e abuso di sostanze",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Violenza e punizioni come pratiche educative del genitore, esplicitamente elencate tra i fattori di rischio familiare.",
+      "condizione_clinica": "violenza e punizioni come pratiche educative",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Accettazione di pornografia infantile da parte del genitore, indicata tra i fattori di rischio/vulnerabilità familiari.",
+      "condizione_clinica": "accettazione pornografia infantile",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Discontrollo degli impulsi e scarsa tolleranza alle frustrazioni del genitore, fattore di rischio per il maltrattamento.",
+      "condizione_clinica": "discontrollo degli impulsi genitoriale",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Storia di violenza e abusi subiti nell’infanzia dal genitore, fattore di rischio per trasmissione trans-generazionale del maltrattamento.",
+      "condizione_clinica": "violenza/abusi subiti nell’infanzia del genitore",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Conflitti di coppia e violenza domestica nel nucleo familiare, fattore di rischio per il maltrattamento del figlio.",
+      "condizione_clinica": "conflitti di coppia e violenza domestica",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Esposizione del minore a violenza, abuso, rifiuto, perdita o malattia con ambiente familiare instabile nell’infanzia.",
+      "condizione_clinica": "ambiente familiare instabile e violento",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Caregiving non responsivo o rifiuto del genitore verso le richieste del figlio, con attaccamenti insicuri o disorganizzati.",
+      "condizione_clinica": "caregiving non responsivo",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Mancata protezione del figlio da persone pericolose nell’ambiente domestico o altrove da parte dei genitori.",
+      "condizione_clinica": "mancata protezione da persone pericolose",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Clima emotivo negativo/caotico: aggressivo, rifiutante, svalutante, minaccioso per il figlio.",
+      "condizione_clinica": "clima emotivo negativo/caotico",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Genitori non ricettivi, freddi, critici o punitivi nei confronti del figlio, con mancanza di empatia, sintonia e comprensione.",
+      "condizione_clinica": "genitori freddi, critici o punitivi",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Stile educativo violento con uso inappropriato di sanzioni, aspettative irrealistiche e controllo del comportamento del figlio.",
+      "condizione_clinica": "stile educativo violento",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Genitori che non riescono a fornire cure di base adeguate, non collaboranti come coppia genitoriale.",
+      "condizione_clinica": "cure di base inadeguate",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Cure di base non idonee per l’età con incapacità di adattarsi ai bisogni evolutivi del figlio.",
+      "condizione_clinica": "cure di base non idonee all’età",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Partner violento che nega o legittima la violenza, continua a essere violento, non si assume responsabilità o incolpa la vittima, con impatto sul figlio ignorato.",
+      "condizione_clinica": "negazione della violenza da parte del partner maltrattante",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Prematurità e basso peso alla nascita, complicazioni peri-natali, ritardo nello sviluppo senso-motorio, indicati come fattori di rischio del figlio.",
+      "condizione_clinica": "prematurità e complicazioni peri-natali",
+      "gravità": 0.3
+    },
+    {
+      "descrizione": "Malattia cronica o malattie fisiche/disturbi alla nascita del figlio, fattore di vulnerabilità individuale per maltrattamento.",
+      "condizione_clinica": "malattia cronica del figlio",
+      "gravità": 0.3
+    },
+    {
+      "descrizione": "Temperamento irritabile, iperattività e disturbi del comportamento del figlio, fattori di vulnerabilità individuale segnalati.",
+      "condizione_clinica": "temperamento irritabile e iperattività",
+      "gravità": 0.3
+    },
+    {
+      "descrizione": "Imbarazzo, inibizione, fastidio, vergogna, paura osservati nel bambino mentre racconta, costituiscono aspetti importanti di un disagio correlato all’abuso.",
+      "condizione_clinica": "disagio emotivo correlato all’abuso",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Rivelazione spontanea del maltrattamento/abuso da parte del bambino o adolescente, anche se frammentaria, confusa o bizzarra.",
+      "condizione_clinica": "rivelazione spontanea di maltrattamento/abuso",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Pseudospiegazioni in cui il bambino attribuisce a sé la causa dei problemi domestici, con vissuti di colpa e vergogna come tentativo di non cedere al nonsenso traumatico.",
+      "condizione_clinica": "autoattribuzione di colpa per la violenza domestica",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Condotte attive di controllo del bambino finalizzate alla modulazione della violenza familiare, con identificazione alternata con aggressore o vittima.",
+      "condizione_clinica": "condotte di controllo della violenza familiare",
+      "gravità": 0.55
     }
   ]
 }
