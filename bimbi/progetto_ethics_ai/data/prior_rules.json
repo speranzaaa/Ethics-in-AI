@@ -691,824 +691,1184 @@
       "gravità": 0.55
     },
     {
-      "descrizione":"Frattura in bambino di età inferiore a 2 anni richiede particolare attenzione al sospetto di abuso, data la ridotta probabilità di fratture accidentali in questa fascia d'età per lo sviluppo neurocomportamentale.",
-      "condizione_clinica":"frattura in bambino di età inferiore a 2 anni",
-      "gravità":0.7
+      "descrizione": "Frattura in bambino di età inferiore a 2 anni richiede particolare attenzione al sospetto di abuso, data la ridotta probabilità di fratture accidentali in questa fascia d'età per lo sviluppo neurocomportamentale.",
+      "condizione_clinica": "frattura in bambino di età inferiore a 2 anni",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Frattura metafisaria classica, soprattutto sotto l'anno di vita, è associata ad alto sospetto di abuso.",
-      "condizione_clinica":"frattura metafisaria classica",
-      "gravità":0.85
+      "descrizione": "Frattura metafisaria classica, soprattutto sotto l'anno di vita, è associata ad alto sospetto di abuso.",
+      "condizione_clinica": "frattura metafisaria classica",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Frattura costale, specie se posteromediale, è associata ad alto sospetto di abuso.",
-      "condizione_clinica":"frattura costale posteromediale",
-      "gravità":0.85
+      "descrizione": "Frattura costale, specie se posteromediale, è associata ad alto sospetto di abuso.",
+      "condizione_clinica": "frattura costale posteromediale",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Frattura scapolare è associata ad alto sospetto di abuso, essendo la frattura accidentale della scapola un evento raro.",
-      "condizione_clinica":"frattura scapolare",
-      "gravità":0.85
+      "descrizione": "Frattura scapolare è associata ad alto sospetto di abuso, essendo la frattura accidentale della scapola un evento raro.",
+      "condizione_clinica": "frattura scapolare",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Frattura sternale è associata ad alto sospetto di abuso, essendo la frattura accidentale dello sterno un evento raro.",
-      "condizione_clinica":"frattura sternale",
-      "gravità":0.85
+      "descrizione": "Frattura sternale è associata ad alto sospetto di abuso, essendo la frattura accidentale dello sterno un evento raro.",
+      "condizione_clinica": "frattura sternale",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Frattura dei processi spinosi delle vertebre è associata ad alto sospetto di abuso.",
-      "condizione_clinica":"frattura dei processi spinosi delle vertebre",
-      "gravità":0.85
+      "descrizione": "Frattura dei processi spinosi delle vertebre è associata ad alto sospetto di abuso.",
+      "condizione_clinica": "frattura dei processi spinosi delle vertebre",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Fratture multiple, soprattutto se bilaterali, sono associate a moderato sospetto di abuso.",
-      "condizione_clinica":"fratture multiple bilaterali",
-      "gravità":0.55
+      "descrizione": "Fratture multiple, soprattutto se bilaterali, sono associate a moderato sospetto di abuso.",
+      "condizione_clinica": "fratture multiple bilaterali",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Fratture di epoca diversa, particolarmente significative se scoperte casualmente e con storia incongrua, sono associate a moderato sospetto di abuso.",
-      "condizione_clinica":"fratture di epoca diversa",
-      "gravità":0.6
+      "descrizione": "Fratture di epoca diversa, particolarmente significative se scoperte casualmente e con storia incongrua, sono associate a moderato sospetto di abuso.",
+      "condizione_clinica": "fratture di epoca diversa",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Distacchi epifisari sono associati a moderato sospetto di abuso.",
-      "condizione_clinica":"distacchi epifisari",
-      "gravità":0.5
+      "descrizione": "Distacchi epifisari sono associati a moderato sospetto di abuso.",
+      "condizione_clinica": "distacchi epifisari",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Fratture dei corpi vertebrali e sublussazioni sono associate a moderato sospetto di abuso.",
-      "condizione_clinica":"fratture dei corpi vertebrali e sublussazioni",
-      "gravità":0.5
+      "descrizione": "Fratture dei corpi vertebrali e sublussazioni sono associate a moderato sospetto di abuso.",
+      "condizione_clinica": "fratture dei corpi vertebrali e sublussazioni",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Fratture delle dita sono associate a moderato sospetto di abuso.",
-      "condizione_clinica":"fratture delle dita",
-      "gravità":0.5
+      "descrizione": "Fratture delle dita sono associate a moderato sospetto di abuso.",
+      "condizione_clinica": "fratture delle dita",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Fratture complesse del cranio sono associate a moderato sospetto di abuso.",
-      "condizione_clinica":"fratture complesse del cranio",
-      "gravità":0.55
+      "descrizione": "Fratture complesse del cranio sono associate a moderato sospetto di abuso.",
+      "condizione_clinica": "fratture complesse del cranio",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Formazione di nuovo osso periostale è frequente ma associata a basso sospetto di abuso.",
-      "condizione_clinica":"formazione di nuovo osso periostale",
-      "gravità":0.2
+      "descrizione": "Formazione di nuovo osso periostale è frequente ma associata a basso sospetto di abuso.",
+      "condizione_clinica": "formazione di nuovo osso periostale",
+      "gravità": 0.2
     },
     {
-      "descrizione":"Frattura della clavicola è frequente ma associata a basso sospetto di abuso.",
-      "condizione_clinica":"frattura della clavicola",
-      "gravità":0.2
+      "descrizione": "Frattura della clavicola è frequente ma associata a basso sospetto di abuso.",
+      "condizione_clinica": "frattura della clavicola",
+      "gravità": 0.2
     },
     {
-      "descrizione":"Frattura diafisaria isolata è frequente ma associata a basso sospetto di abuso.",
-      "condizione_clinica":"frattura diafisaria",
-      "gravità":0.2
+      "descrizione": "Frattura diafisaria isolata è frequente ma associata a basso sospetto di abuso.",
+      "condizione_clinica": "frattura diafisaria",
+      "gravità": 0.2
     },
     {
-      "descrizione":"Fratture lineari del cranio sono frequenti ma associate a basso sospetto di abuso.",
-      "condizione_clinica":"fratture lineari del cranio",
-      "gravità":0.2
+      "descrizione": "Fratture lineari del cranio sono frequenti ma associate a basso sospetto di abuso.",
+      "condizione_clinica": "fratture lineari del cranio",
+      "gravità": 0.2
     },
     {
-      "descrizione":"Dinamica dell'evento riferita non compatibile con le potenzialità del bambino e del suo sviluppo neurocomportamentale è indicatore di sospetto abuso.",
-      "condizione_clinica":"incompatibilità tra dinamica riferita e sviluppo neurocomportamentale",
-      "gravità":0.75
+      "descrizione": "Dinamica dell'evento riferita non compatibile con le potenzialità del bambino e del suo sviluppo neurocomportamentale è indicatore di sospetto abuso.",
+      "condizione_clinica": "incompatibilità tra dinamica riferita e sviluppo neurocomportamentale",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Ritardo inusuale nel ricorso alle cure mediche non spiegato in maniera plausibile è indicatore suggestivo di possibile abuso.",
-      "condizione_clinica":"ritardo inusuale nel ricorso alle cure",
-      "gravità":0.65
+      "descrizione": "Ritardo inusuale nel ricorso alle cure mediche non spiegato in maniera plausibile è indicatore suggestivo di possibile abuso.",
+      "condizione_clinica": "ritardo inusuale nel ricorso alle cure",
+      "gravità": 0.65
     },
     {
-      "descrizione":"Ricorrenza di ricoveri o prestazioni di Pronto Soccorso per traumi o sintomi di difficile o dubbia interpretazione costituisce indicatore suggestivo di possibile abuso.",
-      "condizione_clinica":"ricoveri ricorrenti per traumi di dubbia interpretazione",
-      "gravità":0.7
+      "descrizione": "Ricorrenza di ricoveri o prestazioni di Pronto Soccorso per traumi o sintomi di difficile o dubbia interpretazione costituisce indicatore suggestivo di possibile abuso.",
+      "condizione_clinica": "ricoveri ricorrenti per traumi di dubbia interpretazione",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Modifica radicale nella versione del racconto da parte dei caregiver, non riferibile a stato di confusione post traumatica, è suggestiva di abuso.",
-      "condizione_clinica":"modifica radicale del racconto da parte dei caregiver",
-      "gravità":0.7
+      "descrizione": "Modifica radicale nella versione del racconto da parte dei caregiver, non riferibile a stato di confusione post traumatica, è suggestiva di abuso.",
+      "condizione_clinica": "modifica radicale del racconto da parte dei caregiver",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Spiegazioni contraddittorie, confuse o elusive dei genitori sulla dinamica delle lesioni del bambino sono segnale di possibile abuso.",
-      "condizione_clinica":"spiegazioni contraddittorie dei genitori",
-      "gravità":0.65
+      "descrizione": "Spiegazioni contraddittorie, confuse o elusive dei genitori sulla dinamica delle lesioni del bambino sono segnale di possibile abuso.",
+      "condizione_clinica": "spiegazioni contraddittorie dei genitori",
+      "gravità": 0.65
     },
     {
-      "descrizione":"Segnalazione ripetuta e insistente da parte dei genitori di continue cadute accidentali del bambino è segnale di possibile abuso.",
-      "condizione_clinica":"segnalazione ripetuta di cadute accidentali",
-      "gravità":0.55
+      "descrizione": "Segnalazione ripetuta e insistente da parte dei genitori di continue cadute accidentali del bambino è segnale di possibile abuso.",
+      "condizione_clinica": "segnalazione ripetuta di cadute accidentali",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Atteggiamento genitoriale di imbarazzo, evitamento o aggressività prevalente sull'atteggiamento coerente di preoccupazione e rassicurazione verso il bambino è segnale comportamentale di sospetto abuso.",
-      "condizione_clinica":"atteggiamento genitoriale aggressivo o evitante",
-      "gravità":0.55
+      "descrizione": "Atteggiamento genitoriale di imbarazzo, evitamento o aggressività prevalente sull'atteggiamento coerente di preoccupazione e rassicurazione verso il bambino è segnale comportamentale di sospetto abuso.",
+      "condizione_clinica": "atteggiamento genitoriale aggressivo o evitante",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Reazione genitoriale aggressiva alle domande dell'operatore con minimizzazione del problema è segnale comportamentale di possibile abuso.",
-      "condizione_clinica":"minimizzazione e reazione aggressiva dei genitori",
-      "gravità":0.5
+      "descrizione": "Reazione genitoriale aggressiva alle domande dell'operatore con minimizzazione del problema è segnale comportamentale di possibile abuso.",
+      "condizione_clinica": "minimizzazione e reazione aggressiva dei genitori",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Comportamento del bambino di allarme e ipervigilanza, oppure di apatia e distacco, è segnale emotivo di possibile abuso.",
-      "condizione_clinica":"ipervigilanza o apatia del bambino",
-      "gravità":0.55
+      "descrizione": "Comportamento del bambino di allarme e ipervigilanza, oppure di apatia e distacco, è segnale emotivo di possibile abuso.",
+      "condizione_clinica": "ipervigilanza o apatia del bambino",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Imbarazzo, tensione, ansia del bambino e racconti contraddittori e incongrui sulla dinamica degli eventi sono segnali comportamentali di possibile abuso.",
-      "condizione_clinica":"racconto contraddittorio e incongruo del bambino",
-      "gravità":0.6
+      "descrizione": "Imbarazzo, tensione, ansia del bambino e racconti contraddittori e incongrui sulla dinamica degli eventi sono segnali comportamentali di possibile abuso.",
+      "condizione_clinica": "racconto contraddittorio e incongruo del bambino",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Reazioni di paura del bambino alla ricerca di prossimità-contatto da parte di uno o entrambi i genitori è segnale di dinamica relazionale sospetta per abuso.",
-      "condizione_clinica":"reazioni di paura del bambino verso i genitori",
-      "gravità":0.65
+      "descrizione": "Reazioni di paura del bambino alla ricerca di prossimità-contatto da parte di uno o entrambi i genitori è segnale di dinamica relazionale sospetta per abuso.",
+      "condizione_clinica": "reazioni di paura del bambino verso i genitori",
+      "gravità": 0.65
     },
     {
-      "descrizione":"Ammutolimento, tensione, ansia, imbarazzo o ipervigilanza del bambino alla presenza dei genitori è segnale di dinamica relazionale sospetta per abuso.",
-      "condizione_clinica":"ammutolimento o tensione del bambino in presenza dei genitori",
-      "gravità":0.6
+      "descrizione": "Ammutolimento, tensione, ansia, imbarazzo o ipervigilanza del bambino alla presenza dei genitori è segnale di dinamica relazionale sospetta per abuso.",
+      "condizione_clinica": "ammutolimento o tensione del bambino in presenza dei genitori",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Presenza di lesioni associate non attribuibili all'evento accidentale riferito (abrasioni, escoriazioni, ecchimosi, edemi, ustioni in sedi diverse da quella interessata dalla frattura) è indicatore suggestivo di possibile abuso.",
-      "condizione_clinica":"lesioni cutanee associate non attribuibili all'evento riferito",
-      "gravità":0.75
+      "descrizione": "Presenza di lesioni associate non attribuibili all'evento accidentale riferito (abrasioni, escoriazioni, ecchimosi, edemi, ustioni in sedi diverse da quella interessata dalla frattura) è indicatore suggestivo di possibile abuso.",
+      "condizione_clinica": "lesioni cutanee associate non attribuibili all'evento riferito",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Presenza di segni di morsi, incisure semilunari da unghie o segni di afferramento sul corpo del bambino è indicatore di maltrattamento fisico.",
-      "condizione_clinica":"segni di morsi o afferramento",
-      "gravità":0.8
+      "descrizione": "Presenza di segni di morsi, incisure semilunari da unghie o segni di afferramento sul corpo del bambino è indicatore di maltrattamento fisico.",
+      "condizione_clinica": "segni di morsi o afferramento",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Presenza di segni fisici che facciano ipotizzare l'esistenza di trascuratezza grave deve essere valutata nell'esame obiettivo.",
-      "condizione_clinica":"segni fisici di trascuratezza grave",
-      "gravità":0.65
+      "descrizione": "Presenza di segni fisici che facciano ipotizzare l'esistenza di trascuratezza grave deve essere valutata nell'esame obiettivo.",
+      "condizione_clinica": "segni fisici di trascuratezza grave",
+      "gravità": 0.65
     },
     {
-      "descrizione":"Limitazione funzionale degli arti o pianto del bambino durante le manipolazioni, come spia del dolore esacerbato dalla mobilizzazione, può indicare fratture occulte come quelle costali.",
-      "condizione_clinica":"limitazione funzionale e pianto alla mobilizzazione",
-      "gravità":0.55
+      "descrizione": "Limitazione funzionale degli arti o pianto del bambino durante le manipolazioni, come spia del dolore esacerbato dalla mobilizzazione, può indicare fratture occulte come quelle costali.",
+      "condizione_clinica": "limitazione funzionale e pianto alla mobilizzazione",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Frattura metafisaria richiede applicazione di forze di accelerazione-decelerazione o di torsione e trazione, tipiche dello scuotimento del bambino (Shaken Baby).",
-      "condizione_clinica":"frattura metafisaria con meccanismo di accelerazione-decelerazione",
-      "gravità":0.85
+      "descrizione": "Frattura metafisaria richiede applicazione di forze di accelerazione-decelerazione o di torsione e trazione, tipiche dello scuotimento del bambino (Shaken Baby).",
+      "condizione_clinica": "frattura metafisaria con meccanismo di accelerazione-decelerazione",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Frattura metafisaria o costale impone la valutazione di fratture metafisarie in altra sede e di fratture costali; in presenza di segni neurologici è necessario effettuare Fundus Oculi e TC per escludere la sindrome dello Shaken Baby.",
-      "condizione_clinica":"frattura metafisaria o costale con segni neurologici",
-      "gravità":0.9
+      "descrizione": "Frattura metafisaria o costale impone la valutazione di fratture metafisarie in altra sede e di fratture costali; in presenza di segni neurologici è necessario effettuare Fundus Oculi e TC per escludere la sindrome dello Shaken Baby.",
+      "condizione_clinica": "frattura metafisaria o costale con segni neurologici",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Riscontro di fratture costali in bambini di età inferiore ad un anno, soprattutto se multiple e in diverse fasi di riparazione, è elemento altamente specifico per abuso.",
-      "condizione_clinica":"fratture costali multiple in diverse fasi di riparazione sotto l'anno di vita",
-      "gravità":0.9
+      "descrizione": "Riscontro di fratture costali in bambini di età inferiore ad un anno, soprattutto se multiple e in diverse fasi di riparazione, è elemento altamente specifico per abuso.",
+      "condizione_clinica": "fratture costali multiple in diverse fasi di riparazione sotto l'anno di vita",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Fratture costali bilaterali e multiple, frequentemente localizzate al segmento posteriore, sono altamente sospette per abuso in età infantile.",
-      "condizione_clinica":"fratture costali bilaterali posteriori",
-      "gravità":0.85
+      "descrizione": "Fratture costali bilaterali e multiple, frequentemente localizzate al segmento posteriore, sono altamente sospette per abuso in età infantile.",
+      "condizione_clinica": "fratture costali bilaterali posteriori",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Le fratture costali dopo rianimazione cardiopolmonare sono rare e, quando presenti, sono multiple e localizzate in sede anteriore; la sede posteriore è suggestiva di abuso.",
-      "condizione_clinica":"frattura costale post-rianimazione",
-      "gravità":0.3
+      "descrizione": "Le fratture costali dopo rianimazione cardiopolmonare sono rare e, quando presenti, sono multiple e localizzate in sede anteriore; la sede posteriore è suggestiva di abuso.",
+      "condizione_clinica": "frattura costale post-rianimazione",
+      "gravità": 0.3
     },
     {
-      "descrizione":"Frattura vertebrale ha alta specificità per abuso; due terzi si verificano in bambini di meno di 3 anni e il 50% in bambini di età inferiore a 1 anno.",
-      "condizione_clinica":"frattura vertebrale in bambino piccolo",
-      "gravità":0.85
+      "descrizione": "Frattura vertebrale ha alta specificità per abuso; due terzi si verificano in bambini di meno di 3 anni e il 50% in bambini di età inferiore a 1 anno.",
+      "condizione_clinica": "frattura vertebrale in bambino piccolo",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Frattura dei peduncoli di C2 (Hangman fracture) è dovuta a violento scuotimento con iperestensione forzata del capo e distrazione del collo, suggestiva di abuso.",
-      "condizione_clinica":"Hangman fracture (frattura dei peduncoli di C2)",
-      "gravità":0.85
+      "descrizione": "Frattura dei peduncoli di C2 (Hangman fracture) è dovuta a violento scuotimento con iperestensione forzata del capo e distrazione del collo, suggestiva di abuso.",
+      "condizione_clinica": "Hangman fracture (frattura dei peduncoli di C2)",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Frattura della clavicola da abuso è spesso associata a fratture della scapola, dell'omero prossimale e delle coste superiori coinvolgendo tutto il cingolo scapolare.",
-      "condizione_clinica":"frattura della clavicola con coinvolgimento del cingolo scapolare",
-      "gravità":0.75
+      "descrizione": "Frattura della clavicola da abuso è spesso associata a fratture della scapola, dell'omero prossimale e delle coste superiori coinvolgendo tutto il cingolo scapolare.",
+      "condizione_clinica": "frattura della clavicola con coinvolgimento del cingolo scapolare",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Frattura del terzo laterale della clavicola, con coinvolgimento dell'articolazione acromion-claveare, è meno frequente ma più suggestiva per abuso.",
-      "condizione_clinica":"frattura del terzo laterale della clavicola",
-      "gravità":0.75
+      "descrizione": "Frattura del terzo laterale della clavicola, con coinvolgimento dell'articolazione acromion-claveare, è meno frequente ma più suggestiva per abuso.",
+      "condizione_clinica": "frattura del terzo laterale della clavicola",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Frattura del femore in bambini che ancora non camminano è sospetta per abuso.",
-      "condizione_clinica":"frattura del femore in bambino non deambulante",
-      "gravità":0.8
+      "descrizione": "Frattura del femore in bambini che ancora non camminano è sospetta per abuso.",
+      "condizione_clinica": "frattura del femore in bambino non deambulante",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Frattura dell'omero in bambini di età inferiore ai 12 mesi è sospetta per abuso.",
-      "condizione_clinica":"frattura dell'omero sotto i 12 mesi",
-      "gravità":0.8
+      "descrizione": "Frattura dell'omero in bambini di età inferiore ai 12 mesi è sospetta per abuso.",
+      "condizione_clinica": "frattura dell'omero sotto i 12 mesi",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Frattura trasversa diafisaria è la frattura diafisaria più frequentemente osservata nell'abuso; le forme complete possono verificarsi per incidenti stradali o cadute da altezze significative.",
-      "condizione_clinica":"frattura trasversa diafisaria",
-      "gravità":0.5
+      "descrizione": "Frattura trasversa diafisaria è la frattura diafisaria più frequentemente osservata nell'abuso; le forme complete possono verificarsi per incidenti stradali o cadute da altezze significative.",
+      "condizione_clinica": "frattura trasversa diafisaria",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Frattura spirale può verificarsi per torsione attorno all'asse longitudinale delle ossa lunghe; non comunemente in seguito a cadute da altezza superiore a 3 metri.",
-      "condizione_clinica":"frattura spirale di osso lungo",
-      "gravità":0.55
+      "descrizione": "Frattura spirale può verificarsi per torsione attorno all'asse longitudinale delle ossa lunghe; non comunemente in seguito a cadute da altezza superiore a 3 metri.",
+      "condizione_clinica": "frattura spirale di osso lungo",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Fratture multiple non spiegabili sulla base della dinamica dell'incidente riferito costituiscono importante elemento di sospetto abuso.",
-      "condizione_clinica":"fratture multiple con dinamica incongrua",
-      "gravità":0.8
+      "descrizione": "Fratture multiple non spiegabili sulla base della dinamica dell'incidente riferito costituiscono importante elemento di sospetto abuso.",
+      "condizione_clinica": "fratture multiple con dinamica incongrua",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Formazione di nuovo osso periostale in assenza di frattura conclamata può derivare da forza di torsione o trazione con separazione del periostio dalla diafisi, suggestiva di trauma non accidentale.",
-      "condizione_clinica":"formazione di nuovo osso periostale da torsione o trazione",
-      "gravità":0.45
+      "descrizione": "Formazione di nuovo osso periostale in assenza di frattura conclamata può derivare da forza di torsione o trazione con separazione del periostio dalla diafisi, suggestiva di trauma non accidentale.",
+      "condizione_clinica": "formazione di nuovo osso periostale da torsione o trazione",
+      "gravità": 0.45
     },
     {
-      "descrizione":"Coesistenza di abuso e patologie croniche con handicap fisico e/o psichico è possibile per la spiccata vulnerabilità delle relazioni familiari che facilita l'aumentata incidenza di abuso.",
-      "condizione_clinica":"bambino con handicap fisico o psichico",
-      "gravità":0.5
+      "descrizione": "Coesistenza di abuso e patologie croniche con handicap fisico e/o psichico è possibile per la spiccata vulnerabilità delle relazioni familiari che facilita l'aumentata incidenza di abuso.",
+      "condizione_clinica": "bambino con handicap fisico o psichico",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Bambini molto piccoli portatori di disabilità o che necessitano di cure speciali sono più vulnerabili al rischio di maltrattamento fisico, spesso associato a incuria e violenza psicologica infantile.",
-      "condizione_clinica":"bambino piccolo con disabilità",
-      "gravità":0.55
+      "descrizione": "Bambini molto piccoli portatori di disabilità o che necessitano di cure speciali sono più vulnerabili al rischio di maltrattamento fisico, spesso associato a incuria e violenza psicologica infantile.",
+      "condizione_clinica": "bambino piccolo con disabilità",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Presenza di Decreti limitativi della responsabilità genitoriale o precedenti/attuali interventi del Servizio Sociale è elemento anamnestico rilevante per sospetto abuso.",
-      "condizione_clinica":"precedenti interventi del Servizio Sociale",
-      "gravità":0.6
+      "descrizione": "Presenza di Decreti limitativi della responsabilità genitoriale o precedenti/attuali interventi del Servizio Sociale è elemento anamnestico rilevante per sospetto abuso.",
+      "condizione_clinica": "precedenti interventi del Servizio Sociale",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Rilevazione di segni anche nei fratelli del bambino rinforza il dubbio diagnostico di abuso o di patologia familiare.",
-      "condizione_clinica":"segni clinici nei fratelli",
-      "gravità":0.55
+      "descrizione": "Rilevazione di segni anche nei fratelli del bambino rinforza il dubbio diagnostico di abuso o di patologia familiare.",
+      "condizione_clinica": "segni clinici nei fratelli",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Brachicefalia, plagiocefalia o dolicocefalia, fontanella anteriore ampia con diastasi delle suture senza idrocefalo, craniotabe, sclere blu, solco di Harrison, rosario rachitico, deformità degli arti o dentinogenesi imperfetta suggeriscono patologie con interessamento osseo da porre in diagnosi differenziale con l'abuso.",
-      "condizione_clinica":"segni dismorfici e di patologia ossea",
-      "gravità":0.2
+      "descrizione": "Brachicefalia, plagiocefalia o dolicocefalia, fontanella anteriore ampia con diastasi delle suture senza idrocefalo, craniotabe, sclere blu, solco di Harrison, rosario rachitico, deformità degli arti o dentinogenesi imperfetta suggeriscono patologie con interessamento osseo da porre in diagnosi differenziale con l'abuso.",
+      "condizione_clinica": "segni dismorfici e di patologia ossea",
+      "gravità": 0.2
     },
     {
-      "descrizione":"Anamnesi familiare di fratture ricorrenti per traumi di minore entità, sordità ad esordio precoce, deambulazione tardiva nei fratelli o retinopatia/cecità precoce suggerisce Osteogenesis Imperfecta da porre in diagnosi differenziale.",
-      "condizione_clinica":"anamnesi familiare suggestiva di Osteogenesis Imperfecta",
-      "gravità":0.15
+      "descrizione": "Anamnesi familiare di fratture ricorrenti per traumi di minore entità, sordità ad esordio precoce, deambulazione tardiva nei fratelli o retinopatia/cecità precoce suggerisce Osteogenesis Imperfecta da porre in diagnosi differenziale.",
+      "condizione_clinica": "anamnesi familiare suggestiva di Osteogenesis Imperfecta",
+      "gravità": 0.15
     },
     {
-      "descrizione":"Nascita pretermine (<28 settimane), nutrizione enterale completa tardiva, uso di diuretici, steroidi e metilxantine, malattia polmonare cronica, sepsi, patologia cerebrale o paralisi cerebrale sono fattori favorenti l'osteopenia del pretermine da considerare in diagnosi differenziale.",
-      "condizione_clinica":"fattori di rischio per osteopenia del pretermine",
-      "gravità":0.15
+      "descrizione": "Nascita pretermine (<28 settimane), nutrizione enterale completa tardiva, uso di diuretici, steroidi e metilxantine, malattia polmonare cronica, sepsi, patologia cerebrale o paralisi cerebrale sono fattori favorenti l'osteopenia del pretermine da considerare in diagnosi differenziale.",
+      "condizione_clinica": "fattori di rischio per osteopenia del pretermine",
+      "gravità": 0.15
     },
     {
-      "descrizione":"Frattura associata a parto vaginale podalico o operativo richiede contatto con l'ostetrico per definire la dinamica del parto; l'assenza di lesione a 11 giorni di vita contrasta l'ipotesi di lesione da parto.",
-      "condizione_clinica":"frattura potenzialmente ostetrica",
-      "gravità":0.2
+      "descrizione": "Frattura associata a parto vaginale podalico o operativo richiede contatto con l'ostetrico per definire la dinamica del parto; l'assenza di lesione a 11 giorni di vita contrasta l'ipotesi di lesione da parto.",
+      "condizione_clinica": "frattura potenzialmente ostetrica",
+      "gravità": 0.2
     },
     {
-      "descrizione":"Frattura in bambino con paralisi degli arti può essere conseguente a demineralizzazione da paralisi, ad esempio durante manovre di fisioterapia.",
-      "condizione_clinica":"frattura in bambino con paralisi degli arti",
-      "gravità":0.15
+      "descrizione": "Frattura in bambino con paralisi degli arti può essere conseguente a demineralizzazione da paralisi, ad esempio durante manovre di fisioterapia.",
+      "condizione_clinica": "frattura in bambino con paralisi degli arti",
+      "gravità": 0.15
     },
     {
-      "descrizione":"Prolungata somministrazione di prostaglandine, glucocorticoidi, methotrexate o deferoxamina può causare lesioni metafisarie da considerare in diagnosi differenziale con l'abuso.",
-      "condizione_clinica":"lesioni metafisarie da farmaci",
-      "gravità":0.1
+      "descrizione": "Prolungata somministrazione di prostaglandine, glucocorticoidi, methotrexate o deferoxamina può causare lesioni metafisarie da considerare in diagnosi differenziale con l'abuso.",
+      "condizione_clinica": "lesioni metafisarie da farmaci",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Insensibilità congenita al dolore con automutilazioni, ustioni e fratture ricorrenti dopo l'inizio della deambulazione è da considerare in diagnosi differenziale con l'abuso.",
-      "condizione_clinica":"insensibilità congenita al dolore",
-      "gravità":0.1
+      "descrizione": "Insensibilità congenita al dolore con automutilazioni, ustioni e fratture ricorrenti dopo l'inizio della deambulazione è da considerare in diagnosi differenziale con l'abuso.",
+      "condizione_clinica": "insensibilità congenita al dolore",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Ipofosfatasia è caratterizzata da severa demineralizzazione già in utero, alterazioni rachitiche delle metafisi, ritardo di crescita, problemi dentari e fratture spontanee, da porre in diagnosi differenziale.",
-      "condizione_clinica":"ipofosfatasia",
-      "gravità":0.1
+      "descrizione": "Ipofosfatasia è caratterizzata da severa demineralizzazione già in utero, alterazioni rachitiche delle metafisi, ritardo di crescita, problemi dentari e fratture spontanee, da porre in diagnosi differenziale.",
+      "condizione_clinica": "ipofosfatasia",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Sifilide congenita può determinare lesioni metafisarie nei primi sei mesi di vita ed è da considerare in caso di completa assenza di anamnesi ed esami eseguiti in gravidanza.",
-      "condizione_clinica":"sifilide congenita",
-      "gravità":0.15
+      "descrizione": "Sifilide congenita può determinare lesioni metafisarie nei primi sei mesi di vita ed è da considerare in caso di completa assenza di anamnesi ed esami eseguiti in gravidanza.",
+      "condizione_clinica": "sifilide congenita",
+      "gravità": 0.15
     },
     {
-      "descrizione":"Osteomielite può determinare lesioni metafisarie con formazione di nuovo osso periostale e segni sistemici sfumati all'esordio, da porre in diagnosi differenziale con l'abuso.",
-      "condizione_clinica":"osteomielite",
-      "gravità":0.15
+      "descrizione": "Osteomielite può determinare lesioni metafisarie con formazione di nuovo osso periostale e segni sistemici sfumati all'esordio, da porre in diagnosi differenziale con l'abuso.",
+      "condizione_clinica": "osteomielite",
+      "gravità": 0.15
     },
     {
-      "descrizione":"Osteopenia del pretermine si presenta a 6-12 settimane di età post-natale con deficit di mineralizzazione ossea e fratture entro le 10 settimane di vita, da porre in diagnosi differenziale.",
-      "condizione_clinica":"osteopenia del pretermine",
-      "gravità":0.15
+      "descrizione": "Osteopenia del pretermine si presenta a 6-12 settimane di età post-natale con deficit di mineralizzazione ossea e fratture entro le 10 settimane di vita, da porre in diagnosi differenziale.",
+      "condizione_clinica": "osteopenia del pretermine",
+      "gravità": 0.15
     },
     {
-      "descrizione":"Osteopetrosi paradossalmente indebolisce l'osso aumentando la predisposizione alle fratture spontanee, da porre in diagnosi differenziale con l'abuso.",
-      "condizione_clinica":"osteopetrosi",
-      "gravità":0.1
+      "descrizione": "Osteopetrosi paradossalmente indebolisce l'osso aumentando la predisposizione alle fratture spontanee, da porre in diagnosi differenziale con l'abuso.",
+      "condizione_clinica": "osteopetrosi",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Osteoporosi idiopatica giovanile interessa l'età prepuberale con osteopenia generalizzata, platispondilia e fratture multiple, da porre in diagnosi differenziale.",
-      "condizione_clinica":"osteoporosi idiopatica giovanile",
-      "gravità":0.1
+      "descrizione": "Osteoporosi idiopatica giovanile interessa l'età prepuberale con osteopenia generalizzata, platispondilia e fratture multiple, da porre in diagnosi differenziale.",
+      "condizione_clinica": "osteoporosi idiopatica giovanile",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Rachitismo, in aumento in allattati esclusivamente al seno non supplementati e in bambini di pelle scura non esposti alla luce solare, può presentare irregolarità metafisarie e formazione di nuovo osso periostale.",
-      "condizione_clinica":"rachitismo",
-      "gravità":0.1
+      "descrizione": "Rachitismo, in aumento in allattati esclusivamente al seno non supplementati e in bambini di pelle scura non esposti alla luce solare, può presentare irregolarità metafisarie e formazione di nuovo osso periostale.",
+      "condizione_clinica": "rachitismo",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Sindrome di Menkes è caratterizzata da fratture spontanee, osteopenia generalizzata, allargamento metafisario e reazione periostale diafisaria, da porre in diagnosi differenziale.",
-      "condizione_clinica":"sindrome di Menkes",
-      "gravità":0.1
+      "descrizione": "Sindrome di Menkes è caratterizzata da fratture spontanee, osteopenia generalizzata, allargamento metafisario e reazione periostale diafisaria, da porre in diagnosi differenziale.",
+      "condizione_clinica": "sindrome di Menkes",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Neurofibromatosi (NF1) può presentare incurvamento della tibia con successiva frattura spontanea all'inizio della deambulazione e pseudoartrosi, da porre in diagnosi differenziale.",
-      "condizione_clinica":"neurofibromatosi NF1",
-      "gravità":0.1
+      "descrizione": "Neurofibromatosi (NF1) può presentare incurvamento della tibia con successiva frattura spontanea all'inizio della deambulazione e pseudoartrosi, da porre in diagnosi differenziale.",
+      "condizione_clinica": "neurofibromatosi NF1",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Sindrome di McCune-Albright presenta macchie caffè latte, pubertà precoce e displasia fibrosa ossea con fratture patologiche, da porre in diagnosi differenziale.",
-      "condizione_clinica":"sindrome di McCune-Albright",
-      "gravità":0.1
+      "descrizione": "Sindrome di McCune-Albright presenta macchie caffè latte, pubertà precoce e displasia fibrosa ossea con fratture patologiche, da porre in diagnosi differenziale.",
+      "condizione_clinica": "sindrome di McCune-Albright",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Sindrome di Bruck associa Osteogenesis imperfecta con artrogriposi multipla congenita, da porre in diagnosi differenziale.",
-      "condizione_clinica":"sindrome di Bruck",
-      "gravità":0.1
+      "descrizione": "Sindrome di Bruck associa Osteogenesis imperfecta con artrogriposi multipla congenita, da porre in diagnosi differenziale.",
+      "condizione_clinica": "sindrome di Bruck",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Sindrome di Cole Carpenter presenta craniosinostosi, proptosi oculare, idrocefalo e fratture multiple nel primo anno di vita con fragilità ossea simile all'osteogenesis imperfecta.",
-      "condizione_clinica":"sindrome di Cole Carpenter",
-      "gravità":0.1
+      "descrizione": "Sindrome di Cole Carpenter presenta craniosinostosi, proptosi oculare, idrocefalo e fratture multiple nel primo anno di vita con fragilità ossea simile all'osteogenesis imperfecta.",
+      "condizione_clinica": "sindrome di Cole Carpenter",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Displasia spondilo-metafisaria determina nanismo, scoliosi, anomalie delle metafisi femorali e platispondilia, da porre in diagnosi differenziale con lesioni metafisarie da abuso.",
-      "condizione_clinica":"displasia spondilo-metafisaria",
-      "gravità":0.1
+      "descrizione": "Displasia spondilo-metafisaria determina nanismo, scoliosi, anomalie delle metafisi femorali e platispondilia, da porre in diagnosi differenziale con lesioni metafisarie da abuso.",
+      "condizione_clinica": "displasia spondilo-metafisaria",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Deficit di rame, più frequente in nati pretermine allattati con latte vaccino non supplementato, determina osteopenia grave con fratture patologiche e formazione di nuovo osso periostale.",
-      "condizione_clinica":"deficit di rame",
-      "gravità":0.1
+      "descrizione": "Deficit di rame, più frequente in nati pretermine allattati con latte vaccino non supplementato, determina osteopenia grave con fratture patologiche e formazione di nuovo osso periostale.",
+      "condizione_clinica": "deficit di rame",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Mielodisplasia può determinare lesioni metafisarie e occasionali fratture metafisarie acute in bambini sottoposti a fisioterapia (causa iatrogena), da porre in diagnosi differenziale.",
-      "condizione_clinica":"mielodisplasia",
-      "gravità":0.1
+      "descrizione": "Mielodisplasia può determinare lesioni metafisarie e occasionali fratture metafisarie acute in bambini sottoposti a fisioterapia (causa iatrogena), da porre in diagnosi differenziale.",
+      "condizione_clinica": "mielodisplasia",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Metastasi di tumori solidi e invasione da disordini emo-linfoproliferativi (es. leucemia) possono determinare lesioni ossee multiple e fratture patologiche, da porre in diagnosi differenziale.",
-      "condizione_clinica":"metastasi tumorali e leucemia",
-      "gravità":0.1
+      "descrizione": "Metastasi di tumori solidi e invasione da disordini emo-linfoproliferativi (es. leucemia) possono determinare lesioni ossee multiple e fratture patologiche, da porre in diagnosi differenziale.",
+      "condizione_clinica": "metastasi tumorali e leucemia",
+      "gravità": 0.1
     },
     {
-      "descrizione":"Somministrazione di solfato di magnesio alla madre in gravidanza è stata segnalata come possibile causa di lesioni metafisarie in pochi casi, da considerare in diagnosi differenziale.",
-      "condizione_clinica":"esposizione a solfato di magnesio in gravidanza",
-      "gravità":0.05
+      "descrizione": "Somministrazione di solfato di magnesio alla madre in gravidanza è stata segnalata come possibile causa di lesioni metafisarie in pochi casi, da considerare in diagnosi differenziale.",
+      "condizione_clinica": "esposizione a solfato di magnesio in gravidanza",
+      "gravità": 0.05
     },
     {
-      "descrizione":"Varianti anatomiche dell'osso subperiostale che circonda la spongiosa primaria della metafisi possono simulare una frattura metafisaria, interessando soprattutto ginocchia e polsi.",
-      "condizione_clinica":"varianti anatomiche metafisarie",
-      "gravità":0.05
+      "descrizione": "Varianti anatomiche dell'osso subperiostale che circonda la spongiosa primaria della metafisi possono simulare una frattura metafisaria, interessando soprattutto ginocchia e polsi.",
+      "condizione_clinica": "varianti anatomiche metafisarie",
+      "gravità": 0.05
     },
     {
-      "descrizione":"Storia clinica poco chiara che non corrisponde ai segni clinici presentati dal/dalla bambino/a.",
-      "condizione_clinica":"storia poco chiara non corrispondente ai segni clinici",
-      "gravità":0.55
+      "descrizione": "Storia clinica poco chiara che non corrisponde ai segni clinici presentati dal/dalla bambino/a.",
+      "condizione_clinica": "storia poco chiara non corrispondente ai segni clinici",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Dinamica dell'evento riferita dagli adulti non congruente con lo sviluppo neuromotorio del/della bambino/a.",
-      "condizione_clinica":"dinamica non congruente con sviluppo neuromotorio",
-      "gravità":0.7
+      "descrizione": "Dinamica dell'evento riferita dagli adulti non congruente con lo sviluppo neuromotorio del/della bambino/a.",
+      "condizione_clinica": "dinamica non congruente con sviluppo neuromotorio",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Versioni discordanti dell'evento da parte degli adulti presenti al fatto e del/della minorenne, ascoltati separatamente.",
-      "condizione_clinica":"versioni discordanti dell'evento",
-      "gravità":0.6
+      "descrizione": "Versioni discordanti dell'evento da parte degli adulti presenti al fatto e del/della minorenne, ascoltati separatamente.",
+      "condizione_clinica": "versioni discordanti dell'evento",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Ritardo nell'accesso alle cure non adeguatamente giustificato in presenza di lesioni traumatiche.",
-      "condizione_clinica":"ritardo nell'accesso alle cure",
-      "gravità":0.5
+      "descrizione": "Ritardo nell'accesso alle cure non adeguatamente giustificato in presenza di lesioni traumatiche.",
+      "condizione_clinica": "ritardo nell'accesso alle cure",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Storia che cambia nel tempo e viene riferita in modi diversi dagli adulti accompagnatori.",
-      "condizione_clinica":"storia variabile nel tempo",
-      "gravità":0.6
+      "descrizione": "Storia che cambia nel tempo e viene riferita in modi diversi dagli adulti accompagnatori.",
+      "condizione_clinica": "storia variabile nel tempo",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Segnali comportamentali del/della bambino/a: imbarazzo, tensione, ansia, allarme e ipervigilanza oppure apatia e distacco.",
-      "condizione_clinica":"ipervigilanza o apatia del bambino",
-      "gravità":0.35
+      "descrizione": "Segnali comportamentali del/della bambino/a: imbarazzo, tensione, ansia, allarme e ipervigilanza oppure apatia e distacco.",
+      "condizione_clinica": "ipervigilanza o apatia del bambino",
+      "gravità": 0.35
     },
     {
-      "descrizione":"Atteggiamento dei genitori caratterizzato da spiegazioni contraddittorie o confuse, imbarazzo, evitamento, aggressività che prevalgono sulla preoccupazione.",
-      "condizione_clinica":"atteggiamento genitoriale contraddittorio o evitante",
-      "gravità":0.4
+      "descrizione": "Atteggiamento dei genitori caratterizzato da spiegazioni contraddittorie o confuse, imbarazzo, evitamento, aggressività che prevalgono sulla preoccupazione.",
+      "condizione_clinica": "atteggiamento genitoriale contraddittorio o evitante",
+      "gravità": 0.4
     },
     {
-      "descrizione":"Precedenti accessi al Pronto Soccorso per traumi con dinamica non chiara nello stesso PS o in ospedali limitrofi.",
-      "condizione_clinica":"accessi ripetuti al PS per traumi non chiari",
-      "gravità":0.6
+      "descrizione": "Precedenti accessi al Pronto Soccorso per traumi con dinamica non chiara nello stesso PS o in ospedali limitrofi.",
+      "condizione_clinica": "accessi ripetuti al PS per traumi non chiari",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Anche una sola o poche ecchimosi/ematomi in bambino/a sotto l'anno di vita che non si muove autonomamente, senza spiegazione plausibile.",
-      "condizione_clinica":"ecchimosi in bambino non deambulante",
-      "gravità":0.8
+      "descrizione": "Anche una sola o poche ecchimosi/ematomi in bambino/a sotto l'anno di vita che non si muove autonomamente, senza spiegazione plausibile.",
+      "condizione_clinica": "ecchimosi in bambino non deambulante",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Ecchimosi/ematomi in diversa fase evolutiva in bambino/a che non si muove autonomamente, indicativi di stravasi ematici avvenuti in tempi diversi.",
-      "condizione_clinica":"ecchimosi in diversa fase evolutiva in non deambulante",
-      "gravità":0.85
+      "descrizione": "Ecchimosi/ematomi in diversa fase evolutiva in bambino/a che non si muove autonomamente, indicativi di stravasi ematici avvenuti in tempi diversi.",
+      "condizione_clinica": "ecchimosi in diversa fase evolutiva in non deambulante",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Qualsiasi ecchimosi in qualunque regione del corpo in bambino/a di età inferiore a 4 mesi (regola BCDR TEN-4-FACESp).",
-      "condizione_clinica":"ecchimosi in bambino sotto 4 mesi",
-      "gravità":0.85
+      "descrizione": "Qualsiasi ecchimosi in qualunque regione del corpo in bambino/a di età inferiore a 4 mesi (regola BCDR TEN-4-FACESp).",
+      "condizione_clinica": "ecchimosi in bambino sotto 4 mesi",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Ecchimosi localizzate al tronco, orecchio o collo (TEN) in bambino/a sotto i 4 anni di vita.",
-      "condizione_clinica":"ecchimosi a tronco, orecchio o collo sotto 4 anni",
-      "gravità":0.8
+      "descrizione": "Ecchimosi localizzate al tronco, orecchio o collo (TEN) in bambino/a sotto i 4 anni di vita.",
+      "condizione_clinica": "ecchimosi a tronco, orecchio o collo sotto 4 anni",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Ecchimosi o lesioni a frenuli vestibolari e linguale, angolo della mandibola, parti molli delle guance, palpebre, zone sottocongiuntivali dell'occhio (FACES).",
-      "condizione_clinica":"lesioni FACES (frenuli, mandibola, guance, palpebre, sottocongiuntivali)",
-      "gravità":0.8
+      "descrizione": "Ecchimosi o lesioni a frenuli vestibolari e linguale, angolo della mandibola, parti molli delle guance, palpebre, zone sottocongiuntivali dell'occhio (FACES).",
+      "condizione_clinica": "lesioni FACES (frenuli, mandibola, guance, palpebre, sottocongiuntivali)",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Ecchimosi/ematomi in sedi inusuali, su parti non esploranti: aree molli del capo (guance, orecchie e regioni retroauricolari, occhi), collo, braccia, cosce, piedi, tronco, glutei, genitali.",
-      "condizione_clinica":"ecchimosi in sedi inusuali non esploranti",
-      "gravità":0.7
+      "descrizione": "Ecchimosi/ematomi in sedi inusuali, su parti non esploranti: aree molli del capo (guance, orecchie e regioni retroauricolari, occhi), collo, braccia, cosce, piedi, tronco, glutei, genitali.",
+      "condizione_clinica": "ecchimosi in sedi inusuali non esploranti",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Ecchimosi/ematomi con aspetto sagomato/figurato che riproducono la forma di oggetti (cinghia, cintura, bastone) o impronta delle dita da schiaffo.",
-      "condizione_clinica":"ecchimosi con pattern figurato da impatto",
-      "gravità":0.85
+      "descrizione": "Ecchimosi/ematomi con aspetto sagomato/figurato che riproducono la forma di oggetti (cinghia, cintura, bastone) o impronta delle dita da schiaffo.",
+      "condizione_clinica": "ecchimosi con pattern figurato da impatto",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Ecchimosi da schiacciamento riferibili a pizzicotto, afferramento o morso.",
-      "condizione_clinica":"ecchimosi da schiacciamento",
-      "gravità":0.75
+      "descrizione": "Ecchimosi da schiacciamento riferibili a pizzicotto, afferramento o morso.",
+      "condizione_clinica": "ecchimosi da schiacciamento",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Presenza di petecchie nell'area circostante alla contusione, indicatore di variazioni di pressione applicata.",
-      "condizione_clinica":"petecchie circostanti a contusione",
-      "gravità":0.75
+      "descrizione": "Presenza di petecchie nell'area circostante alla contusione, indicatore di variazioni di pressione applicata.",
+      "condizione_clinica": "petecchie circostanti a contusione",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Ecchimosi/ematomi raggruppati in cluster (almeno 2), talora con caratteristiche difensive agli arti superiori.",
-      "condizione_clinica":"cluster di ecchimosi",
-      "gravità":0.65
+      "descrizione": "Ecchimosi/ematomi raggruppati in cluster (almeno 2), talora con caratteristiche difensive agli arti superiori.",
+      "condizione_clinica": "cluster di ecchimosi",
+      "gravità": 0.65
     },
     {
-      "descrizione":"Ecchimosi/ematomi ricorrenti o in diversa fase evolutiva in bambino/a oltre il primo anno di vita.",
-      "condizione_clinica":"ecchimosi ricorrenti o in diversa fase evolutiva",
-      "gravità":0.65
+      "descrizione": "Ecchimosi/ematomi ricorrenti o in diversa fase evolutiva in bambino/a oltre il primo anno di vita.",
+      "condizione_clinica": "ecchimosi ricorrenti o in diversa fase evolutiva",
+      "gravità": 0.65
     },
     {
-      "descrizione":"Lesioni in fase acuta con edema del tessuto molle, arrossamento, calore o abrasioni attorno a polsi e caviglie, riferibili a immobilizzazione con corde o legacci.",
-      "condizione_clinica":"lesioni da immobilizzazione con corde o legacci",
-      "gravità":0.85
+      "descrizione": "Lesioni in fase acuta con edema del tessuto molle, arrossamento, calore o abrasioni attorno a polsi e caviglie, riferibili a immobilizzazione con corde o legacci.",
+      "condizione_clinica": "lesioni da immobilizzazione con corde o legacci",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Lesione cutanea ellittica/ovoidale con due punti laterali maggiormente evidenti e area centrale ecchimotica, fortemente sospetta per morso.",
-      "condizione_clinica":"lesione da morso (disposizione ellittica/ovoidale)",
-      "gravità":0.8
+      "descrizione": "Lesione cutanea ellittica/ovoidale con due punti laterali maggiormente evidenti e area centrale ecchimotica, fortemente sospetta per morso.",
+      "condizione_clinica": "lesione da morso (disposizione ellittica/ovoidale)",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Distanza intercanina superiore a 3.0 cm in lesione da morso, sospetta per morso umano di persona adulta.",
-      "condizione_clinica":"morso umano di persona adulta (distanza intercanina > 3.0 cm)",
-      "gravità":0.9
+      "descrizione": "Distanza intercanina superiore a 3.0 cm in lesione da morso, sospetta per morso umano di persona adulta.",
+      "condizione_clinica": "morso umano di persona adulta (distanza intercanina > 3.0 cm)",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Lesioni semicircolari o a semiluna da unghiatura conseguenti ad afferramento del/della bambino/a.",
-      "condizione_clinica":"abrasioni da unghiatura/afferramento",
-      "gravità":0.55
+      "descrizione": "Lesioni semicircolari o a semiluna da unghiatura conseguenti ad afferramento del/della bambino/a.",
+      "condizione_clinica": "abrasioni da unghiatura/afferramento",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Lesioni sentinella: ecchimosi/ematomi anche modesti in bambini non deambulanti, localizzati a volto, orecchie, nuca e cavo orale, senza spiegazione ragionevole.",
-      "condizione_clinica":"lesioni sentinella (volto, orecchie, nuca, cavo orale)",
-      "gravità":0.85
+      "descrizione": "Lesioni sentinella: ecchimosi/ematomi anche modesti in bambini non deambulanti, localizzati a volto, orecchie, nuca e cavo orale, senza spiegazione ragionevole.",
+      "condizione_clinica": "lesioni sentinella (volto, orecchie, nuca, cavo orale)",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Ustioni localizzate a mani, piedi, cosce, glutei e perineo, tronco posteriore e capo, spesso simmetriche da maltrattamento fisico.",
-      "condizione_clinica":"ustioni in sedi sospette (mani, piedi, glutei, perineo, tronco posteriore)",
-      "gravità":0.75
+      "descrizione": "Ustioni localizzate a mani, piedi, cosce, glutei e perineo, tronco posteriore e capo, spesso simmetriche da maltrattamento fisico.",
+      "condizione_clinica": "ustioni in sedi sospette (mani, piedi, glutei, perineo, tronco posteriore)",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Ustioni bilaterali a margini netti, ugualmente profonde, tipicamente da immersione forzata.",
-      "condizione_clinica":"ustioni bilaterali a margini netti",
-      "gravità":0.85
+      "descrizione": "Ustioni bilaterali a margini netti, ugualmente profonde, tipicamente da immersione forzata.",
+      "condizione_clinica": "ustioni bilaterali a margini netti",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Ustioni a 'guanto', a 'calza' o a 'zebra' senza lesioni limitrofe da schizzo, indicative di immersione forzata in acqua bollente.",
-      "condizione_clinica":"ustioni da immersione (guanto/calza/zebra)",
-      "gravità":0.9
+      "descrizione": "Ustioni a 'guanto', a 'calza' o a 'zebra' senza lesioni limitrofe da schizzo, indicative di immersione forzata in acqua bollente.",
+      "condizione_clinica": "ustioni da immersione (guanto/calza/zebra)",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Ustioni con forma riconoscibile dell'oggetto ustionante (es. ferro da stiro), profonde, da contatto intenzionale.",
-      "condizione_clinica":"ustioni da contatto con oggetto figurato",
-      "gravità":0.85
+      "descrizione": "Ustioni con forma riconoscibile dell'oggetto ustionante (es. ferro da stiro), profonde, da contatto intenzionale.",
+      "condizione_clinica": "ustioni da contatto con oggetto figurato",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Ustioni circolari, uniformi, con diametro di 7-8 mm, contorni ben definiti, spesso multiple, riferibili a sigaretta.",
-      "condizione_clinica":"ustioni da sigaretta",
-      "gravità":0.9
+      "descrizione": "Ustioni circolari, uniformi, con diametro di 7-8 mm, contorni ben definiti, spesso multiple, riferibili a sigaretta.",
+      "condizione_clinica": "ustioni da sigaretta",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Coesistenza di ustioni con altre lesioni (fratture, ematomi, lacerazioni, morsi) praticamente assenti nelle ustioni accidentali.",
-      "condizione_clinica":"ustioni associate ad altre lesioni",
-      "gravità":0.8
+      "descrizione": "Coesistenza di ustioni con altre lesioni (fratture, ematomi, lacerazioni, morsi) praticamente assenti nelle ustioni accidentali.",
+      "condizione_clinica": "ustioni associate ad altre lesioni",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Complicanze delle ustioni quali infezioni localizzate e sepsi legate al ritardo di accesso alle cure.",
-      "condizione_clinica":"complicanze infettive di ustioni con ritardo di cure",
-      "gravità":0.7
+      "descrizione": "Complicanze delle ustioni quali infezioni localizzate e sepsi legate al ritardo di accesso alle cure.",
+      "condizione_clinica": "complicanze infettive di ustioni con ritardo di cure",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Lesioni dell'orofaringe, particolarmente di labbra o frenuli labiali/linguale, considerate lesioni sentinella per maltrattamento/abuso.",
-      "condizione_clinica":"lesioni di labbra o frenuli labiali/linguale",
-      "gravità":0.75
+      "descrizione": "Lesioni dell'orofaringe, particolarmente di labbra o frenuli labiali/linguale, considerate lesioni sentinella per maltrattamento/abuso.",
+      "condizione_clinica": "lesioni di labbra o frenuli labiali/linguale",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Pregressa lacerazione di un frenulo senza trauma riferito nell'anamnesi, molto sospetta perché provoca sanguinamento profuso difficilmente dimenticabile.",
-      "condizione_clinica":"pregressa lacerazione del frenulo senza trauma riferito",
-      "gravità":0.7
+      "descrizione": "Pregressa lacerazione di un frenulo senza trauma riferito nell'anamnesi, molto sospetta perché provoca sanguinamento profuso difficilmente dimenticabile.",
+      "condizione_clinica": "pregressa lacerazione del frenulo senza trauma riferito",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Lesioni orali multiple risalenti ad epoche diverse, presenti in circa il 10% dei casi in cui sono state rilevate successivamente lesioni gravi da abuso.",
-      "condizione_clinica":"lesioni orali multiple di epoche diverse",
-      "gravità":0.75
+      "descrizione": "Lesioni orali multiple risalenti ad epoche diverse, presenti in circa il 10% dei casi in cui sono state rilevate successivamente lesioni gravi da abuso.",
+      "condizione_clinica": "lesioni orali multiple di epoche diverse",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Petecchie al palato, al confine fra palato duro e molle, possibile segno di sesso orale forzato.",
-      "condizione_clinica":"petecchie al palato (confine duro-molle)",
-      "gravità":0.8
+      "descrizione": "Petecchie al palato, al confine fra palato duro e molle, possibile segno di sesso orale forzato.",
+      "condizione_clinica": "petecchie al palato (confine duro-molle)",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Infezione sessualmente trasmessa in area orale o periorale in bambino/a prepubere, diagnosticata con certezza.",
-      "condizione_clinica":"infezione sessualmente trasmessa orale in prepubere",
-      "gravità":0.85
+      "descrizione": "Infezione sessualmente trasmessa in area orale o periorale in bambino/a prepubere, diagnosticata con certezza.",
+      "condizione_clinica": "infezione sessualmente trasmessa orale in prepubere",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Variazioni di colore dei denti dovute a necrosi della polpa, da ricercare al cavo orale.",
-      "condizione_clinica":"necrosi della polpa dentale",
-      "gravità":0.5
+      "descrizione": "Variazioni di colore dei denti dovute a necrosi della polpa, da ricercare al cavo orale.",
+      "condizione_clinica": "necrosi della polpa dentale",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Incuria della salute orale: persistente omissione delle cure necessarie con carie dentali decidue non trattate, ascessi, fistole o perdita prematura dei denti decidui.",
-      "condizione_clinica":"incuria della salute orale",
-      "gravità":0.55
+      "descrizione": "Incuria della salute orale: persistente omissione delle cure necessarie con carie dentali decidue non trattate, ascessi, fistole o perdita prematura dei denti decidui.",
+      "condizione_clinica": "incuria della salute orale",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Carie precoce della dentatura decidua prima dei 3 anni conseguente a errate abitudini alimentari (uso di tettarelle intinte in zucchero o miele, addormentamento con biberon zuccherati).",
-      "condizione_clinica":"carie precoce della dentatura decidua",
-      "gravità":0.45
+      "descrizione": "Carie precoce della dentatura decidua prima dei 3 anni conseguente a errate abitudini alimentari (uso di tettarelle intinte in zucchero o miele, addormentamento con biberon zuccherati).",
+      "condizione_clinica": "carie precoce della dentatura decidua",
+      "gravità": 0.45
     },
     {
-      "descrizione":"Lesioni della cavità orale in minorenni provenienti dall'Africa (Etiopia, Uganda, Kenia, area Masai, Sudan) riferibili a pratiche tribali quali Ebinjo (avulsione di denti decidui) o uvulectomia.",
-      "condizione_clinica":"mutilazioni orali del bambino (Infant Oral Mutilation)",
-      "gravità":0.9
+      "descrizione": "Lesioni della cavità orale in minorenni provenienti dall'Africa (Etiopia, Uganda, Kenia, area Masai, Sudan) riferibili a pratiche tribali quali Ebinjo (avulsione di denti decidui) o uvulectomia.",
+      "condizione_clinica": "mutilazioni orali del bambino (Infant Oral Mutilation)",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Alopecia in bambino/a localizzata al vertice, sovrastante una cute con petecchie, edema o ematoma, dolorosa alla palpazione (ematoma subgaleale da strappo dei capelli).",
-      "condizione_clinica":"alopecia traumatica con ematoma subgaleale",
-      "gravità":0.8
+      "descrizione": "Alopecia in bambino/a localizzata al vertice, sovrastante una cute con petecchie, edema o ematoma, dolorosa alla palpazione (ematoma subgaleale da strappo dei capelli).",
+      "condizione_clinica": "alopecia traumatica con ematoma subgaleale",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Riscontro di ftiriasi delle ciglia e sopracciglia da Phthirius pubis in bambino/a, suggestivo di contatto stretto con adulti o abuso sessuale.",
-      "condizione_clinica":"ftiriasi delle ciglia e sopracciglia",
-      "gravità":0.6
+      "descrizione": "Riscontro di ftiriasi delle ciglia e sopracciglia da Phthirius pubis in bambino/a, suggestivo di contatto stretto con adulti o abuso sessuale.",
+      "condizione_clinica": "ftiriasi delle ciglia e sopracciglia",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Ecchimosi bilaterali periorbitarie dei tessuti molli (occhi di procione) facilmente scambiabili con quelle da frattura della base del cranio, ma possibili da localizzazione metastatica di neuroblastoma.",
-      "condizione_clinica":"ecchimosi periorbitarie bilaterali",
-      "gravità":0.4
+      "descrizione": "Ecchimosi bilaterali periorbitarie dei tessuti molli (occhi di procione) facilmente scambiabili con quelle da frattura della base del cranio, ma possibili da localizzazione metastatica di neuroblastoma.",
+      "condizione_clinica": "ecchimosi periorbitarie bilaterali",
+      "gravità": 0.4
     },
     {
-      "descrizione":"Sintomi neurologici o contusioni al volto e/o capo che richiedono diagnostica per immagini del SNC per ematomi subdurali e danni neurologici.",
-      "condizione_clinica":"sintomi neurologici o contusioni a volto/capo",
-      "gravità":0.75
+      "descrizione": "Sintomi neurologici o contusioni al volto e/o capo che richiedono diagnostica per immagini del SNC per ematomi subdurali e danni neurologici.",
+      "condizione_clinica": "sintomi neurologici o contusioni a volto/capo",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Contusioni all'addome in bambini sotto i 5 anni che richiedono valutazione di lesioni viscerali con transaminasi, amilasi, lipasi ed ecografia addome.",
-      "condizione_clinica":"contusioni addominali in bambino sotto 5 anni",
-      "gravità":0.7
+      "descrizione": "Contusioni all'addome in bambini sotto i 5 anni che richiedono valutazione di lesioni viscerali con transaminasi, amilasi, lipasi ed ecografia addome.",
+      "condizione_clinica": "contusioni addominali in bambino sotto 5 anni",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Sospetto trauma cranico da abuso che richiede Fundus Oculi per la ricerca di emorragie retiniche.",
-      "condizione_clinica":"sospetto trauma cranico da abuso",
-      "gravità":0.85
+      "descrizione": "Sospetto trauma cranico da abuso che richiede Fundus Oculi per la ricerca di emorragie retiniche.",
+      "condizione_clinica": "sospetto trauma cranico da abuso",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Bambini con segni cutanei sospetti sotto 2 anni che richiedono sorveglianza scheletrica e follow up per fratture occulte.",
-      "condizione_clinica":"lesioni cutanee sospette in bambino sotto 2 anni",
-      "gravità":0.7
+      "descrizione": "Bambini con segni cutanei sospetti sotto 2 anni che richiedono sorveglianza scheletrica e follow up per fratture occulte.",
+      "condizione_clinica": "lesioni cutanee sospette in bambino sotto 2 anni",
+      "gravità": 0.7
     },
     {
-      "descrizione":"In caso di possibile o riferito trauma toracico/addominale considerare lesioni viscerali occulte anche in assenza di segni clinici significativi.",
-      "condizione_clinica":"lesioni viscerali occulte",
-      "gravità":0.5
+      "descrizione": "In caso di possibile o riferito trauma toracico/addominale considerare lesioni viscerali occulte anche in assenza di segni clinici significativi.",
+      "condizione_clinica": "lesioni viscerali occulte",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Lesioni traumatiche in persona di minore età, soprattutto sotto i 5 anni, richiedono di considerare l'eziopatogenesi non accidentale del trauma.",
-      "condizione_clinica":"lesioni traumatiche in bambino sotto i 5 anni",
-      "gravità":0.55
+      "descrizione": "Lesioni traumatiche in persona di minore età, soprattutto sotto i 5 anni, richiedono di considerare l'eziopatogenesi non accidentale del trauma.",
+      "condizione_clinica": "lesioni traumatiche in bambino sotto i 5 anni",
+      "gravità": 0.55
     },
     {
-      "descrizione":"Ricorso tardivo ai Servizi sanitari in caso di trauma in persona di minore età è caratteristica delle lesioni viscerali da maltrattamento/abuso.",
-      "condizione_clinica":"ritardo di accesso alle cure",
-      "gravità":0.7
+      "descrizione": "Ricorso tardivo ai Servizi sanitari in caso di trauma in persona di minore età è caratteristica delle lesioni viscerali da maltrattamento/abuso.",
+      "condizione_clinica": "ritardo di accesso alle cure",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Racconto anamnestico reticente o fuorviante riguardo alle modalità del trauma è caratteristica delle lesioni viscerali da maltrattamento/abuso.",
-      "condizione_clinica":"anamnesi reticente o fuorviante",
-      "gravità":0.7
+      "descrizione": "Racconto anamnestico reticente o fuorviante riguardo alle modalità del trauma è caratteristica delle lesioni viscerali da maltrattamento/abuso.",
+      "condizione_clinica": "anamnesi reticente o fuorviante",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Esiguità o assenza di segni superficiali esterni in contrasto con lesioni profonde anche molto severe è caratteristica delle lesioni viscerali da maltrattamento/abuso.",
-      "condizione_clinica":"discrepanza tra segni esterni modesti e lesioni profonde severe",
-      "gravità":0.8
+      "descrizione": "Esiguità o assenza di segni superficiali esterni in contrasto con lesioni profonde anche molto severe è caratteristica delle lesioni viscerali da maltrattamento/abuso.",
+      "condizione_clinica": "discrepanza tra segni esterni modesti e lesioni profonde severe",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Lesioni superficiali al torace o all'addome, anche se modeste, non vanno mai sottovalutate perché possono mascherare lesioni profonde occulte.",
-      "condizione_clinica":"lesioni superficiali toraco-addominali modeste",
-      "gravità":0.5
+      "descrizione": "Lesioni superficiali al torace o all'addome, anche se modeste, non vanno mai sottovalutate perché possono mascherare lesioni profonde occulte.",
+      "condizione_clinica": "lesioni superficiali toraco-addominali modeste",
+      "gravità": 0.5
     },
     {
-      "descrizione":"Incompatibilità fra dinamica riferita dell'evento e caratteristiche della lesione riscontrata rende fondato il sospetto di maltrattamento/abuso.",
-      "condizione_clinica":"incompatibilità tra dinamica riferita e lesione riscontrata",
-      "gravità":0.8
+      "descrizione": "Incompatibilità fra dinamica riferita dell'evento e caratteristiche della lesione riscontrata rende fondato il sospetto di maltrattamento/abuso.",
+      "condizione_clinica": "incompatibilità tra dinamica riferita e lesione riscontrata",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Severità delle condizioni del paziente sproporzionata rispetto alla caduta accidentale riferita deve far sospettare l'abuso, poiché le lesioni da M/A sono molto più gravi.",
-      "condizione_clinica":"severità clinica sproporzionata alla caduta riferita",
-      "gravità":0.75
+      "descrizione": "Severità delle condizioni del paziente sproporzionata rispetto alla caduta accidentale riferita deve far sospettare l'abuso, poiché le lesioni da M/A sono molto più gravi.",
+      "condizione_clinica": "severità clinica sproporzionata alla caduta riferita",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Racconto tardivo del trauma fornito solo dopo sollecitazione dei sanitari è elemento di allerta per maltrattamento/abuso.",
-      "condizione_clinica":"racconto tardivo dopo sollecitazione",
-      "gravità":0.7
+      "descrizione": "Racconto tardivo del trauma fornito solo dopo sollecitazione dei sanitari è elemento di allerta per maltrattamento/abuso.",
+      "condizione_clinica": "racconto tardivo dopo sollecitazione",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Riscontro occasionale di lesioni viscerali in un bambino sotto i 5 anni di vita in assenza di una segnalazione anamnestica specifica è particolarmente sospetto per maltrattamento/abuso.",
-      "condizione_clinica":"lesione viscerale occasionale in bambino <5 anni senza anamnesi di trauma",
-      "gravità":0.85
+      "descrizione": "Riscontro occasionale di lesioni viscerali in un bambino sotto i 5 anni di vita in assenza di una segnalazione anamnestica specifica è particolarmente sospetto per maltrattamento/abuso.",
+      "condizione_clinica": "lesione viscerale occasionale in bambino <5 anni senza anamnesi di trauma",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Lesioni viscerali da maltrattamento/abuso sono spesso associate (50-100% dei casi) ad altre lesioni da maltrattamento fisico come fratture, traumi cranici e lesioni spinali.",
-      "condizione_clinica":"lesioni viscerali con altre lesioni da maltrattamento fisico",
-      "gravità":0.85
+      "descrizione": "Lesioni viscerali da maltrattamento/abuso sono spesso associate (50-100% dei casi) ad altre lesioni da maltrattamento fisico come fratture, traumi cranici e lesioni spinali.",
+      "condizione_clinica": "lesioni viscerali con altre lesioni da maltrattamento fisico",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Fratture costali, soprattutto posteriori e postero-mediali, nel bambino sotto i 24 mesi e fino a 4-5 anni sono lesioni sentinella ad alto sospetto di maltrattamento/abuso.",
-      "condizione_clinica":"fratture costali posteriori e postero-mediali in bambino <24 mesi",
-      "gravità":0.9
+      "descrizione": "Fratture costali, soprattutto posteriori e postero-mediali, nel bambino sotto i 24 mesi e fino a 4-5 anni sono lesioni sentinella ad alto sospetto di maltrattamento/abuso.",
+      "condizione_clinica": "fratture costali posteriori e postero-mediali in bambino <24 mesi",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Fratture costali in bambino sotto i 24 mesi e fino ai 4-5 anni sono LESIONI SENTINELLA per maltrattamento/abuso.",
-      "condizione_clinica":"fratture costali in bambino <4-5 anni",
-      "gravità":0.85
+      "descrizione": "Fratture costali in bambino sotto i 24 mesi e fino ai 4-5 anni sono LESIONI SENTINELLA per maltrattamento/abuso.",
+      "condizione_clinica": "fratture costali in bambino <4-5 anni",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Fratture metafisarie sono considerate LESIONI SENTINELLA per maltrattamento/abuso.",
-      "condizione_clinica":"fratture metafisarie",
-      "gravità":0.85
+      "descrizione": "Fratture metafisarie sono considerate LESIONI SENTINELLA per maltrattamento/abuso.",
+      "condizione_clinica": "fratture metafisarie",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Ematomi subdurali sono considerati LESIONI SENTINELLA per maltrattamento/abuso.",
-      "condizione_clinica":"ematomi subdurali",
-      "gravità":0.85
+      "descrizione": "Ematomi subdurali sono considerati LESIONI SENTINELLA per maltrattamento/abuso.",
+      "condizione_clinica": "ematomi subdurali",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Fratture della giunzione condrocostale possono essere conseguenti anche a trauma addominale da maltrattamento e sono difficili da evidenziare radiologicamente.",
-      "condizione_clinica":"fratture della giunzione condrocostale",
-      "gravità":0.75
+      "descrizione": "Fratture della giunzione condrocostale possono essere conseguenti anche a trauma addominale da maltrattamento e sono difficili da evidenziare radiologicamente.",
+      "condizione_clinica": "fratture della giunzione condrocostale",
+      "gravità": 0.75
     },
     {
-      "descrizione":"Lesioni intratoraciche associate a fratture costali in bambini sotto i 6 mesi sono più frequentemente da maltrattamento/abuso che da trauma accidentale.",
-      "condizione_clinica":"lesioni intratoraciche con fratture costali in bambino <6 mesi",
-      "gravità":0.85
+      "descrizione": "Lesioni intratoraciche associate a fratture costali in bambini sotto i 6 mesi sono più frequentemente da maltrattamento/abuso che da trauma accidentale.",
+      "condizione_clinica": "lesioni intratoraciche con fratture costali in bambino <6 mesi",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Lesioni ad ipofaringe ed esofago causate dall'introduzione forzata di oggetti (biberon, cucchiaio, dita) o dall'ingestione forzata di caustici sono indicative di maltrattamento.",
-      "condizione_clinica":"lesioni a ipofaringe ed esofago da introduzione forzata",
-      "gravità":0.85
+      "descrizione": "Lesioni ad ipofaringe ed esofago causate dall'introduzione forzata di oggetti (biberon, cucchiaio, dita) o dall'ingestione forzata di caustici sono indicative di maltrattamento.",
+      "condizione_clinica": "lesioni a ipofaringe ed esofago da introduzione forzata",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Rottura dei frenuli labiali e linguale e dei denti, o ferite ai pilastri e alle tonsille, sono spesso associate a introduzione forzata di oggetti nel cavo orale.",
-      "condizione_clinica":"rottura dei frenuli labiali e linguale",
-      "gravità":0.8
+      "descrizione": "Rottura dei frenuli labiali e linguale e dei denti, o ferite ai pilastri e alle tonsille, sono spesso associate a introduzione forzata di oggetti nel cavo orale.",
+      "condizione_clinica": "rottura dei frenuli labiali e linguale",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Chilotorace in bambini sotto i 18 mesi di vita con distress respiratorio ingravescente si accompagna generalmente a fratture costali e altre lesioni da maltrattamento fisico.",
-      "condizione_clinica":"chilotorace in bambino <18 mesi",
-      "gravità":0.85
+      "descrizione": "Chilotorace in bambini sotto i 18 mesi di vita con distress respiratorio ingravescente si accompagna generalmente a fratture costali e altre lesioni da maltrattamento fisico.",
+      "condizione_clinica": "chilotorace in bambino <18 mesi",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Commotio Cordis secondaria a trauma violento diretto sul torace con aritmie e decesso ma reperto autoptico negativo è indicativa di maltrattamento.",
-      "condizione_clinica":"commotio cordis",
-      "gravità":0.85
+      "descrizione": "Commotio Cordis secondaria a trauma violento diretto sul torace con aritmie e decesso ma reperto autoptico negativo è indicativa di maltrattamento.",
+      "condizione_clinica": "commotio cordis",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Lesioni addominali in persona di minore età, soprattutto sotto i 5 anni, in assenza di trauma accidentale documentato (incidente stradale o bicicletta) sono LESIONI SENTINELLA per maltrattamento/abuso.",
-      "condizione_clinica":"lesioni addominali in bambino <5 anni senza trauma accidentale documentato",
-      "gravità":0.9
+      "descrizione": "Lesioni addominali in persona di minore età, soprattutto sotto i 5 anni, in assenza di trauma accidentale documentato (incidente stradale o bicicletta) sono LESIONI SENTINELLA per maltrattamento/abuso.",
+      "condizione_clinica": "lesioni addominali in bambino <5 anni senza trauma accidentale documentato",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Ecchimosi o contusioni anche modeste sulla cute della parete addominale impongono approfondimento diagnostico per possibili lesioni profonde.",
-      "condizione_clinica":"ecchimosi o contusioni della parete addominale",
-      "gravità":0.6
+      "descrizione": "Ecchimosi o contusioni anche modeste sulla cute della parete addominale impongono approfondimento diagnostico per possibili lesioni profonde.",
+      "condizione_clinica": "ecchimosi o contusioni della parete addominale",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Lesioni del fegato (contusioni, lacerazioni, ematomi subcapsulari, transezione) in bambino piccolo, dopo gli incidenti stradali, sono la seconda causa eziologica per frequenza ed indicano maltrattamento.",
-      "condizione_clinica":"lesioni epatiche in bambino piccolo",
-      "gravità":0.8
+      "descrizione": "Lesioni del fegato (contusioni, lacerazioni, ematomi subcapsulari, transezione) in bambino piccolo, dopo gli incidenti stradali, sono la seconda causa eziologica per frequenza ed indicano maltrattamento.",
+      "condizione_clinica": "lesioni epatiche in bambino piccolo",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Rottura di milza in un bambino deve essere sempre considerata frutto di maltrattamento fisico sino a prova contraria.",
-      "condizione_clinica":"rottura di milza nel bambino",
-      "gravità":0.9
+      "descrizione": "Rottura di milza in un bambino deve essere sempre considerata frutto di maltrattamento fisico sino a prova contraria.",
+      "condizione_clinica": "rottura di milza nel bambino",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Pancreatite acuta necrotica, pancreatite cronica o pseudocisti pancreatiche in bambino senza eziologia comune (infettiva, metabolica, immunologica, farmacologica) devono far sospettare trauma addominale non segnalato all'anamnesi.",
-      "condizione_clinica":"pancreatite senza eziologia evidente",
-      "gravità":0.85
+      "descrizione": "Pancreatite acuta necrotica, pancreatite cronica o pseudocisti pancreatiche in bambino senza eziologia comune (infettiva, metabolica, immunologica, farmacologica) devono far sospettare trauma addominale non segnalato all'anamnesi.",
+      "condizione_clinica": "pancreatite senza eziologia evidente",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Elevazione di amilasi e lipasi sieriche in assenza di trauma al volto è marker importante di lesione pancreatica da trauma addominale.",
-      "condizione_clinica":"aumento amilasi e lipasi senza trauma al volto",
-      "gravità":0.7
+      "descrizione": "Elevazione di amilasi e lipasi sieriche in assenza di trauma al volto è marker importante di lesione pancreatica da trauma addominale.",
+      "condizione_clinica": "aumento amilasi e lipasi senza trauma al volto",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Lesione del duodeno in bambini di età compresa tra poche settimane e cinque anni di vita non è mai secondaria a trauma da caduta accidentale ed è particolarmente sospetta per maltrattamento/abuso.",
-      "condizione_clinica":"lesione del duodeno in bambino <5 anni",
-      "gravità":0.95
+      "descrizione": "Lesione del duodeno in bambini di età compresa tra poche settimane e cinque anni di vita non è mai secondaria a trauma da caduta accidentale ed è particolarmente sospetta per maltrattamento/abuso.",
+      "condizione_clinica": "lesione del duodeno in bambino <5 anni",
+      "gravità": 0.95
     },
     {
-      "descrizione":"Perforazione intestinale, soprattutto a livello del duodeno o della giunzione duodeno-digiunale, è la lesione addominale più difficile da diagnosticare ed è altamente sospetta per maltrattamento.",
-      "condizione_clinica":"perforazione intestinale duodenale o duodeno-digiunale",
-      "gravità":0.9
+      "descrizione": "Perforazione intestinale, soprattutto a livello del duodeno o della giunzione duodeno-digiunale, è la lesione addominale più difficile da diagnosticare ed è altamente sospetta per maltrattamento.",
+      "condizione_clinica": "perforazione intestinale duodenale o duodeno-digiunale",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Ematomi intramurali del duodeno con o senza ostruzione intestinale sono altamente sospetti per maltrattamento/abuso nel bambino piccolo.",
-      "condizione_clinica":"ematoma intramurale duodenale",
-      "gravità":0.85
+      "descrizione": "Ematomi intramurali del duodeno con o senza ostruzione intestinale sono altamente sospetti per maltrattamento/abuso nel bambino piccolo.",
+      "condizione_clinica": "ematoma intramurale duodenale",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Lesioni del tratto ano-rettale provocate dall'inserimento di corpi estranei nel retto o dall'applicazione violenta di un clistere sono indicative di abuso sessuale o maltrattamento.",
-      "condizione_clinica":"lesioni ano-rettali da corpo estraneo o clistere violento",
-      "gravità":0.9
+      "descrizione": "Lesioni del tratto ano-rettale provocate dall'inserimento di corpi estranei nel retto o dall'applicazione violenta di un clistere sono indicative di abuso sessuale o maltrattamento.",
+      "condizione_clinica": "lesioni ano-rettali da corpo estraneo o clistere violento",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Transezione dell'aorta addominale associata a frattura completa con dislocazione delle vertebre, conseguente ad iperestensione forzata del rachide lombare, è indicativa di maltrattamento grave.",
-      "condizione_clinica":"transezione dell'aorta addominale con frattura vertebrale",
-      "gravità":0.95
+      "descrizione": "Transezione dell'aorta addominale associata a frattura completa con dislocazione delle vertebre, conseguente ad iperestensione forzata del rachide lombare, è indicativa di maltrattamento grave.",
+      "condizione_clinica": "transezione dell'aorta addominale con frattura vertebrale",
+      "gravità": 0.95
     },
     {
-      "descrizione":"Lesioni del rene e delle vie urinarie (ematuria, ritenzione urinaria, rottura dell'uretere) da trauma addominale violento sono spesso associate ad altre lesioni da maltrattamento fisico.",
-      "condizione_clinica":"lesioni renali e delle vie urinarie da trauma violento",
-      "gravità":0.8
+      "descrizione": "Lesioni del rene e delle vie urinarie (ematuria, ritenzione urinaria, rottura dell'uretere) da trauma addominale violento sono spesso associate ad altre lesioni da maltrattamento fisico.",
+      "condizione_clinica": "lesioni renali e delle vie urinarie da trauma violento",
+      "gravità": 0.8
     },
     {
-      "descrizione":"Rabdomiolisi con insufficienza renale acuta secondaria a lesioni fisiche severe con ecchimosi multiple ed estese e necrosi muscolare massiva è indicativa di maltrattamento grave.",
-      "condizione_clinica":"rabdomiolisi con ecchimosi multiple estese",
-      "gravità":0.9
+      "descrizione": "Rabdomiolisi con insufficienza renale acuta secondaria a lesioni fisiche severe con ecchimosi multiple ed estese e necrosi muscolare massiva è indicativa di maltrattamento grave.",
+      "condizione_clinica": "rabdomiolisi con ecchimosi multiple estese",
+      "gravità": 0.9
     },
     {
-      "descrizione":"Lesioni dei surreni (ematomi, lacerazioni, transezione) sono sempre associate ad altre lesioni multiple da maltrattamento.",
-      "condizione_clinica":"lesioni dei surreni",
-      "gravità":0.85
+      "descrizione": "Lesioni dei surreni (ematomi, lacerazioni, transezione) sono sempre associate ad altre lesioni multiple da maltrattamento.",
+      "condizione_clinica": "lesioni dei surreni",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Aumento delle transaminasi ALT/GPT oltre 80/100 IU/L (2-2,5 volte il limite superiore normale) è fortemente predittivo di lesione epatica da trauma addominale.",
-      "condizione_clinica":"ALT/GPT >80-100 IU/L con sospetto trauma addominale",
-      "gravità":0.7
+      "descrizione": "Aumento delle transaminasi ALT/GPT oltre 80/100 IU/L (2-2,5 volte il limite superiore normale) è fortemente predittivo di lesione epatica da trauma addominale.",
+      "condizione_clinica": "ALT/GPT >80-100 IU/L con sospetto trauma addominale",
+      "gravità": 0.7
     },
     {
-      "descrizione":"Riscontro di ematuria all'esame urine in contesto di trauma può segnalare un trauma renale e delle vie urinarie da maltrattamento.",
-      "condizione_clinica":"ematuria post-traumatica",
-      "gravità":0.6
+      "descrizione": "Riscontro di ematuria all'esame urine in contesto di trauma può segnalare un trauma renale e delle vie urinarie da maltrattamento.",
+      "condizione_clinica": "ematuria post-traumatica",
+      "gravità": 0.6
     },
     {
-      "descrizione":"Quadro TC di 'complesso ipoperfusione' o 'intestino da shock' (intestino dilatato e pieno di liquido, aumentato contrasto della parete intestinale e del mesentere, diminuzione di diametro di aorta e vena cava inferiore) indica shock scompensato nei traumi viscerali da M/A con mortalità fino all'85%.",
-      "condizione_clinica":"complesso ipoperfusione / intestino da shock",
-      "gravità":0.95
+      "descrizione": "Quadro TC di 'complesso ipoperfusione' o 'intestino da shock' (intestino dilatato e pieno di liquido, aumentato contrasto della parete intestinale e del mesentere, diminuzione di diametro di aorta e vena cava inferiore) indica shock scompensato nei traumi viscerali da M/A con mortalità fino all'85%.",
+      "condizione_clinica": "complesso ipoperfusione / intestino da shock",
+      "gravità": 0.95
     },
     {
-      "descrizione":"Lesioni viscerali multiple in più sedi/organi sono frequenti nei traumi non accidentali e richiedono sorveglianza attiva.",
-      "condizione_clinica":"lesioni viscerali multiple in più sedi",
-      "gravità":0.85
+      "descrizione": "Lesioni viscerali multiple in più sedi/organi sono frequenti nei traumi non accidentali e richiedono sorveglianza attiva.",
+      "condizione_clinica": "lesioni viscerali multiple in più sedi",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Sintomatologia clinica severa (addome acuto, peritonite, letargia, sepsi, shock ipovolemico, coma, dispnea ingravescente) con segni superficiali assenti o molto lievi è caratteristica delle lesioni viscerali da maltrattamento.",
-      "condizione_clinica":"clinica severa con segni superficiali assenti o lievi",
-      "gravità":0.85
+      "descrizione": "Sintomatologia clinica severa (addome acuto, peritonite, letargia, sepsi, shock ipovolemico, coma, dispnea ingravescente) con segni superficiali assenti o molto lievi è caratteristica delle lesioni viscerali da maltrattamento.",
+      "condizione_clinica": "clinica severa con segni superficiali assenti o lievi",
+      "gravità": 0.85
     },
     {
-      "descrizione":"Inserimento di corpi estranei (aghi da cucito, chiodi) nel tratto gastrointestinale o intracardiaco è una forma rara ma documentata di maltrattamento infantile.",
-      "condizione_clinica":"corpi estranei inseriti intenzionalmente",
-      "gravità":0.95
+      "descrizione": "Inserimento di corpi estranei (aghi da cucito, chiodi) nel tratto gastrointestinale o intracardiaco è una forma rara ma documentata di maltrattamento infantile.",
+      "condizione_clinica": "corpi estranei inseriti intenzionalmente",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Riscontro di lesioni multiple in diversa fase evolutiva (ecchimosi ed ematomi a differente evoluzione cromatica, soluzioni di continuo sanguinanti o sotto crosta e cicatrici, fratture e calli ossei) suggestivo di traumi ripetuti nel tempo.",
+      "condizione_clinica": "lesioni in diversa fase evolutiva",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Lesioni multiple così numerose da configurare il quadro descritto come 'lesività a carta geografica'.",
+      "condizione_clinica": "lesività a carta geografica",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Lesioni localizzate in sedi atipiche per traumi accidentali quali capo e volto, occhio, orecchio e/o zona retroauricolare, naso, bocca, dorso e palmo delle mani, unghie, torace, dorso, area genitale o perianale, caviglie, pianta dei piedi.",
+      "condizione_clinica": "localizzazione delle lesioni in sedi atipiche",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Lesioni la cui morfologia rimanda al mezzo di produzione: unghiature, morsi, tagliuzzamento, afferramento manuale, costrizione, fustigazione.",
+      "condizione_clinica": "morfologia delle lesioni ascrivibile al mezzo di produzione",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Bruciature/ustioni da sigaretta in sede cutanea.",
+      "condizione_clinica": "ustioni da sigaretta",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Ustioni da immersione forzata.",
+      "condizione_clinica": "ustioni da immersione forzata",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Incongruenza tra le versioni dichiarate dall'adulto in merito all'accaduto e il quadro lesivo obiettivato sul minore.",
+      "condizione_clinica": "incongruenza delle versioni dichiarate dall'adulto",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Giustificazione di traumatismo accidentale tanto meno verosimile quanto più il bambino è piccolo.",
+      "condizione_clinica": "traumatismo accidentale non congruo con l'età del minore",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Pregresse e mal consolidate fratture del cranio, delle coste o delle ossa lunghe in età pediatrica.",
+      "condizione_clinica": "fratture pregresse mal consolidate di cranio, coste o ossa lunghe",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Riscontro di ematomi intracranici o endoaddominali in età pediatrica non spiegabili da trauma documentato.",
+      "condizione_clinica": "ematomi intracranici o endoaddominali",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Sintomi 'strani' o quantomeno bizzarri non ascrivibili a patologie classicamente conosciute.",
+      "condizione_clinica": "sintomi bizzarri non ascrivibili a patologie note",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Aspetto trascurato od emaciato del minore.",
+      "condizione_clinica": "aspetto trascurato od emaciato",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Comportamento del minore eccessivamente passivo ed impaurito.",
+      "condizione_clinica": "comportamento eccessivamente passivo ed impaurito",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Segni di trascuratezza nelle condizioni generali quali capelli, denti, igiene, assenza di vaccinazioni obbligatorie.",
+      "condizione_clinica": "segni di trascuratezza",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Riscontro nel bambino di lesioni multiple differenti tra loro (morsi, tagli, bruciature, ecchimosi) associate a segni di privazioni, a fratture e ad emorragie cerebrali di verosimile origine traumatica, configuranti il quadro di 'sindrome del bambino battuto'.",
+      "condizione_clinica": "sindrome del bambino battuto",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Elevata frequenza di accessi al Pronto Soccorso del minore, da rivalutare alla luce di un sospetto attuale di maltrattamento/abuso.",
+      "condizione_clinica": "elevata frequenza di accessi al P.S.",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Comportamento inadeguato e sospetto da parte degli adulti accudenti rilevato dal personale sanitario durante il ricovero.",
+      "condizione_clinica": "comportamento inadeguato e sospetto degli adulti accudenti",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Lesioni o danni sopravvenuti in maniera improvvisa e inattesa durante il decorso clinico della patologia di base in minore ricoverato.",
+      "condizione_clinica": "lesioni improvvise e inattese durante il ricovero",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Minore che mostra evidenti segni di angoscia e di paura, e riferisce spontaneamente un racconto di maltrattamento/abuso correlato all'ambiente in cui abitualmente vive.",
+      "condizione_clinica": "racconto spontaneo di maltrattamento/abuso del minore",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "L'adulto che accompagna il minore riferisce un clima di esacerbata violenza domestica e formula una richiesta esplicita o implicita di aiuto.",
+      "condizione_clinica": "clima di esacerbata violenza domestica",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "L'adulto che accompagna il minore appare alterato/confuso e non è disponibile un'altra figura adulta affidabile.",
+      "condizione_clinica": "adulto accompagnatore alterato/confuso",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Patologia delle cure nelle forme di incuria/trascuratezza grave.",
+      "condizione_clinica": "incuria/trascuratezza grave",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Patologia delle cure nella forma di discuria.",
+      "condizione_clinica": "discuria",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Patologia delle cure nella forma di ipercura, comprendente 'medical shopping per procura', 'chemical abuse' e 'sindrome di Münchausen per procura'.",
+      "condizione_clinica": "ipercura",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Sindrome di Münchausen per procura come forma di patologia delle cure.",
+      "condizione_clinica": "sindrome di Münchausen per procura",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "'Chemical abuse' come forma di ipercura nella patologia delle cure.",
+      "condizione_clinica": "chemical abuse",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "'Medical shopping per procura' come forma di ipercura nella patologia delle cure.",
+      "condizione_clinica": "medical shopping per procura",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Violenza assistita ai danni del minore.",
+      "condizione_clinica": "violenza assistita",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Sospetto di sindrome del bambino scosso (Shaken Baby) che richiede attivazione di NPI, oculista e neuroradiologo.",
+      "condizione_clinica": "sindrome del bambino scosso",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Riflesso di dilatazione anale immediato (< 30 secondi) evocabile alla cauta dilatazione laterale dei glutei durante valutazione di sospetto abuso sessuale.",
+      "condizione_clinica": "riflesso di dilatazione anale immediato",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Riflesso di dilatazione anale persistente alla separazione bimanuale dei glutei.",
+      "condizione_clinica": "riflesso di dilatazione anale persistente",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Aspetto imbutiforme dell'ano con visualizzazione del canale.",
+      "condizione_clinica": "aspetto imbutiforme dell'ano",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Sanguinamento dell'orifizio anale o dall'orifizio anale.",
+      "condizione_clinica": "sanguinamento dell'orifizio anale",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Presenza di corpi estranei in sede anale.",
+      "condizione_clinica": "corpi estranei in sede anale",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Pliche cutanee perianali appianate riscontrate all'esame anale.",
+      "condizione_clinica": "pliche cutanee perianali appianate",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Lesioni della cute dell'orifizio anale quali arrossamento, edema, ecchimosi, escoriazioni.",
+      "condizione_clinica": "lesioni della cute dell'orifizio anale",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Incisure e fissurazioni in sede perianale.",
+      "condizione_clinica": "incisure e fissurazioni perianali",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Tono sfinterico anale alterato con spasmi o lassità in sospetto abuso sessuale.",
+      "condizione_clinica": "alterazione del tono sfinterico anale",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Lesioni in sede genito-anale femminile (eritemi, escoriazioni, ecchimosi, lacerazioni, soluzioni di continuo, cicatrici) a carico di faccia interna delle cosce, vulva, meato uretrale, area periuretrale, grandi labbra, piccole labbra, clitoride, imene, vagina, perineo.",
+      "condizione_clinica": "lesioni genito-anali femminili",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Lesioni in sede genitale maschile (eritemi, escoriazioni, ecchimosi, lacerazioni, soluzioni di continuo, cicatrici) a carico di faccia interna delle cosce, cute scrotale, perineo, pene, prepuzio, meato uretrale, area periuretrale, glande.",
+      "condizione_clinica": "lesioni genitali maschili",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Localizzazione delle lesioni in caso di riferito abuso sessuale a capo, collo, estremità, fianchi e superficie mediale delle cosce, sedi tipiche in caso di aggressione sessuale.",
+      "condizione_clinica": "lesioni in sedi tipiche di aggressione sessuale",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Riscontro di apparente liquido seminale o altri imbrattamenti in sede genito-anale del minore.",
+      "condizione_clinica": "presenza di apparente liquido seminale",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Riscontro di malattia venerea già nota o di nuova diagnosi nel minore.",
+      "condizione_clinica": "malattie veneree",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Segni di estrogenizzazione vulvare non congrui con l'età della minore.",
+      "condizione_clinica": "segni di estrogenizzazione vulvare",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Sintomatologia riferita comprendente dolore, sanguinamenti o secrezioni uretrali in sede genito-anale.",
+      "condizione_clinica": "dolore, sanguinamenti o secrezioni uretrali",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Sanguinamenti genito-anali pregressi senza causa documentata.",
+      "condizione_clinica": "sanguinamenti genito-anali pregressi",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Quadro psichico del minore con sentimento d'impotenza e/o di orrore, distacco, assenza di reattività emozionale, amnesia dissociativa, persistente rivissuto dell'evento attraverso flashback.",
+      "condizione_clinica": "reazione psichica post-traumatica",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Sintomi di ansia, ipervigilanza, insonnia, reazioni esagerate di allarme rilevati nel minore.",
+      "condizione_clinica": "ipervigilanza e reazioni di allarme",
+      "gravità": 0.45
+    },
+    {
+      "descrizione": "Variazioni del comportamento riferite dopo l'evento quali disturbi del comportamento alimentare improvvisi (anoressia, vomito).",
+      "condizione_clinica": "disturbi del comportamento alimentare improvvisi",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Disturbi del sonno post-evento con ansia, rituali, incubi, risvegli ripetuti, terrori.",
+      "condizione_clinica": "disturbi del sonno post-evento",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Disturbi affettivi post-evento quali apatia, stato confusionale, crisi di pianto, disinteresse per il gioco.",
+      "condizione_clinica": "disturbi affettivi post-evento",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Stati depressivi con senso di colpa, vergogna, autosvalutazione nel minore.",
+      "condizione_clinica": "stati depressivi con autosvalutazione",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Strutturazione di difese psicologiche con identificazione con l'aggressore.",
+      "condizione_clinica": "identificazione con l'aggressore",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Comportamenti aggressivi autodiretti o eterodiretti del minore.",
+      "condizione_clinica": "comportamenti aggressivi autodiretti o eterodiretti",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Disturbo dell'alvo di tipo encopresi.",
+      "condizione_clinica": "encopresi",
+      "gravità": 0.3
+    },
+    {
+      "descrizione": "Disturbo della minzione di tipo enuresi.",
+      "condizione_clinica": "enuresi",
+      "gravità": 0.3
+    },
+    {
+      "descrizione": "Tendenza al ritiro sociale e disturbi dell'attaccamento nel minore.",
+      "condizione_clinica": "ritiro sociale e disturbi dell'attaccamento",
+      "gravità": 0.35
+    },
+    {
+      "descrizione": "Sintomi fobici e/o ossessivi-compulsivi insorti dopo l'evento.",
+      "condizione_clinica": "sintomi fobici e ossessivi-compulsivi",
+      "gravità": 0.35
+    },
+    {
+      "descrizione": "Difficoltà scolastiche, calo di attenzione, isolamento o fuga riferiti come disturbi dell'adattamento.",
+      "condizione_clinica": "disturbi dell'adattamento scolastico",
+      "gravità": 0.3
+    },
+    {
+      "descrizione": "Abbandono scolastico riferito in anamnesi del minore.",
+      "condizione_clinica": "abbandono scolastico",
+      "gravità": 0.35
+    },
+    {
+      "descrizione": "Presenza di mezzi di contenzione utilizzati sul minore durante l'evento riferito.",
+      "condizione_clinica": "uso di mezzi di contenzione",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Sequestro del minore in ambiente chiuso riferito nel racconto.",
+      "condizione_clinica": "sequestro in ambiente chiuso",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Perdita di coscienza riferita in relazione all'evento di sospetto maltrattamento/abuso.",
+      "condizione_clinica": "perdita di coscienza",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Riferita ingestione o abuso di alcolici o altre sostanze nel contesto dell'evento.",
+      "condizione_clinica": "ingestione o abuso di alcolici o altre sostanze",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Minacce verbali o minacce con strumenti/armi riferite nel racconto del minore o dell'accompagnatore.",
+      "condizione_clinica": "minacce con strumenti o armi",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Precedenti aggressioni o precedenti episodi di maltrattamento fisico riferiti in anamnesi.",
+      "condizione_clinica": "precedenti episodi di maltrattamento fisico",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Precedenti episodi di abuso sessuale riferiti in anamnesi.",
+      "condizione_clinica": "precedenti episodi di abuso sessuale",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Riscontro di fratture nel minore non spiegabili da trauma maggiore documentato.",
+      "condizione_clinica": "fratture",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Riscontro di ferite lacero-contuse in sede multipla o atipica.",
+      "condizione_clinica": "ferite lacero-contuse",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Riscontro di soluzioni di continuo della cute in sospetto maltrattamento.",
+      "condizione_clinica": "soluzioni di continuo",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Riscontro di ematomi non spiegati da trauma documentato.",
+      "condizione_clinica": "ematomi",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Riscontro di ecchimosi multiple o in sedi atipiche.",
+      "condizione_clinica": "ecchimosi",
+      "gravità": 0.5
     }
   ]
 }
