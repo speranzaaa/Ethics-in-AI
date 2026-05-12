@@ -1,0 +1,284 @@
+{
+  "regole": [
+    {
+      "descrizione": "Tempo intercorso prima del coinvolgimento del servizio sanitario inusuale senza giustificazione plausibile del ritardo a fronte di una lesione fisica.",
+      "condizione_clinica": "ritardo di accesso alle cure",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Spiegazione della dinamica dell'evento che ha provocato la lesione non fornita, vaga, incoerente, inconsistente o soggetta a successive modifiche.",
+      "condizione_clinica": "spiegazione incoerente della dinamica della lesione",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Presenza di lesione fisica in un minore associata ad altri segni di maltrattamento come trascuratezza grave.",
+      "condizione_clinica": "lesione fisica associata a trascuratezza grave",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Precedenti accessi del minore al Servizio Sanitario per traumi o lesioni sospette, dubbie o non adeguatamente spiegate presso pediatra di famiglia, medico di Medicina Generale o Pronto Soccorso.",
+      "condizione_clinica": "accessi ripetuti per traumi non spiegati",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Segnali comportamentali ed emotivi nel bambino quali paura, allarme e ipervigilanza oppure apatia e distacco.",
+      "condizione_clinica": "segnali comportamentali di disagio (paura, ipervigilanza, apatia, distacco)",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Atteggiamento della coppia genitoriale caratterizzato da imbarazzo, evitamento, aggressività che prevalgono sull'atteggiamento coerente di preoccupazione e rassicurazione verso il bambino.",
+      "condizione_clinica": "atteggiamento genitoriale anomalo (imbarazzo, evitamento, aggressività)",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Fratture, lesioni cutanee, concussione cranica e sindrome dello Shaken baby, danni profondi viscerali in un minore configurano quadri clinici di maltrattamento fisico.",
+      "condizione_clinica": "fratture, lesioni cutanee, concussione cranica, sindrome dello Shaken baby, danni viscerali",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Bambini molto piccoli portatori di disabilità o che necessitano di cure speciali sono più vulnerabili al rischio di maltrattamento fisico.",
+      "condizione_clinica": "bambino piccolo con disabilità o bisogni speciali",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Maltrattamento fisico spesso associato a isolamento sociale della famiglia, carenza di reti di sostegno, incuria e violenza psicologica.",
+      "condizione_clinica": "isolamento sociale familiare con incuria",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Mutilazioni genitali femminili (circoncisione, recisione, infibulazione) praticate su bambine, di solito prima dei 13 anni, provenienti da alcuni paesi dell'Africa, Medio Oriente e Asia.",
+      "condizione_clinica": "mutilazioni genitali femminili",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Comportamenti e frasi configuranti pressioni psicologiche, ricatti affettivi, minacce, intimidazioni, discriminazioni, indifferenza, rifiuto volti a provocare umiliazione, denigrazione e svalutazione in modo continuato e duraturo.",
+      "condizione_clinica": "maltrattamento psicologico",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Coinvolgimento del figlio minorenne nelle separazioni coniugali altamente conflittuali con strategie volte a denigrare, svalutare, alienare o rifiutare un genitore.",
+      "condizione_clinica": "coinvolgimento del minore in separazioni conflittuali",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Esperienza diretta o indiretta da parte del bambino di violenza fisica, verbale, psicologica, sessuale ed economica su figure di riferimento o altre figure affettivamente significative.",
+      "condizione_clinica": "violenza assistita",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Violenza assistita rappresenta un fattore di rischio altamente predittivo per altre forme di maltrattamento, con possibile escalation in termini di danno prodotto e pericolosità.",
+      "condizione_clinica": "violenza assistita come fattore predittivo",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Conoscenze sessuali improprie e comportamenti sessualizzati, soprattutto se compulsivi e pervasivi, non adeguati all'età e alla fase dello sviluppo del bambino.",
+      "condizione_clinica": "comportamenti sessualizzati inadeguati all'età",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Mimare contatti oro-genitali, richiedere agli adulti di coinvolgersi in rapporti sessuali, masturbarsi con oggetti procurandosi dolore, imitare il coito, emettere suoni collegati all'atto sessuale, baciare alla francese, chiedere di vedere programmi sessuali, leccare o chiedere di essere leccato nelle parti genitali.",
+      "condizione_clinica": "comportamenti sessuali espliciti in bambino entro i 12 anni",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Approccio o azione di natura sessuale che coinvolge un bambino o adolescente causando disagio o sofferenza psicologica, incluse manifestazioni seduttive ed erotizzate.",
+      "condizione_clinica": "abuso sessuale",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Abuso sessuale intra-familiare attuato da membri della famiglia nucleare o allargata.",
+      "condizione_clinica": "abuso sessuale intra-familiare",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Abuso sessuale peri-familiare attuato da persone conosciute dal minore, comprese quelle a cui è affidato per ragioni di cura/educazione.",
+      "condizione_clinica": "abuso sessuale peri-familiare",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Abuso sessuale extra-familiare con abusante figura estranea all'ambiente familiare e al minore.",
+      "condizione_clinica": "abuso sessuale extra-familiare",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Adescamento su internet con scopo di coinvolgimento in attività di cibersex (sesso virtuale).",
+      "condizione_clinica": "adescamento online per cibersex",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Induzione a guardare pornografia per adulti, induzione alla produzione di foto o video erotiche del minore.",
+      "condizione_clinica": "induzione alla produzione di materiale pedopornografico",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Adescamento su internet a scopo di incontri sessuali offline, con o senza materiale pedopornografico, per abuso offline.",
+      "condizione_clinica": "adescamento online per abuso sessuale offline",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Servizi di sesso online o offline remunerati in seguito ad aggancio online.",
+      "condizione_clinica": "prostituzione minorile online",
+      "gravità": 0.95
+    },
+    {
+      "descrizione": "Pedopornografia: rappresentazione di un minore in attività sessuali specifiche, reali o simulate, o rappresentazione degli organi sessuali per scopi sessuali.",
+      "condizione_clinica": "pedopornografia",
+      "gravità": 1.0
+    },
+    {
+      "descrizione": "Prostituzione minorile: minore indotto a compiere atti sessuali in cambio di denaro o altra utilità.",
+      "condizione_clinica": "prostituzione minorile",
+      "gravità": 1.0
+    },
+    {
+      "descrizione": "Turismo sessuale: pratiche sessuali con minori in paesi che tollerano o propagandano la prostituzione minorile.",
+      "condizione_clinica": "turismo sessuale",
+      "gravità": 1.0
+    },
+    {
+      "descrizione": "Atto omissivo da grave incapacità del genitore nel provvedere ai bisogni del figlio comportante rischio imminente e grave: abbandono, rifiuto, grave compromissione dello sviluppo fisico, cognitivo, emotivo (failure to thrive), altre forme di abuso, fino al decesso.",
+      "condizione_clinica": "incuria/trascuratezza grave",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Grave compromissione dello sviluppo fisico, cognitivo, emotivo (failure to thrive) come segno di trascuratezza grave.",
+      "condizione_clinica": "failure to thrive",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Nati pretermine richiedono particolare attenzione per il rischio di incuria/trascuratezza grave.",
+      "condizione_clinica": "nato pretermine",
+      "gravità": 0.4
+    },
+    {
+      "descrizione": "Neonati in astinenza a causa dell'assunzione di droghe, alcool e comportamenti a rischio della madre durante la gravidanza.",
+      "condizione_clinica": "neonato in astinenza da sostanze materne",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Atteggiamento di negazione o ritardo nel provvedere a cure sanitarie necessarie, prescritte o raccomandate; rifiuto dei genitori a ricevere servizi di cura per il figlio in caso di bisogno senza ragionevole spiegazione.",
+      "condizione_clinica": "rifiuto/negazione di cure sanitarie necessarie",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Frequenti ricorsi a cure mediche/ricoveri causati da assente o inadeguata vigilanza che espone il bambino a pericoli all'interno o all'esterno dell'abitazione.",
+      "condizione_clinica": "vigilanza genitoriale gravemente inadeguata",
+      "gravità": 0.75
+    },
+    {
+      "descrizione": "Condizione di isolamento del bambino, al quale non è consentito interagire o comunicare con coetanei o adulti fuori o dentro la casa.",
+      "condizione_clinica": "isolamento sociale imposto al bambino",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Non assolvimento dell'obbligo scolastico come segno di trascuratezza grave.",
+      "condizione_clinica": "non assolvimento dell'obbligo scolastico",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Frequenti e ripetitive assenze ingiustificate da scuola qualora il genitore sia informato del problema e non abbia cercato una soluzione.",
+      "condizione_clinica": "assenze scolastiche ripetute ingiustificate",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Cure fornite in modo distorto, non appropriato o congruo al momento evolutivo, con anacronismo delle cure, imposizione di ritmi di acquisizione precoci, aspettative irrazionali, eccessiva iperprotettività.",
+      "condizione_clinica": "discuria",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Cure fisiche caratterizzate da persistente ed eccessiva medicalizzazione da parte di un genitore, generalmente la madre.",
+      "condizione_clinica": "ipercura",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Medical Shopping per procura: genitori molto preoccupati per stato di salute del bambino a causa di segni/sintomi modesti, lo sottopongono a inutili ed eccessivi consulti medici.",
+      "condizione_clinica": "Medical Shopping per procura",
+      "gravità": 0.7
+    },
+    {
+      "descrizione": "Chemical Abuse: somministrazione al bambino dai genitori, di propria iniziativa, di sostanze o farmaci dannosi allo scopo di provocare sintomi che richiamino l'attenzione dei sanitari.",
+      "condizione_clinica": "Chemical Abuse",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Sindrome di Münchausen per procura (MPS): un genitore, generalmente la madre, attribuisce al figlio malattie inesistenti, trasferendo sul bambino convinzioni distorte sulla salute.",
+      "condizione_clinica": "Sindrome di Münchausen per procura",
+      "gravità": 0.9
+    },
+    {
+      "descrizione": "Migrazione sanitaria tipica della Sindrome di Münchausen per procura con consultazione di numerosi professionisti, accertamenti strumentali ripetuti, terapie multiple e durata anomala.",
+      "condizione_clinica": "migrazione sanitaria con accertamenti ripetuti",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Mancata corrispondenza tra quanto riferito nell'anamnesi e le reali condizioni cliniche del bambino, con possibile somministrazione non dichiarata di sostanze chimiche/farmaci.",
+      "condizione_clinica": "discrepanza anamnesi-quadro clinico",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Bullismo: comportamenti offensivi e/o aggressivi messi in atto ripetutamente nel tempo ai danni di una o più persone con scopo di esercitare potere o dominio sulla vittima.",
+      "condizione_clinica": "bullismo",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Forme fisiche di bullismo: botte, spinte, prepotenze fisiche.",
+      "condizione_clinica": "bullismo fisico",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Forme verbali di bullismo: ingiurie, ricatti, intimidazioni, vessazioni, insulti, chiamare con nomi offensivi.",
+      "condizione_clinica": "bullismo verbale",
+      "gravità": 0.55
+    },
+    {
+      "descrizione": "Forme indirette di bullismo: manipolazione sociale, pettegolezzi fastidiosi e offensivi, esclusione sistematica di una persona dalla vita di gruppo.",
+      "condizione_clinica": "bullismo indiretto",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Cyberbullismo: atto aggressivo, intenzionale, condotto da individuo o gruppo usando forme di contatto elettronico, ripetuto nel tempo contro una vittima che non può difendersi.",
+      "condizione_clinica": "cyberbullismo",
+      "gravità": 0.65
+    },
+    {
+      "descrizione": "Violenza domestica come fattore altamente predittivo di maltrattamento fisico, sessuale e trascuratezza nei confronti del minore.",
+      "condizione_clinica": "violenza domestica come fattore predittivo",
+      "gravità": 0.8
+    },
+    {
+      "descrizione": "Maltrattamento intrafamiliare altamente associato a pregresse esperienze sfavorevoli dei genitori, favorente la trasmissione transgenerazionale delle dinamiche maltrattanti.",
+      "condizione_clinica": "trasmissione transgenerazionale del maltrattamento",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Esperienza traumatica di natura maltrattante, specialmente se sperimentata precocemente e ripetutamente nelle relazioni primarie di cura, produce trauma psichico/interpersonale che danneggia le principali funzioni dello sviluppo.",
+      "condizione_clinica": "trauma psichico interpersonale precoce e ripetuto",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Danno tanto maggiore quanto più il fenomeno resta sommerso, è ripetuto nel tempo, la risposta di protezione ritarda o è elusa, il vissuto traumatico è negato o non elaborato, ed è intrafamiliare.",
+      "condizione_clinica": "maltrattamento sommerso, ripetuto e intrafamiliare",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "In caso di sospetto abuso sessuale la valutazione va fatta in modo esteso analizzando tre aree: segni fisici, psicologici, sociali oltre a racconti e affermazioni spontanee della presunta vittima.",
+      "condizione_clinica": "sospetto di abuso sessuale",
+      "gravità": 0.85
+    },
+    {
+      "descrizione": "Nell'abuso sessuale i segni fisici sono rari e spesso aspecifici e l'assenza di segni fisici non permette di escludere l'ipotesi di abuso.",
+      "condizione_clinica": "assenza di segni fisici in sospetto abuso sessuale",
+      "gravità": 0.6
+    },
+    {
+      "descrizione": "Nelle situazioni di conflitto genitoriale caratterizzate da alta litigiosità e separazioni conflittuali in parità tra partner va distinta la condizione di violenza di un partner sull'altro con evidente disparità di potere.",
+      "condizione_clinica": "distinzione conflitto genitoriale vs violenza di partner",
+      "gravità": 0.5
+    },
+    {
+      "descrizione": "Madri vittime di violenza e/o del partner in carico ai servizi (Pronto Soccorso, Consultori Familiari, MMG, SERT, Salute Mentale, Centri antiviolenza, Forze dell'Ordine) impongono attenzione alle problematiche del minore coinvolto come vittima di violenza assistita.",
+      "condizione_clinica": "minore figlio di donna vittima di violenza",
+      "gravità": 0.75
+    }
+  ]
+}
