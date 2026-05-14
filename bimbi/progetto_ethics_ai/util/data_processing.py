@@ -138,11 +138,14 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
         time-indexed rolling window so that it is O(n log n), not O(n^2).
 
     inter_visit_variance
-        Rolling standard deviation (window=3, min_periods=1) of
-        ``days_since_last_visit`` within each patient's history.  High and
-        increasing variance signals irregular, escalating visit cadence — a
-        known indicator of non-accidental injury patterns.  Undefined values
-        (fewer than 2 data points in the window) are filled with ``0``.
+        Expanding (cumulative) variance of ``days_since_last_visit`` within
+        each patient's visit history.  Unlike a fixed rolling window, the
+        expanding estimator uses all prior observations at each step, making
+        the estimate more stable as visit count grows.  Patients with fewer
+        than 3 total visits receive ``0`` — variance is statistically
+        undefined below 3 data points.  High and increasing variance signals
+        irregular, escalating visit cadence — a known indicator of
+        non-accidental injury patterns.
 
     Parameters
     ----------
@@ -225,10 +228,17 @@ def build_features(df: pd.DataFrame) -> pd.DataFrame:
     # ------------------------------------------------------------------
     # inter_visit_variance
     # ------------------------------------------------------------------
+    # Expanding variance (cumulative, not rolling) so the estimate grows
+    # more reliable as visit history accumulates.
+    # Groups with < 3 total visits → 0 (variance undefined below 3 points).
     df["inter_visit_variance"] = (
         df.groupby("ID_PAZIENTE")["days_since_last_visit"]
         .transform(
-            lambda x: x.rolling(3, min_periods=1).std().fillna(0.0)
+            lambda x: (
+                x.expanding(min_periods=3).var().fillna(0.0)
+                if len(x) >= 3
+                else pd.Series(0.0, index=x.index)
+            )
         )
     )
 

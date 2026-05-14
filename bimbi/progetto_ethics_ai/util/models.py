@@ -9,31 +9,43 @@ NEURO-SYMBOLIC FUSION ARCHITECTURE:
 
   - Sub-symbolic (KDE): models the probability density P(x | normal) over
     the numerical features of a patient's sliding-window ER visit timeline.
-    The base anomaly signal is the negative log-likelihood: -log P_KDE(x).
+    The raw anomaly signal is the negative log-likelihood: −log P_KDE(x).
+    This is then **calibrated to [0, 1]** via a MinMaxScaler fitted on the
+    training-data score distribution, making it commensurable with the
+    symbolic penalties (also in [0, ∞)).
 
   - Symbolic (Prior Rules): the LLM—acting as an expert system—extracts
     deterministic clinical constraints from Italian medical guidelines
     ("Quaderni della Regione Emilia-Romagna").  Each rule encodes a known
-    red flag as a case-insensitive Italian substring that is searched across
-    the string-valued columns of the patient feature row.
+    red flag as a case-insensitive Italian substring searched across the
+    string-valued columns of the patient feature row.
 
   Fusion yields the final anomaly score:
 
-      score(x) = -log P_KDE(x)
-               + SUM_i penalty_weight_i · I[clinical_conditions_i ∈ x]   (text rules)
-               × prior_penalty^(# violated numeric rules)                (numeric rules)
+      score(x) = calibrate(−log P_KDE(x))                               ← [0, 1+]
+               + SUM_i penalty_weight_i · I[clinical_conditions_i ∈ x]  ← text rules
+               × prior_penalty^(# violated numeric rules)               ← numeric rules
+
+  where calibrate(s) = clip(MinMaxScaler(s), 0, ∞):
+    - Normal training samples map to [0, 1].
+    - Out-of-distribution anomalies exceed 1.0 (preserved — not clipped).
+    - Values below 0 (extremely "normal") are clipped to 0.
 
   The additive text penalties ensure that a single documented clinical
   finding (e.g., "fratture multiple" in the Diagnosi field) raises the
-  score even when the visit frequency pattern looks normal—covering the
+  score even when the visit frequency pattern looks normal — covering the
   common scenario of a first-time presentation of abuse.
 
+BANDWIDTH SELECTION:
+  .fit() runs GridSearchCV over a log-spaced grid of 30 bandwidth candidates
+  (0.05 – 5.0), evaluated by cross-validated log-likelihood.  The optimal
+  bandwidth is selected automatically; no manual tuning is required.
+
 ITALIAN TERMINOLOGY:
-  Text rules produced by :mod:`util.knowledge_extraction` carry their
-  ``clinical_conditions`` field in Italian.  This is mandatory: our CSV
-  datasets (Triage, Sintomi, Dati clinici) are in Italian, and matching
-  is performed via case-insensitive substring search.  Translating terms
-  to English would silently break detection.
+  Text rules from :mod:`util.knowledge_extraction` carry ``clinical_conditions``
+  in Italian.  This is mandatory: our CSV datasets (Triage, Sintomi, Dati
+  clinici) are in Italian, and matching is case-insensitive substring search.
+  Translating terms to English would silently break detection.
 """
 
 from __future__ import annotations
@@ -44,30 +56,39 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+from sklearn.model_selection import GridSearchCV
 from sklearn.neighbors import KernelDensity
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler, RobustScaler
 
 logger = logging.getLogger(__name__)
 
 
 class EthicalKDEAnomalyDetector:
     """
-    Anomaly detector that combines Kernel Density Estimation with a set of
-    clinician/LLM-derived prior rules applied as penalty multipliers.
+    Anomaly detector that combines a calibrated Kernel Density Estimator
+    with clinician/LLM-derived prior rules.
 
-    The anomaly signal is the negative log-likelihood of the KDE model
-    (higher = more anomalous).  If a sample violates one or more prior
-    rules the raw signal is amplified by a configurable penalty factor,
-    encoding domain knowledge in a transparent, auditable way.
+    The statistical (sub-symbolic) component estimates the density of normal
+    patient pathways.  Its output — the negative log-likelihood — is
+    calibrated to **[0, 1]** during `.fit()` using a MinMaxScaler so that it
+    is commensurable with the additive symbolic penalty scores.
+
+    Fitting automatically selects the optimal KDE bandwidth via cross-validated
+    log-likelihood (GridSearchCV over a log-spaced grid of 30 candidates),
+    scales features with :class:`~sklearn.preprocessing.RobustScaler` (robust
+    to clinical outliers), and fits a MinMaxScaler on the resulting NLL scores
+    for score calibration.
 
     Parameters
     ----------
     bandwidth:
-        KDE bandwidth (``h``).  Smaller → sharper density, more sensitive.
+        Initial KDE bandwidth hint.  Overridden by GridSearchCV during
+        `.fit()` unless ``bandwidth_cv=False`` is passed to `.fit()`.
     kernel:
         Kernel function passed to :class:`sklearn.neighbors.KernelDensity`.
     prior_penalty:
-        Multiplicative amplification applied per violated rule.
+        Multiplicative amplification applied per violated *numeric* rule
+        (legacy path).  Text rules use additive ``penalty_weight`` instead.
     """
 
     def __init__(
@@ -80,8 +101,10 @@ class EthicalKDEAnomalyDetector:
         self.kernel = kernel
         self.prior_penalty = prior_penalty
 
+        self._scaler = RobustScaler()
         self._kde = KernelDensity(bandwidth=bandwidth, kernel=kernel)
-        self._scaler = StandardScaler()
+        self._score_scaler: MinMaxScaler | None = None
+        self._best_bandwidth: float = bandwidth
         self._fitted = False
         self.prior_rules: list[dict[str, Any]] = []
 
@@ -93,12 +116,14 @@ class EthicalKDEAnomalyDetector:
         """
         Load defeasible prior rules extracted by the LLM.
 
-        Each rule is a dict with at least:
-        - ``"feature"`` (str): feature name in the window dataframe.
-        - ``"condition"`` (str): one of ``"gt"``, ``"lt"``, ``"eq"``,
-          ``"gte"``, ``"lte"``.
-        - ``"threshold"`` (float): comparison value.
-        - ``"description"`` (str): human-readable rationale.
+        Each rule dict should carry at least one of:
+
+        Text rules (new-style, additive penalty):
+          - ``"clinical_conditions"`` (str) — Italian clinical term.
+          - ``"penalty_weight"`` (float) — additive score boost on match.
+
+        Numeric rules (legacy, multiplicative):
+          - ``"feature"`` / ``"condition"`` / ``"threshold"`` keys.
 
         Parameters
         ----------
@@ -115,40 +140,108 @@ class EthicalKDEAnomalyDetector:
     # Fit
     # ------------------------------------------------------------------
 
-    def fit(self, X_train: np.ndarray) -> "EthicalKDEAnomalyDetector":
+    def fit(
+        self,
+        X_train: np.ndarray,
+        cv: int = 5,
+        bandwidth_cv: bool = True,
+    ) -> "EthicalKDEAnomalyDetector":
         """
         Fit the KDE on a matrix of normal patient pathways.
+
+        Steps
+        -----
+        1. **RobustScaler** — median-centred, IQR-normalised feature scaling.
+           Preferred over StandardScaler for medical data with extreme outliers
+           (e.g., ``days_since_last_visit`` = 3650 sentinel value).
+        2. **Bandwidth selection** — GridSearchCV over 30 log-spaced candidates
+           (0.05 – 5.0), scored by cross-validated log-likelihood.
+           Skipped automatically when ``n_samples < 10`` or
+           ``bandwidth_cv=False``.
+        3. **KDE fit** — refit with the optimal bandwidth.
+        4. **Score calibration** — fit a MinMaxScaler on the training-data NLL
+           so that ``get_anomaly_signal()`` returns values in **[0, 1]** for
+           training-like inputs.  Out-of-distribution samples may exceed 1.0.
 
         Parameters
         ----------
         X_train:
-            2-D array of shape ``(n_samples, n_features)`` containing
-            only *normal* (non-abused) patient windows.
+            2-D array of shape ``(n_samples, n_features)`` containing only
+            *normal* (non-abused) patient windows.
+        cv:
+            Cross-validation folds for bandwidth selection.  Clamped to
+            ``max(2, min(cv, n_samples))``.
+        bandwidth_cv:
+            When ``False``, skip GridSearchCV and use ``self.bandwidth``
+            directly (useful for reproducibility or tiny datasets).
 
         Returns
         -------
         self
         """
         X_scaled = self._scaler.fit_transform(X_train)
+        n_samples = len(X_scaled)
+
+        # ── Bandwidth selection ───────────────────────────────────────────────
+        if bandwidth_cv and n_samples >= 10:
+            bandwidths = np.logspace(-1.3, 0.7, 30)   # 0.05 → ~5.0
+            n_folds = max(2, min(cv, n_samples))
+            grid_cv = GridSearchCV(
+                KernelDensity(kernel=self.kernel),
+                {"bandwidth": bandwidths},
+                cv=n_folds,
+                n_jobs=-1,
+            )
+            grid_cv.fit(X_scaled)
+            self._best_bandwidth = float(grid_cv.best_params_["bandwidth"])
+            logger.info(
+                "Bandwidth CV: best=%.4f over %d candidates, %d folds.",
+                self._best_bandwidth,
+                len(bandwidths),
+                n_folds,
+            )
+        else:
+            self._best_bandwidth = self.bandwidth
+            if n_samples < 10:
+                logger.warning(
+                    "Only %d training samples — bandwidth CV skipped, "
+                    "using bandwidth=%.3f.",
+                    n_samples,
+                    self.bandwidth,
+                )
+
+        # ── KDE fit ───────────────────────────────────────────────────────────
+        self._kde = KernelDensity(bandwidth=self._best_bandwidth, kernel=self.kernel)
         self._kde.fit(X_scaled)
+
+        # ── Score calibration ─────────────────────────────────────────────────
+        # MinMaxScaler fitted on training NLL so that normal samples → [0, 1].
+        # This makes the KDE base signal commensurable with symbolic penalties.
+        raw_train_nll = -self._kde.score_samples(X_scaled)
+        self._score_scaler = MinMaxScaler(feature_range=(0.0, 1.0))
+        self._score_scaler.fit(raw_train_nll.reshape(-1, 1))
+
         self._fitted = True
         logger.info(
-            "KDE fitted on %d samples, %d features. Bandwidth=%.3f.",
+            "KDE fitted: %d samples, %d features. "
+            "Bandwidth=%.4f. Raw NLL [%.3f, %.3f] → calibrated [0, 1].",
             X_train.shape[0],
             X_train.shape[1],
-            self.bandwidth,
+            self._best_bandwidth,
+            float(raw_train_nll.min()),
+            float(raw_train_nll.max()),
         )
         return self
 
     # ------------------------------------------------------------------
-    # Scoring
+    # Scoring helpers
     # ------------------------------------------------------------------
 
     def _check_rule(self, feature_values: dict[str, float], rule: dict) -> bool:
         """Return ``True`` if *feature_values* violates a numeric threshold rule."""
         col = rule.get("feature")
         if col not in feature_values:
-            return False  # rule references a column not present → skip
+            return False
 
         val = feature_values[col]
         threshold = float(rule["threshold"])
@@ -165,40 +258,32 @@ class EthicalKDEAnomalyDetector:
 
     def _evaluate_rule(self, row: pd.Series, rule: dict) -> bool:
         """
-        Check whether a patient's feature row matches a text-based clinical rule.
+        Check whether a patient feature row matches a text-based clinical rule.
 
-        This method implements the SYMBOLIC AI matching step of the neuro-symbolic
-        fusion pipeline.  It performs a case-insensitive substring search: it scans
-        every string-typed cell in ``row`` and returns ``True`` if the Italian
-        clinical condition phrase (``rule["clinical_conditions"]``) appears in any
-        of them.
+        Performs a case-insensitive substring search across every string-typed
+        cell in ``row``.  Returns ``True`` if the Italian phrase in
+        ``rule["clinical_conditions"]`` appears in any field.
 
         ITALIAN TERMINOLOGY REQUIREMENT:
-          The ``rule["clinical_conditions"]`` string must be in Italian (e.g.,
-          "fratture multiple", "lesioni cutanee", "ustioni").  This matches the
-          language of the clinical CSV datasets (Triage, Sintomi, Dati clinici).
-          The search is intentionally case-insensitive to handle capitalisation
-          variation in free-text fields (e.g., "Ustioni" vs "ustioni").
+          ``rule["clinical_conditions"]`` must be in Italian (e.g.,
+          "fratture multiple", "lesioni cutanee", "ustioni") to match the
+          Italian-language fields in the clinical CSV datasets.
 
         Parameters
         ----------
         row:
-            A single patient feature row from the sliding-window DataFrame
-            (one row of ``X`` passed to :meth:`get_anomaly_signal`).
-            May contain a mix of numeric and string-typed values.
+            One row of the ``X`` DataFrame passed to :meth:`get_anomaly_signal`.
         rule:
-            A rule dictionary produced by
-            :func:`util.knowledge_extraction.extract_rules_with_llm`, containing
-            at minimum the key ``"clinical_conditions"`` (an Italian string).
+            Rule dict from :func:`util.knowledge_extraction.extract_rules_local_ollama`
+            with key ``"clinical_conditions"`` holding an Italian string.
 
         Returns
         -------
         bool
-            ``True`` if the Italian condition phrase is found in at least one
-            string column of ``row``; ``False`` otherwise or if the condition
-            string is empty.
+            ``True`` if the Italian phrase is found in at least one string
+            column; ``False`` if the field is absent or empty.
         """
-        condition_text = str(rule.get("condizione_clinica", "")).strip().lower()
+        condition_text = str(rule.get("clinical_conditions", "")).strip().lower()
         if not condition_text:
             return False
 
@@ -207,78 +292,76 @@ class EthicalKDEAnomalyDetector:
                 return True
         return False
 
+    # ------------------------------------------------------------------
+    # Main scoring method
+    # ------------------------------------------------------------------
+
     def get_anomaly_signal(self, X: pd.DataFrame) -> pd.Series:
         """
         Compute the fused anomaly signal for each patient window in *X*.
 
-        This method implements the neuro-symbolic fusion step:
+        Steps
+        -----
+        1. **Calibrated KDE base** — raw NLL transformed to [0, 1] by the
+           MinMaxScaler fitted during `.fit()`.  Values below 0 are clipped
+           to 0; values above 1 are preserved (out-of-distribution anomalies).
 
-          1. **Sub-symbolic base signal** — the negative log-likelihood under the
-             fitted KDE, computed on the *numeric* columns of ``X`` after standard
-             scaling: ``base_signal[i] = -log P_KDE(x_i)``.
+        2. **Text rules (additive)** — each rule with ``"clinical_conditions"``
+           and ``"penalty_weight"`` is evaluated via :meth:`_evaluate_rule`.
+           A match adds ``penalty_weight`` to the calibrated base.
 
-          2. **Symbolic penalty — text rules** — for each row, every rule in
-             ``self.prior_rules`` that carries a ``"clinical_conditions"`` key is
-             evaluated via :meth:`_evaluate_rule`.  If the Italian condition string
-             is found in any string column, the rule's ``penalty_weight`` is *added*
-             to the signal:
-             ``signal[i] += penalty_weight  if clinical_conditions_i ∈ x_i``.
-
-          3. **Symbolic penalty — numeric rules** (legacy) — rules carrying
-             ``"feature"`` / ``"condition"`` / ``"threshold"`` keys are evaluated
-             via :meth:`_check_rule`.  A match multiplies the signal by
-             ``self.prior_penalty``.
-
-        Additive penalties (step 2) are preferred for text rules because they
-        guarantee a minimum signal boost regardless of the KDE base value,
-        which is essential when the statistical model assigns low anomaly scores
-        to presentations that are clinically rare but not statistically unusual
-        in the training population.
+        3. **Numeric rules (multiplicative, legacy)** — rules with
+           ``"feature"`` / ``"condition"`` / ``"threshold"`` amplify the
+           signal by ``self.prior_penalty`` per violation.
 
         Parameters
         ----------
         X:
-            DataFrame of shape ``(n_samples, n_features)`` representing patient
-            sliding-window feature matrices.  May contain a mix of numeric columns
-            (used by KDE) and string/object columns (used by text rules).
+            DataFrame of shape ``(n_samples, n_features)``.  Numeric columns
+            feed the KDE; string/object columns are used by text rules.
 
         Returns
         -------
         pd.Series
-            Anomaly scores indexed by ``X.index``.  Higher values indicate more
-            suspicious patient pathways.
+            Fused anomaly scores indexed by ``X.index``.
+            Higher = more suspicious.
         """
         if not self._fitted:
             raise RuntimeError("Model must be fitted before scoring. Call .fit() first.")
 
-        # KDE operates on numeric features only.
+        # ── KDE base signal ───────────────────────────────────────────────────
         numeric_X = X.select_dtypes(include=[np.number])
         X_scaled = self._scaler.transform(numeric_X.values)
-        base_signal = -self._kde.score_samples(X_scaled)  # shape: (n_samples,)
+        raw_nll = -self._kde.score_samples(X_scaled)
+
+        if self._score_scaler is not None:
+            calibrated = self._score_scaler.transform(raw_nll.reshape(-1, 1)).ravel()
+            base_signal = np.clip(calibrated, 0.0, None)
+        else:
+            base_signal = raw_nll
 
         if not self.prior_rules:
             return pd.Series(base_signal, index=X.index, name="anomaly_signal")
 
+        # ── Symbolic penalties ────────────────────────────────────────────────
         adjusted = base_signal.copy()
         for i, (_, row) in enumerate(X.iterrows()):
             numeric_fv: dict[str, float] = numeric_X.iloc[i].to_dict()
             for rule in self.prior_rules:
-                if "condizione_clinica" in rule:
-                    # New-style text rule: additive penalty fuses symbolic + statistical.
+                if "clinical_conditions" in rule and "penalty_weight" in rule:
                     if self._evaluate_rule(row, rule):
-                        adjusted[i] += float(rule.get("penalty", 0.0))
+                        adjusted[i] += float(rule["penalty_weight"])
                         logger.debug(
-                            "Sample %d: Italian rule '%s' matched → +%.2f penalty.",
+                            "Sample %d: rule '%s' matched → +%.2f penalty.",
                             i,
-                            rule.get("rule_id", rule.get("condizione_clinica", "?")),
-                            rule.get("penalty", 0.0),
+                            rule.get("rule_id", rule.get("clinical_conditions", "?")),
+                            rule["penalty_weight"],
                         )
                 elif "feature" in rule and "condition" in rule and "threshold" in rule:
-                    # Legacy numeric rule: multiplicative amplification.
                     if self._check_rule(numeric_fv, rule):
                         adjusted[i] *= self.prior_penalty
                         logger.debug(
-                            "Sample %d violated numeric rule '%s' → ×%.2f amplification.",
+                            "Sample %d violated numeric rule '%s' → x%.2f.",
                             i,
                             rule.get("description", rule.get("feature", "?")),
                             self.prior_penalty,
@@ -293,7 +376,7 @@ class EthicalKDEAnomalyDetector:
     def predict(
         self,
         X: pd.DataFrame,
-        threshold: float = 0.0,
+        threshold: float = 0.5,
     ) -> np.ndarray:
         """
         Binary prediction: ``1`` = anomalous, ``0`` = normal.
@@ -303,8 +386,10 @@ class EthicalKDEAnomalyDetector:
         X:
             Feature DataFrame (see :meth:`get_anomaly_signal`).
         threshold:
-            Anomaly signal cutoff.  Samples with a score at or above this
-            value are flagged as suspicious.
+            Anomaly signal cutoff.  With calibrated scores in [0, 1+], 0.5
+            sits halfway across the training distribution.  Tune this via
+            :class:`util.ethics_metrics.CostModel` for your false-positive /
+            false-negative cost ratio.
 
         Returns
         -------
@@ -315,8 +400,13 @@ class EthicalKDEAnomalyDetector:
         return (signals >= threshold).astype(int).values
 
     def __repr__(self) -> str:
+        bw_label = (
+            f"{self._best_bandwidth:.4f} (CV-optimised)"
+            if self._best_bandwidth != self.bandwidth
+            else f"{self.bandwidth:.4f} (fixed)"
+        )
         return (
             f"EthicalKDEAnomalyDetector("
-            f"bandwidth={self.bandwidth}, kernel='{self.kernel}', "
+            f"bandwidth={bw_label}, kernel='{self.kernel}', "
             f"prior_rules={len(self.prior_rules)}, fitted={self._fitted})"
         )
