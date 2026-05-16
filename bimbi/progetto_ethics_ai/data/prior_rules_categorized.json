@@ -45,17 +45,6 @@
       ]
     },
     {
-      "descrizione": "Segnali comportamentali ed emotivi nel bambino quali paura, allarme e ipervigilanza oppure apatia e distacco.",
-      "condizione_clinica": "segnali comportamentali di disagio (paura, ipervigilanza, apatia, distacco)",
-      "gravità": 0.6,
-      "categorie": [
-        {
-          "macro": "Sintomi psico-comportamentali del minore",
-          "sotto": "Sintomi post-traumatici e dissociativi"
-        }
-      ]
-    },
-    {
       "descrizione": "Atteggiamento della coppia genitoriale caratterizzato da imbarazzo, evitamento, aggressività che prevalgono sull'atteggiamento coerente di preoccupazione e rassicurazione verso il bambino.",
       "condizione_clinica": "atteggiamento genitoriale anomalo (imbarazzo, evitamento, aggressività)",
       "gravità": 0.65,
@@ -86,17 +75,6 @@
         {
           "macro": "Segni clinici somatici",
           "sotto": "Lesioni viscerali e addominali"
-        }
-      ]
-    },
-    {
-      "descrizione": "Bambini molto piccoli portatori di disabilità o che necessitano di cure speciali sono più vulnerabili al rischio di maltrattamento fisico.",
-      "condizione_clinica": "bambino piccolo con disabilità o bisogni speciali",
-      "gravità": 0.5,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Fattori di rischio del minore"
         }
       ]
     },
@@ -324,17 +302,6 @@
     {
       "descrizione": "Atto omissivo da grave incapacità del genitore nel provvedere ai bisogni del figlio comportante rischio imminente e grave: abbandono, rifiuto, grave compromissione dello sviluppo fisico, cognitivo, emotivo (failure to thrive), altre forme di abuso, fino al decesso.",
       "condizione_clinica": "incuria/trascuratezza grave",
-      "gravità": 0.85,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Trascuratezza / Incuria / Discuria / Ipercura"
-        }
-      ]
-    },
-    {
-      "descrizione": "Grave compromissione dello sviluppo fisico, cognitivo, emotivo (failure to thrive) come segno di trascuratezza grave.",
-      "condizione_clinica": "failure to thrive",
       "gravità": 0.85,
       "categorie": [
         {
@@ -730,17 +697,6 @@
         {
           "macro": "Tipologie di maltrattamento",
           "sotto": "Abuso sessuale"
-        }
-      ]
-    },
-    {
-      "descrizione": "Violenza assistita: il bambino assiste direttamente o indirettamente a violenza fisica, verbale, psicologica, sessuale o economica perpetrata su figure di riferimento.",
-      "condizione_clinica": "violenza assistita",
-      "gravità": 0.8,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Maltrattamento psicologico"
         }
       ]
     },
@@ -1778,17 +1734,6 @@
       ]
     },
     {
-      "descrizione": "Ritardo inusuale nel ricorso alle cure mediche non spiegato in maniera plausibile è indicatore suggestivo di possibile abuso.",
-      "condizione_clinica": "ritardo inusuale nel ricorso alle cure",
-      "gravità": 0.65,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
-        }
-      ]
-    },
-    {
       "descrizione": "Ricorrenza di ricoveri o prestazioni di Pronto Soccorso per traumi o sintomi di difficile o dubbia interpretazione costituisce indicatore suggestivo di possibile abuso.",
       "condizione_clinica": "ricoveri ricorrenti per traumi di dubbia interpretazione",
       "gravità": 0.7,
@@ -1796,28 +1741,6 @@
         {
           "macro": "Contesto e indicatori anamnestici",
           "sotto": "Accessi sanitari ripetuti"
-        }
-      ]
-    },
-    {
-      "descrizione": "Modifica radicale nella versione del racconto da parte dei caregiver, non riferibile a stato di confusione post traumatica, è suggestiva di abuso.",
-      "condizione_clinica": "modifica radicale del racconto da parte dei caregiver",
-      "gravità": 0.7,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
-        }
-      ]
-    },
-    {
-      "descrizione": "Spiegazioni contraddittorie, confuse o elusive dei genitori sulla dinamica delle lesioni del bambino sono segnale di possibile abuso.",
-      "condizione_clinica": "spiegazioni contraddittorie dei genitori",
-      "gravità": 0.65,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
         }
       ]
     },
@@ -1833,17 +1756,6 @@
       ]
     },
     {
-      "descrizione": "Atteggiamento genitoriale di imbarazzo, evitamento o aggressività prevalente sull'atteggiamento coerente di preoccupazione e rassicurazione verso il bambino è segnale comportamentale di sospetto abuso.",
-      "condizione_clinica": "atteggiamento genitoriale aggressivo o evitante",
-      "gravità": 0.55,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Atteggiamenti e psicopatologia genitoriali"
-        }
-      ]
-    },
-    {
       "descrizione": "Reazione genitoriale aggressiva alle domande dell'operatore con minimizzazione del problema è segnale comportamentale di possibile abuso.",
       "condizione_clinica": "minimizzazione e reazione aggressiva dei genitori",
       "gravità": 0.5,
@@ -1851,28 +1763,6 @@
         {
           "macro": "Contesto e indicatori anamnestici",
           "sotto": "Atteggiamenti e psicopatologia genitoriali"
-        }
-      ]
-    },
-    {
-      "descrizione": "Comportamento del bambino di allarme e ipervigilanza, oppure di apatia e distacco, è segnale emotivo di possibile abuso.",
-      "condizione_clinica": "ipervigilanza o apatia del bambino",
-      "gravità": 0.55,
-      "categorie": [
-        {
-          "macro": "Sintomi psico-comportamentali del minore",
-          "sotto": "Sintomi post-traumatici e dissociativi"
-        }
-      ]
-    },
-    {
-      "descrizione": "Imbarazzo, tensione, ansia del bambino e racconti contraddittori e incongrui sulla dinamica degli eventi sono segnali comportamentali di possibile abuso.",
-      "condizione_clinica": "racconto contraddittorio e incongruo del bambino",
-      "gravità": 0.6,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
         }
       ]
     },
@@ -2443,61 +2333,6 @@
       ]
     },
     {
-      "descrizione": "Storia clinica poco chiara che non corrisponde ai segni clinici presentati dal/dalla bambino/a.",
-      "condizione_clinica": "storia poco chiara non corrispondente ai segni clinici",
-      "gravità": 0.55,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
-        }
-      ]
-    },
-    {
-      "descrizione": "Dinamica dell'evento riferita dagli adulti non congruente con lo sviluppo neuromotorio del/della bambino/a.",
-      "condizione_clinica": "dinamica non congruente con sviluppo neuromotorio",
-      "gravità": 0.7,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
-        }
-      ]
-    },
-    {
-      "descrizione": "Versioni discordanti dell'evento da parte degli adulti presenti al fatto e del/della minorenne, ascoltati separatamente.",
-      "condizione_clinica": "versioni discordanti dell'evento",
-      "gravità": 0.6,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
-        }
-      ]
-    },
-    {
-      "descrizione": "Ritardo nell'accesso alle cure non adeguatamente giustificato in presenza di lesioni traumatiche.",
-      "condizione_clinica": "ritardo nell'accesso alle cure",
-      "gravità": 0.5,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
-        }
-      ]
-    },
-    {
-      "descrizione": "Storia che cambia nel tempo e viene riferita in modi diversi dagli adulti accompagnatori.",
-      "condizione_clinica": "storia variabile nel tempo",
-      "gravità": 0.6,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
-        }
-      ]
-    },
-    {
       "descrizione": "Segnali comportamentali del/della bambino/a: imbarazzo, tensione, ansia, allarme e ipervigilanza oppure apatia e distacco.",
       "condizione_clinica": "ipervigilanza o apatia del bambino",
       "gravità": 0.35,
@@ -2505,17 +2340,6 @@
         {
           "macro": "Sintomi psico-comportamentali del minore",
           "sotto": "Sintomi post-traumatici e dissociativi"
-        }
-      ]
-    },
-    {
-      "descrizione": "Atteggiamento dei genitori caratterizzato da spiegazioni contraddittorie o confuse, imbarazzo, evitamento, aggressività che prevalgono sulla preoccupazione.",
-      "condizione_clinica": "atteggiamento genitoriale contraddittorio o evitante",
-      "gravità": 0.4,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Atteggiamenti e psicopatologia genitoriali"
         }
       ]
     },
@@ -2652,21 +2476,6 @@
     {
       "descrizione": "Ecchimosi/ematomi raggruppati in cluster (almeno 2), talora con caratteristiche difensive agli arti superiori.",
       "condizione_clinica": "cluster di ecchimosi",
-      "gravità": 0.65,
-      "categorie": [
-        {
-          "macro": "Segni clinici somatici",
-          "sotto": "Lesioni cutanee"
-        },
-        {
-          "macro": "Trasversali",
-          "sotto": "Indicatori morfo-topografici delle lesioni"
-        }
-      ]
-    },
-    {
-      "descrizione": "Ecchimosi/ematomi ricorrenti o in diversa fase evolutiva in bambino/a oltre il primo anno di vita.",
-      "condizione_clinica": "ecchimosi ricorrenti o in diversa fase evolutiva",
       "gravità": 0.65,
       "categorie": [
         {
@@ -3080,21 +2889,6 @@
       ]
     },
     {
-      "descrizione": "Esiguità o assenza di segni superficiali esterni in contrasto con lesioni profonde anche molto severe è caratteristica delle lesioni viscerali da maltrattamento/abuso.",
-      "condizione_clinica": "discrepanza tra segni esterni modesti e lesioni profonde severe",
-      "gravità": 0.8,
-      "categorie": [
-        {
-          "macro": "Segni clinici somatici",
-          "sotto": "Lesioni viscerali e addominali"
-        },
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
-        }
-      ]
-    },
-    {
       "descrizione": "Lesioni superficiali al torace o all'addome, anche se modeste, non vanno mai sottovalutate perché possono mascherare lesioni profonde occulte.",
       "condizione_clinica": "lesioni superficiali toraco-addominali modeste",
       "gravità": 0.5,
@@ -3168,17 +2962,6 @@
       "descrizione": "Fratture costali, soprattutto posteriori e postero-mediali, nel bambino sotto i 24 mesi e fino a 4-5 anni sono lesioni sentinella ad alto sospetto di maltrattamento/abuso.",
       "condizione_clinica": "fratture costali posteriori e postero-mediali in bambino <24 mesi",
       "gravità": 0.9,
-      "categorie": [
-        {
-          "macro": "Segni clinici somatici",
-          "sotto": "Fratture e lesioni ossee"
-        }
-      ]
-    },
-    {
-      "descrizione": "Fratture costali in bambino sotto i 24 mesi e fino ai 4-5 anni sono LESIONI SENTINELLA per maltrattamento/abuso.",
-      "condizione_clinica": "fratture costali in bambino <4-5 anni",
-      "gravità": 0.85,
       "categorie": [
         {
           "macro": "Segni clinici somatici",
@@ -3575,17 +3358,6 @@
       ]
     },
     {
-      "descrizione": "Bruciature/ustioni da sigaretta in sede cutanea.",
-      "condizione_clinica": "ustioni da sigaretta",
-      "gravità": 0.9,
-      "categorie": [
-        {
-          "macro": "Segni clinici somatici",
-          "sotto": "Ustioni"
-        }
-      ]
-    },
-    {
       "descrizione": "Ustioni da immersione forzata.",
       "condizione_clinica": "ustioni da immersione forzata",
       "gravità": 0.9,
@@ -3593,17 +3365,6 @@
         {
           "macro": "Segni clinici somatici",
           "sotto": "Ustioni"
-        }
-      ]
-    },
-    {
-      "descrizione": "Incongruenza tra le versioni dichiarate dall'adulto in merito all'accaduto e il quadro lesivo obiettivato sul minore.",
-      "condizione_clinica": "incongruenza delle versioni dichiarate dall'adulto",
-      "gravità": 0.7,
-      "categorie": [
-        {
-          "macro": "Contesto e indicatori anamnestici",
-          "sotto": "Anamnesi incongrua / ritardo cure / dinamica sospetta"
         }
       ]
     },
@@ -3778,83 +3539,6 @@
         {
           "macro": "Contesto e indicatori anamnestici",
           "sotto": "Atteggiamenti e psicopatologia genitoriali"
-        }
-      ]
-    },
-    {
-      "descrizione": "Patologia delle cure nelle forme di incuria/trascuratezza grave.",
-      "condizione_clinica": "incuria/trascuratezza grave",
-      "gravità": 0.75,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Trascuratezza / Incuria / Discuria / Ipercura"
-        }
-      ]
-    },
-    {
-      "descrizione": "Patologia delle cure nella forma di discuria.",
-      "condizione_clinica": "discuria",
-      "gravità": 0.6,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Trascuratezza / Incuria / Discuria / Ipercura"
-        }
-      ]
-    },
-    {
-      "descrizione": "Patologia delle cure nella forma di ipercura, comprendente 'medical shopping per procura', 'chemical abuse' e 'sindrome di Münchausen per procura'.",
-      "condizione_clinica": "ipercura",
-      "gravità": 0.75,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Trascuratezza / Incuria / Discuria / Ipercura"
-        }
-      ]
-    },
-    {
-      "descrizione": "Sindrome di Münchausen per procura come forma di patologia delle cure.",
-      "condizione_clinica": "sindrome di Münchausen per procura",
-      "gravità": 0.9,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Patologia delle cure"
-        }
-      ]
-    },
-    {
-      "descrizione": "'Chemical abuse' come forma di ipercura nella patologia delle cure.",
-      "condizione_clinica": "chemical abuse",
-      "gravità": 0.85,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Patologia delle cure"
-        }
-      ]
-    },
-    {
-      "descrizione": "'Medical shopping per procura' come forma di ipercura nella patologia delle cure.",
-      "condizione_clinica": "medical shopping per procura",
-      "gravità": 0.7,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Patologia delle cure"
-        }
-      ]
-    },
-    {
-      "descrizione": "Violenza assistita ai danni del minore.",
-      "condizione_clinica": "violenza assistita",
-      "gravità": 0.7,
-      "categorie": [
-        {
-          "macro": "Tipologie di maltrattamento",
-          "sotto": "Maltrattamento psicologico"
         }
       ]
     },
