@@ -64,9 +64,9 @@ import logging
 import os
 from typing import Any
 
-import ollama
-import openai
-import PyPDF2
+# ollama, openai, and PyPDF2 are imported lazily inside the functions that
+# need them so that the module can be imported in environments where those
+# packages are not installed (e.g. Colab KDE-only usage).
 
 logger = logging.getLogger(__name__)
 
@@ -105,6 +105,7 @@ def extract_text_from_pdf(pdf_path: str) -> str:
     logger.info("Extracting text from PDF: %s", pdf_path)
     pages: list[str] = []
 
+    import PyPDF2  # lazy: not needed in KDE-only environments
     with open(pdf_path, "rb") as fh:
         reader = PyPDF2.PdfReader(fh)
         n_pages = len(reader.pages)
@@ -319,6 +320,7 @@ def extract_rules_openai(
         raise EnvironmentError(
             "OPENAI_API_KEY is not set. Add it to your .env file."
         )
+    import openai  # lazy: not needed in KDE-only environments
     client = openai.OpenAI(api_key=api_key)
 
     excerpt = text[:max_text_chars]
@@ -444,6 +446,7 @@ def extract_rules_local_ollama(
         len(excerpt),
     )
 
+    import ollama  # lazy: not needed in KDE-only environments
     response = ollama.chat(
         model=model_name,
         format="json",
