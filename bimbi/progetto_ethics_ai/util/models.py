@@ -334,8 +334,9 @@ class EthicalKDEAnomalyDetector:
         X_scaled = self._scaler.transform(numeric_X.values)
         raw_nll = -self._kde.score_samples(X_scaled)
 
-        if self._score_scaler is not None:
-            calibrated = self._score_scaler.transform(raw_nll.reshape(-1, 1)).ravel()
+        score_scaler = getattr(self, "_score_scaler", None)
+        if score_scaler is not None:
+            calibrated = score_scaler.transform(raw_nll.reshape(-1, 1)).ravel()
             base_signal = np.clip(calibrated, 0.0, None)
         else:
             base_signal = raw_nll
@@ -400,13 +401,13 @@ class EthicalKDEAnomalyDetector:
         return (signals >= threshold).astype(int).values
 
     def __repr__(self) -> str:
+        best_bw = getattr(self, "_best_bandwidth", self.bandwidth)
         bw_label = (
-            f"{self._best_bandwidth:.4f} (CV-optimised)"
-            if self._best_bandwidth != self.bandwidth
+            f"{best_bw:.4f} (CV-optimised)"
+            if best_bw != self.bandwidth
             else f"{self.bandwidth:.4f} (fixed)"
         )
         return (
             f"EthicalKDEAnomalyDetector("
-            f"bandwidth={bw_label}, kernel='{self.kernel}', "
-            f"prior_rules={len(self.prior_rules)}, fitted={self._fitted})"
+            f"bandwidth={bw_label}, kernel='{self.kernel}', fitted={self._fitted})"
         )
