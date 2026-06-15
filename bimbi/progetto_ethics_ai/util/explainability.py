@@ -1,12 +1,18 @@
 from __future__ import annotations
 import os
+import re
 from datetime import datetime
+from typing import Callable
 
 try:
     from fpdf import FPDF
+    from fpdf.enums import XPos, YPos
     FPDF_OK = True
 except ImportError:
     FPDF_OK = False
+
+# Numero massimo di azioni nella checklist generata dall'LLM.
+MAX_VOCI_CHECKLIST = 6
 
 # DejaVu Sans supporta Unicode completo (disponibile su Colab/Linux).
 # Su Windows o ambienti senza DejaVu si usa Helvetica (Latin-1).
@@ -49,6 +55,8 @@ def genera_pdf(
     has_history: bool,
     num_accessi_90d: int = 0,
     checklist_ai: list[str] | None = None,
+    regole_violate: list[dict] | None = None,
+    llm_generate: Callable[[str], str] | None = None,
 ) -> bytes:
     """
     Genera un referto PDF clinico leggibile dal personale sanitario.
@@ -73,8 +81,20 @@ def genera_pdf(
     num_accessi_90d : int
         Numero di accessi nei 90 giorni precedenti.
     checklist_ai : list[str] | None
-        Checklist generata dal modello LLM specifica per il caso.
-        Se None, viene usata la checklist standard basata sul livello di rischio.
+        Checklist gia' pronta (es. generata altrove). Se valorizzata ha la
+        precedenza su qualunque altra generazione.
+    regole_violate : list[dict] | None
+        Regole violate dal caso. Ogni elemento:
+        {"id": str, "descrizione": str, "gravita": float, "confidenza": float}.
+        Vengono riportate in una sezione dedicata del referto e usate come
+        base per la checklist generata dall'LLM. Se ``indicatori`` non viene
+        fornito, viene derivato da questa lista.
+    llm_generate : Callable[[str], str] | None
+        Funzione che riceve un prompt testuale e restituisce la risposta del
+        modello (es. ``lambda p: evaluate_prompt(p, max_new_tokens=250)``).
+        Se fornita e ``checklist_ai`` e' None, la checklist viene generata
+        dall'LLM a partire dalle regole violate. In caso di errore o risposta
+        vuota si ricade automaticamente sulla checklist standard.
 
     Returns
     -------
@@ -83,6 +103,26 @@ def genera_pdf(
     """
     if not FPDF_OK:
         raise ImportError("fpdf2 non installato. Eseguire: pip install fpdf2")
+
+    regole_violate = regole_violate or []
+
+    # Se gli indicatori non sono forniti, li deriviamo dalle regole violate
+    # (una regola violata e' di fatto un indicatore clinico rilevato).
+    if not indicatori and regole_violate:
+        indicatori = [
+            {
+                "descrizione": r.get("descrizione", r.get("id", "")),
+                "confidenza":  r.get("confidenza", 0.0),
+                "gravita":     r.get("gravita", 0),
+            }
+            for r in regole_violate
+        ]
+
+    # La checklist viene decisa qui: AI esplicita > LLM dalle regole > statica.
+    voci_checklist = costruisci_checklist(
+        paziente, risk_level, indicatori, regole_violate,
+        checklist_ai, has_history, kde_score, llm_generate,
+    )
 
     pdf = FPDF()
     pdf.add_page()
@@ -97,7 +137,8 @@ def genera_pdf(
     sezione_sintesi(pdf, risk_level, indicatori, has_history, kde_score, font)
     sezione_pattern_accessi(pdf, has_history, kde_score, num_accessi_90d, font)
     sezione_indicatori_clinici(pdf, indicatori, font)
-    sezione_checklist(pdf, risk_level, indicatori, checklist_ai, font)
+    sezione_regole_violate(pdf, regole_violate, font)
+    sezione_checklist(pdf, voci_checklist, font)
     sezione_disclaimer(pdf, font)
 
     return bytes(pdf.output())
@@ -127,10 +168,10 @@ def sezione_header(pdf: "FPDF", font: str) -> None:
     pdf.set_text_color(255, 255, 255)
     pdf.set_font(font, "B", 14)
     pdf.set_xy(10, 7)
-    pdf.cell(0, 8, "SISTEMA DI SUPPORTO DECISIONALE PEDIATRICO", ln=True)
+    pdf.cell(0, 8, "SISTEMA DI SUPPORTO DECISIONALE PEDIATRICO", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.set_font(font, "", 9)
     pdf.set_x(10)
-    pdf.cell(0, 5, f"Valutazione del rischio   {datetime.now().strftime('%d/%m/%Y  %H:%M')}", ln=True)
+    pdf.cell(0, 5, f"Valutazione del rischio   {datetime.now().strftime('%d/%m/%Y  %H:%M')}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.set_text_color(0, 0, 0)
     pdf.ln(10)
 
@@ -141,7 +182,7 @@ def sezione_dati_visita(pdf: "FPDF", paziente: dict, font: str) -> None:
     eta   = str(paziente.get("eta_in_anni", "-"))
     sesso = str(paziente.get("sesso", "-"))
     grav  = str(paziente.get("gravita", "-"))
-    pdf.cell(0, 6, f"Eta: {eta} anni   |   Sesso: {sesso}   |   Codice triage: {grav}", ln=True)
+    pdf.cell(0, 6, f"Eta: {eta} anni   |   Sesso: {sesso}   |   Codice triage: {grav}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(4)
 
 
@@ -150,7 +191,7 @@ def sezione_livello_rischio(pdf: "FPDF", risk_level: str, font: str) -> None:
     pdf.set_fill_color(r, g, b)
     pdf.set_text_color(255, 255, 255)
     pdf.set_font(font, "B", 13)
-    pdf.cell(0, 12, f"  LIVELLO DI RISCHIO: {risk_level}", ln=True, fill=True)
+    pdf.cell(0, 12, f"  LIVELLO DI RISCHIO: {risk_level}", new_x=XPos.LMARGIN, new_y=YPos.NEXT, fill=True)
     pdf.set_text_color(0, 0, 0)
     pdf.ln(5)
 
@@ -165,7 +206,7 @@ def sezione_sintesi(
 ) -> None:
     titolo_sezione(pdf, "SINTESI", font)
     pdf.set_font(font, "", 10)
-    pdf.multi_cell(0, 6, testo_narrativa(risk_level, indicatori, has_history, kde_score))
+    pdf.multi_cell(0, 6, testo_narrativa(risk_level, indicatori, has_history, kde_score), new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(4)
 
 
@@ -174,12 +215,12 @@ def sezione_indicatori_clinici(pdf: "FPDF", indicatori: list[dict], font: str) -
     pdf.set_font(font, "", 10)
     if not indicatori:
         pdf.set_font(font, "I", 10)
-        pdf.cell(0, 6, "Nessun indicatore clinico rilevato.", ln=True)
+        pdf.cell(0, 6, "Nessun indicatore clinico rilevato.", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     else:
         for ind in sorted(indicatori, key=lambda x: x.get("gravita", 0), reverse=True):
             conf = ind.get("confidenza", 0.0)
             label = "alta" if conf >= 0.7 else "media" if conf >= 0.4 else "bassa"
-            pdf.multi_cell(0, 6, f"  -  {ind.get('descrizione', '')}  (confidenza: {label})")
+            pdf.multi_cell(0, 6, f"  -  {ind.get('descrizione', '')}  (confidenza: {label})", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(4)
 
 
@@ -192,36 +233,46 @@ def sezione_pattern_accessi(
 ) -> None:
     titolo_sezione(pdf, "PATTERN DI ACCESSO AL PRONTO SOCCORSO", font)
     pdf.set_font(font, "", 10)
-    pdf.multi_cell(0, 6, testo_pattern(has_history, kde_score, num_accessi_90d))
+    pdf.multi_cell(0, 6, testo_pattern(has_history, kde_score, num_accessi_90d), new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(4)
 
 
-def sezione_checklist(
-    pdf: "FPDF",
-    risk_level: str,
-    indicatori: list[dict],
-    checklist_ai: list[str] | None,
-    font: str,
-) -> None:
+def sezione_regole_violate(pdf: "FPDF", regole_violate: list[dict], font: str) -> None:
+    titolo_sezione(pdf, "REGOLE VIOLATE", font)
+    pdf.set_font(font, "", 10)
+    if not regole_violate:
+        pdf.set_font(font, "I", 10)
+        pdf.cell(0, 6, "Nessuna regola violata.", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        pdf.ln(4)
+        return
+    for r in sorted(regole_violate, key=lambda x: x.get("gravita", 0), reverse=True):
+        rid  = str(r.get("id", "-"))
+        desc = r.get("descrizione", "")
+        grav = r.get("gravita", 0)
+        conf = r.get("confidenza", 0.0)
+        try:
+            meta = f"[{rid}]  gravita {float(grav):g}  -  confidenza {float(conf):.2f}"
+        except (TypeError, ValueError):
+            meta = f"[{rid}]  gravita {grav}  -  confidenza {conf}"
+        pdf.set_font(font, "B", 10)
+        pdf.multi_cell(0, 6, meta, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        if desc:
+            pdf.set_font(font, "", 10)
+            pdf.multi_cell(0, 6, f"     {desc}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        pdf.ln(1)
+    pdf.ln(3)
+
+
+def sezione_checklist(pdf: "FPDF", voci: list[str], font: str) -> None:
     titolo_sezione(pdf, "AZIONI RACCOMANDATE", font)
     pdf.set_font(font, "", 10)
-
-    if checklist_ai:
-        voci = checklist_ai
-    else:
-        voci = list(CHECKLIST_BASE)
-        if risk_level == "ALTO":
-            voci += CHECKLIST_ALTO
-        elif risk_level == "MOLTO ALTO":
-            voci += CHECKLIST_MOLTO_ALTO
-        desc_lower = [ind.get("descrizione", "").lower() for ind in indicatori]
-        if any("frattur" in d for d in desc_lower):
-            voci.append("Richiedere esame radiologico per escludere fratture occulte")
-        if any("trauma cranico" in d for d in desc_lower):
-            voci.append("Valutare neuroimaging per trauma cranico")
-
+    if not voci:
+        pdf.set_font(font, "I", 10)
+        pdf.cell(0, 6, "Nessuna azione specifica generata.", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        pdf.ln(4)
+        return
     for voce in voci:
-        pdf.multi_cell(0, 7, f"  [ ]  {voce}")
+        pdf.multi_cell(0, 7, f"  [ ]  {voce}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(4)
 
 
@@ -234,7 +285,7 @@ def sezione_disclaimer(pdf: "FPDF", font: str) -> None:
         "e non ha valore legale autonomo. La responsabilita' della decisione clinica rimane "
         "esclusivamente del professionista sanitario. Il sistema opera secondo i principi "
         "dell'intelligenza artificiale etica: trasparenza, supervisione umana e non maleficenza.",
-        fill=True,
+        new_x=XPos.LMARGIN, new_y=YPos.NEXT, fill=True,
     )
 
 
@@ -242,9 +293,121 @@ def sezione_disclaimer(pdf: "FPDF", font: str) -> None:
 # Helpers interni
 # ---------------------------------------------------------------------------
 
+def costruisci_checklist(
+    paziente: dict,
+    risk_level: str,
+    indicatori: list[dict],
+    regole_violate: list[dict],
+    checklist_ai: list[str] | None,
+    has_history: bool,
+    kde_score: float,
+    llm_generate: Callable[[str], str] | None,
+) -> list[str]:
+    """
+    Decide quale checklist usare, in ordine di priorita':
+      1. checklist_ai gia' fornita dall'esterno;
+      2. checklist generata dall'LLM a partire dalle regole violate;
+      3. checklist statica basata su livello di rischio e indicatori.
+    Qualsiasi errore dell'LLM fa ricadere sulla checklist statica.
+    """
+    if checklist_ai:
+        return list(checklist_ai)
+
+    if llm_generate is not None:
+        try:
+            voci = genera_checklist_llm(
+                paziente, regole_violate or indicatori,
+                risk_level, has_history, kde_score, llm_generate,
+            )
+            if voci:
+                return voci
+        except Exception:
+            pass  # fallback alla checklist statica
+
+    return checklist_statica(risk_level, indicatori)
+
+
+def checklist_statica(risk_level: str, indicatori: list[dict]) -> list[str]:
+    """Checklist deterministica usata come fallback (nessun LLM)."""
+    voci = list(CHECKLIST_BASE)
+    if risk_level == "ALTO":
+        voci += CHECKLIST_ALTO
+    elif risk_level == "MOLTO ALTO":
+        voci += CHECKLIST_MOLTO_ALTO
+    desc_lower = [ind.get("descrizione", "").lower() for ind in indicatori]
+    if any("frattur" in d for d in desc_lower):
+        voci.append("Richiedere esame radiologico per escludere fratture occulte")
+    if any("trauma cranico" in d for d in desc_lower):
+        voci.append("Valutare neuroimaging per trauma cranico")
+    return voci
+
+
+def genera_checklist_llm(
+    paziente: dict,
+    regole_violate: list[dict],
+    risk_level: str,
+    has_history: bool,
+    kde_score: float,
+    llm_generate: Callable[[str], str],
+    max_voci: int = MAX_VOCI_CHECKLIST,
+) -> list[str]:
+    """Costruisce il prompt dalle regole violate, interroga l'LLM e ripulisce l'output."""
+    prompt = _prompt_checklist(paziente, regole_violate, risk_level, has_history, kde_score)
+    risposta = llm_generate(prompt)
+    return _parse_checklist(risposta, max_voci)
+
+
+def _prompt_checklist(
+    paziente: dict,
+    regole_violate: list[dict],
+    risk_level: str,
+    has_history: bool,
+    kde_score: float,
+) -> str:
+    eta   = paziente.get("eta_in_anni", "-")
+    sesso = paziente.get("sesso", "-")
+    grav  = paziente.get("gravita", "-")
+    righe = [
+        f"Paziente: {eta} anni, sesso {sesso}, codice triage {grav}.",
+        f"Livello di rischio complessivo: {risk_level}.",
+    ]
+    if regole_violate:
+        righe.append("Regole/indicatori clinici risultati violati per questo caso:")
+        for r in regole_violate:
+            desc = r.get("descrizione") or r.get("id", "")
+            if desc:
+                righe.append(f"- {desc}")
+    else:
+        righe.append("Non sono stati rilevati indicatori clinici specifici.")
+    if has_history and kde_score > 0.3:
+        righe.append("Il pattern temporale degli accessi risulta anomalo rispetto alla norma.")
+
+    contesto = "\n".join(righe)
+    istruzioni = (
+        "\n\nSei un medico pediatra esperto in tutela minorile. "
+        "Sulla base delle regole/indicatori sopra elencati, genera una checklist clinica "
+        f"di massimo {MAX_VOCI_CHECKLIST} azioni concrete e specifiche che il medico deve "
+        "verificare per questo caso. Scrivi SOLO le azioni, una per riga, senza numeri, "
+        "senza trattini e senza simboli iniziali."
+    )
+    return contesto + istruzioni
+
+
+def _parse_checklist(risposta: str, max_voci: int) -> list[str]:
+    """Ripulisce la risposta dell'LLM in una lista di azioni."""
+    voci = []
+    for riga in str(risposta).strip().splitlines():
+        riga = riga.strip()
+        riga = re.sub(r"^\s*\d+[.)]\s*", "", riga)   # numerazione "1." / "1)"
+        riga = riga.lstrip("-*•").strip()             # bullet residui
+        if riga:
+            voci.append(riga)
+    return voci[:max_voci]
+
+
 def titolo_sezione(pdf: "FPDF", titolo: str, font: str) -> None:
     pdf.set_font(font, "B", 11)
-    pdf.cell(0, 7, titolo, ln=True)
+    pdf.cell(0, 7, titolo, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.set_draw_color(44, 62, 80)
     pdf.set_line_width(0.4)
     pdf.line(10, pdf.get_y(), 200, pdf.get_y())
