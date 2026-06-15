@@ -1,5 +1,5 @@
 from __future__ import annotations
-import unicodedata
+import os
 from datetime import datetime
 
 try:
@@ -7,6 +7,15 @@ try:
     FPDF_OK = True
 except ImportError:
     FPDF_OK = False
+
+# DejaVu Sans supporta Unicode completo (disponibile su Colab/Linux).
+# Su Windows o ambienti senza DejaVu si usa Helvetica (Latin-1).
+_DEJAVU = {
+    "":  "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    "B": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "I": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf",
+}
+_FONT = "Body"
 
 
 RISK_COLORS = {
@@ -80,53 +89,67 @@ def genera_pdf(
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.set_margins(10, 10, 10)
 
-    sezione_header(pdf)
-    sezione_dati_visita(pdf, paziente)
-    sezione_livello_rischio(pdf, risk_level)
-    sezione_sintesi(pdf, risk_level, indicatori, has_history, kde_score)
-    sezione_pattern_accessi(pdf, has_history, kde_score, num_accessi_90d)
-    sezione_indicatori_clinici(pdf, indicatori)
-    sezione_checklist(pdf, risk_level, indicatori, checklist_ai)
-    sezione_disclaimer(pdf)
+    font = _setup_fonts(pdf)
+
+    sezione_header(pdf, font)
+    sezione_dati_visita(pdf, paziente, font)
+    sezione_livello_rischio(pdf, risk_level, font)
+    sezione_sintesi(pdf, risk_level, indicatori, has_history, kde_score, font)
+    sezione_pattern_accessi(pdf, has_history, kde_score, num_accessi_90d, font)
+    sezione_indicatori_clinici(pdf, indicatori, font)
+    sezione_checklist(pdf, risk_level, indicatori, checklist_ai, font)
+    sezione_disclaimer(pdf, font)
 
     return bytes(pdf.output())
+
+
+# ---------------------------------------------------------------------------
+# Setup font
+# ---------------------------------------------------------------------------
+
+def _setup_fonts(pdf: "FPDF") -> str:
+    """Carica DejaVu (Unicode) se disponibile, altrimenti usa Helvetica."""
+    if os.path.exists(_DEJAVU[""]):
+        for style, path in _DEJAVU.items():
+            if os.path.exists(path):
+                pdf.add_font(_FONT, style=style, fname=path)
+        return _FONT
+    return "Helvetica"
 
 
 # ---------------------------------------------------------------------------
 # Sezioni del PDF
 # ---------------------------------------------------------------------------
 
-def sezione_header(pdf: "FPDF") -> None:
+def sezione_header(pdf: "FPDF", font: str) -> None:
     pdf.set_fill_color(44, 62, 80)
     pdf.rect(0, 0, 220, 28, "F")
     pdf.set_text_color(255, 255, 255)
-    pdf.set_font("Helvetica", "B", 14)
+    pdf.set_font(font, "B", 14)
     pdf.set_xy(10, 7)
     pdf.cell(0, 8, "SISTEMA DI SUPPORTO DECISIONALE PEDIATRICO", ln=True)
-    pdf.set_font("Helvetica", "", 9)
+    pdf.set_font(font, "", 9)
     pdf.set_x(10)
     pdf.cell(0, 5, f"Valutazione del rischio   {datetime.now().strftime('%d/%m/%Y  %H:%M')}", ln=True)
     pdf.set_text_color(0, 0, 0)
     pdf.ln(10)
 
 
-def sezione_dati_visita(pdf: "FPDF", paziente: dict) -> None:
-    titolo_sezione(pdf, "DATI VISITA")
-    pdf.set_font("Helvetica", "", 10)
-    eta   = _sanitize(str(paziente.get("eta_in_anni", "-")))
-    sesso = _sanitize(str(paziente.get("sesso", "-")))
-    grav  = _sanitize(str(paziente.get("gravita", "-")))
-    pdf.cell(0, 6,
-        f"Eta: {eta} anni   |   Sesso: {sesso}   |   Codice triage: {grav}",
-        ln=True)
+def sezione_dati_visita(pdf: "FPDF", paziente: dict, font: str) -> None:
+    titolo_sezione(pdf, "DATI VISITA", font)
+    pdf.set_font(font, "", 10)
+    eta   = str(paziente.get("eta_in_anni", "-"))
+    sesso = str(paziente.get("sesso", "-"))
+    grav  = str(paziente.get("gravita", "-"))
+    pdf.cell(0, 6, f"Eta: {eta} anni   |   Sesso: {sesso}   |   Codice triage: {grav}", ln=True)
     pdf.ln(4)
 
 
-def sezione_livello_rischio(pdf: "FPDF", risk_level: str) -> None:
+def sezione_livello_rischio(pdf: "FPDF", risk_level: str, font: str) -> None:
     r, g, b = RISK_COLORS.get(risk_level, (100, 100, 100))
     pdf.set_fill_color(r, g, b)
     pdf.set_text_color(255, 255, 255)
-    pdf.set_font("Helvetica", "B", 13)
+    pdf.set_font(font, "B", 13)
     pdf.cell(0, 12, f"  LIVELLO DI RISCHIO: {risk_level}", ln=True, fill=True)
     pdf.set_text_color(0, 0, 0)
     pdf.ln(5)
@@ -138,24 +161,25 @@ def sezione_sintesi(
     indicatori: list[dict],
     has_history: bool,
     kde_score: float,
+    font: str,
 ) -> None:
-    titolo_sezione(pdf, "SINTESI")
-    pdf.set_font("Helvetica", "", 10)
-    pdf.multi_cell(0, 6, _sanitize(testo_narrativa(risk_level, indicatori, has_history, kde_score)))
+    titolo_sezione(pdf, "SINTESI", font)
+    pdf.set_font(font, "", 10)
+    pdf.multi_cell(0, 6, testo_narrativa(risk_level, indicatori, has_history, kde_score))
     pdf.ln(4)
 
 
-def sezione_indicatori_clinici(pdf: "FPDF", indicatori: list[dict]) -> None:
-    titolo_sezione(pdf, "INDICATORI CLINICI RILEVATI")
-    pdf.set_font("Helvetica", "", 10)
+def sezione_indicatori_clinici(pdf: "FPDF", indicatori: list[dict], font: str) -> None:
+    titolo_sezione(pdf, "INDICATORI CLINICI RILEVATI", font)
+    pdf.set_font(font, "", 10)
     if not indicatori:
-        pdf.set_font("Helvetica", "I", 10)
+        pdf.set_font(font, "I", 10)
         pdf.cell(0, 6, "Nessun indicatore clinico rilevato.", ln=True)
     else:
         for ind in sorted(indicatori, key=lambda x: x.get("gravita", 0), reverse=True):
             conf = ind.get("confidenza", 0.0)
             label = "alta" if conf >= 0.7 else "media" if conf >= 0.4 else "bassa"
-            pdf.multi_cell(0, 6, _sanitize(f"  -  {ind.get('descrizione', '')}  (confidenza: {label})"))
+            pdf.multi_cell(0, 6, f"  -  {ind.get('descrizione', '')}  (confidenza: {label})")
     pdf.ln(4)
 
 
@@ -164,10 +188,11 @@ def sezione_pattern_accessi(
     has_history: bool,
     kde_score: float,
     num_accessi_90d: int,
+    font: str,
 ) -> None:
-    titolo_sezione(pdf, "PATTERN DI ACCESSO AL PRONTO SOCCORSO")
-    pdf.set_font("Helvetica", "", 10)
-    pdf.multi_cell(0, 6, _sanitize(testo_pattern(has_history, kde_score, num_accessi_90d)))
+    titolo_sezione(pdf, "PATTERN DI ACCESSO AL PRONTO SOCCORSO", font)
+    pdf.set_font(font, "", 10)
+    pdf.multi_cell(0, 6, testo_pattern(has_history, kde_score, num_accessi_90d))
     pdf.ln(4)
 
 
@@ -176,9 +201,10 @@ def sezione_checklist(
     risk_level: str,
     indicatori: list[dict],
     checklist_ai: list[str] | None,
+    font: str,
 ) -> None:
-    titolo_sezione(pdf, "AZIONI RACCOMANDATE")
-    pdf.set_font("Helvetica", "", 10)
+    titolo_sezione(pdf, "AZIONI RACCOMANDATE", font)
+    pdf.set_font(font, "", 10)
 
     if checklist_ai:
         voci = checklist_ai
@@ -195,17 +221,17 @@ def sezione_checklist(
             voci.append("Valutare neuroimaging per trauma cranico")
 
     for voce in voci:
-        pdf.multi_cell(0, 7, _sanitize(f"  [ ]  {voce}"))
+        pdf.multi_cell(0, 7, f"  [ ]  {voce}")
     pdf.ln(4)
 
 
-def sezione_disclaimer(pdf: "FPDF") -> None:
+def sezione_disclaimer(pdf: "FPDF", font: str) -> None:
     pdf.set_fill_color(245, 245, 245)
-    pdf.set_font("Helvetica", "I", 8)
+    pdf.set_font(font, "I", 8)
     pdf.multi_cell(0, 5,
-        "AVVISO: Questo documento e generato da un sistema automatico di supporto decisionale. "
+        "AVVISO: Questo documento e' generato da un sistema automatico di supporto decisionale. "
         "Non costituisce diagnosi medica, non sostituisce la valutazione del medico responsabile "
-        "e non ha valore legale autonomo. La responsabilita della decisione clinica rimane "
+        "e non ha valore legale autonomo. La responsabilita' della decisione clinica rimane "
         "esclusivamente del professionista sanitario. Il sistema opera secondo i principi "
         "dell'intelligenza artificiale etica: trasparenza, supervisione umana e non maleficenza.",
         fill=True,
@@ -216,17 +242,8 @@ def sezione_disclaimer(pdf: "FPDF") -> None:
 # Helpers interni
 # ---------------------------------------------------------------------------
 
-def _sanitize(testo: str) -> str:
-    """Normalizza il testo a cp1252 (encoding dei font core fpdf2).
-    Converte caratteri Unicode composti (es. virgolette tipografiche, trattini em)
-    nel loro equivalente Latin-1 o li rimuove se non rappresentabili."""
-    nfd = unicodedata.normalize("NFD", testo)
-    stripped = "".join(c for c in nfd if not unicodedata.combining(c))
-    return stripped.encode("cp1252", errors="replace").decode("cp1252")
-
-
-def titolo_sezione(pdf: "FPDF", titolo: str) -> None:
-    pdf.set_font("Helvetica", "B", 11)
+def titolo_sezione(pdf: "FPDF", titolo: str, font: str) -> None:
+    pdf.set_font(font, "B", 11)
     pdf.cell(0, 7, titolo, ln=True)
     pdf.set_draw_color(44, 62, 80)
     pdf.set_line_width(0.4)
@@ -281,11 +298,11 @@ def testo_pattern(has_history: bool, kde_score: float, num_accessi_90d: int) -> 
     if not has_history:
         return (
             "Non sono disponibili accessi precedenti per questo paziente. "
-            "Il pattern temporale non e valutabile con i dati attuali."
+            "Il pattern temporale non e' valutabile con i dati attuali."
         )
     if kde_score == 0.0:
         return (
-            "Lo storico degli accessi e presente ma insufficiente per una "
+            "Lo storico degli accessi e' presente ma insufficiente per una "
             "valutazione statistica del pattern temporale."
         )
     prefisso = (
@@ -295,7 +312,7 @@ def testo_pattern(has_history: bool, kde_score: float, num_accessi_90d: int) -> 
     if kde_score < 0.3:
         return prefisso + "La frequenza degli accessi rientra nei valori attesi per la popolazione pediatrica di riferimento."
     if kde_score < 0.7:
-        return prefisso + "La frequenza degli accessi e leggermente superiore alla norma per la popolazione pediatrica di riferimento."
+        return prefisso + "La frequenza degli accessi e' leggermente superiore alla norma per la popolazione pediatrica di riferimento."
     return (
         prefisso
         + "La frequenza degli accessi risulta statisticamente anomala rispetto alla "
