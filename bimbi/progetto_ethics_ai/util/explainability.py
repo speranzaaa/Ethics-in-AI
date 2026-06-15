@@ -1,4 +1,5 @@
 from __future__ import annotations
+import unicodedata
 from datetime import datetime
 
 try:
@@ -112,10 +113,11 @@ def sezione_header(pdf: "FPDF") -> None:
 def sezione_dati_visita(pdf: "FPDF", paziente: dict) -> None:
     titolo_sezione(pdf, "DATI VISITA")
     pdf.set_font("Helvetica", "", 10)
+    eta   = _sanitize(str(paziente.get("eta_in_anni", "-")))
+    sesso = _sanitize(str(paziente.get("sesso", "-")))
+    grav  = _sanitize(str(paziente.get("gravita", "-")))
     pdf.cell(0, 6,
-        f"Eta: {paziente.get('eta_in_anni', '-')} anni   |   "
-        f"Sesso: {paziente.get('sesso', '-')}   |   "
-        f"Codice triage: {paziente.get('gravita', '-')}",
+        f"Eta: {eta} anni   |   Sesso: {sesso}   |   Codice triage: {grav}",
         ln=True)
     pdf.ln(4)
 
@@ -139,7 +141,7 @@ def sezione_sintesi(
 ) -> None:
     titolo_sezione(pdf, "SINTESI")
     pdf.set_font("Helvetica", "", 10)
-    pdf.multi_cell(0, 6, testo_narrativa(risk_level, indicatori, has_history, kde_score))
+    pdf.multi_cell(0, 6, _sanitize(testo_narrativa(risk_level, indicatori, has_history, kde_score)))
     pdf.ln(4)
 
 
@@ -153,7 +155,7 @@ def sezione_indicatori_clinici(pdf: "FPDF", indicatori: list[dict]) -> None:
         for ind in sorted(indicatori, key=lambda x: x.get("gravita", 0), reverse=True):
             conf = ind.get("confidenza", 0.0)
             label = "alta" if conf >= 0.7 else "media" if conf >= 0.4 else "bassa"
-            pdf.multi_cell(0, 6, f"  -  {ind.get('descrizione', '')}  (confidenza: {label})")
+            pdf.multi_cell(0, 6, _sanitize(f"  -  {ind.get('descrizione', '')}  (confidenza: {label})"))
     pdf.ln(4)
 
 
@@ -165,7 +167,7 @@ def sezione_pattern_accessi(
 ) -> None:
     titolo_sezione(pdf, "PATTERN DI ACCESSO AL PRONTO SOCCORSO")
     pdf.set_font("Helvetica", "", 10)
-    pdf.multi_cell(0, 6, testo_pattern(has_history, kde_score, num_accessi_90d))
+    pdf.multi_cell(0, 6, _sanitize(testo_pattern(has_history, kde_score, num_accessi_90d)))
     pdf.ln(4)
 
 
@@ -193,7 +195,7 @@ def sezione_checklist(
             voci.append("Valutare neuroimaging per trauma cranico")
 
     for voce in voci:
-        pdf.multi_cell(0, 7, f"  [ ]  {voce}")
+        pdf.multi_cell(0, 7, _sanitize(f"  [ ]  {voce}"))
     pdf.ln(4)
 
 
@@ -213,6 +215,15 @@ def sezione_disclaimer(pdf: "FPDF") -> None:
 # ---------------------------------------------------------------------------
 # Helpers interni
 # ---------------------------------------------------------------------------
+
+def _sanitize(testo: str) -> str:
+    """Normalizza il testo a cp1252 (encoding dei font core fpdf2).
+    Converte caratteri Unicode composti (es. virgolette tipografiche, trattini em)
+    nel loro equivalente Latin-1 o li rimuove se non rappresentabili."""
+    nfd = unicodedata.normalize("NFD", testo)
+    stripped = "".join(c for c in nfd if not unicodedata.combining(c))
+    return stripped.encode("cp1252", errors="replace").decode("cp1252")
+
 
 def titolo_sezione(pdf: "FPDF", titolo: str) -> None:
     pdf.set_font("Helvetica", "B", 11)
