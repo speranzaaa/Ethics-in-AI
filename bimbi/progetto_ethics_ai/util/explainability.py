@@ -92,7 +92,7 @@ def genera_pdf(
     llm_generate : Callable[[str], str] | None
         Funzione che riceve un prompt testuale e restituisce la risposta del
         modello (es. ``lambda p: evaluate_prompt(p, max_new_tokens=250)``).
-        Se fornita e ``checklist_ai`` e' None, la checklist viene generata
+        Se fornita e ``checklist_ai`` è None, la checklist viene generata
         dall'LLM a partire dalle regole violate. In caso di errore o risposta
         vuota si ricade automaticamente sulla checklist standard.
 
@@ -107,7 +107,7 @@ def genera_pdf(
     regole_violate = regole_violate or []
 
     # Se gli indicatori non sono forniti, li deriviamo dalle regole violate
-    # (una regola violata e' di fatto un indicatore clinico rilevato).
+    # (una regola violata è di fatto un indicatore clinico rilevato).
     if not indicatori and regole_violate:
         indicatori = [
             {
@@ -136,7 +136,6 @@ def genera_pdf(
     sezione_livello_rischio(pdf, risk_level, font)
     sezione_sintesi(pdf, risk_level, indicatori, has_history, kde_score, font)
     sezione_pattern_accessi(pdf, has_history, kde_score, num_accessi_90d, font)
-    sezione_indicatori_clinici(pdf, indicatori, font)
     sezione_regole_violate(pdf, regole_violate, font)
     sezione_checklist(pdf, voci_checklist, font)
     sezione_disclaimer(pdf, font)
@@ -238,24 +237,28 @@ def sezione_pattern_accessi(
 
 
 def sezione_regole_violate(pdf: "FPDF", regole_violate: list[dict], font: str) -> None:
-    titolo_sezione(pdf, "REGOLE VIOLATE", font)
+    titolo_sezione(pdf, "INDICATORI CLINICI RILEVATI", font)
+    pdf.set_font(font, "I", 9)
+    pdf.multi_cell(0, 5,
+        "La confidenza indica quanto il modello e' certo che l'indicatore sia presente "
+        "nel caso esaminato (0 = incerto, 1 = molto certo).",
+        new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.ln(3)
     pdf.set_font(font, "", 10)
     if not regole_violate:
         pdf.set_font(font, "I", 10)
-        pdf.cell(0, 6, "Nessuna regola violata.", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        pdf.cell(0, 6, "Nessun indicatore clinico rilevato.", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         pdf.ln(4)
         return
-    for r in sorted(regole_violate, key=lambda x: x.get("gravita", 0), reverse=True):
-        rid  = str(r.get("id", "-"))
+    for r in sorted(regole_violate, key=lambda x: x.get("confidenza", 0.0), reverse=True):
         desc = r.get("descrizione", "")
-        grav = r.get("gravita", 0)
         conf = r.get("confidenza", 0.0)
         try:
-            meta = f"[{rid}]  gravita {float(grav):g}  -  confidenza {float(conf):.2f}"
+            conf_str = f"{float(conf):.2f}"
         except (TypeError, ValueError):
-            meta = f"[{rid}]  gravita {grav}  -  confidenza {conf}"
+            conf_str = str(conf)
         pdf.set_font(font, "B", 10)
-        pdf.multi_cell(0, 6, meta, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        pdf.multi_cell(0, 6, f"Confidenza {conf_str}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         if desc:
             pdf.set_font(font, "", 10)
             pdf.multi_cell(0, 6, f"     {desc}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
@@ -280,7 +283,7 @@ def sezione_disclaimer(pdf: "FPDF", font: str) -> None:
     pdf.set_fill_color(245, 245, 245)
     pdf.set_font(font, "I", 8)
     pdf.multi_cell(0, 5,
-        "AVVISO: Questo documento e' generato da un sistema automatico di supporto decisionale. "
+        "AVVISO: Questo documento è generato da un sistema automatico di supporto decisionale. "
         "Non costituisce diagnosi medica, non sostituisce la valutazione del medico responsabile "
         "e non ha valore legale autonomo. La responsabilita' della decisione clinica rimane "
         "esclusivamente del professionista sanitario. Il sistema opera secondo i principi "
@@ -461,11 +464,11 @@ def testo_pattern(has_history: bool, kde_score: float, num_accessi_90d: int) -> 
     if not has_history:
         return (
             "Non sono disponibili accessi precedenti per questo paziente. "
-            "Il pattern temporale non e' valutabile con i dati attuali."
+            "Il pattern temporale non è valutabile con i dati attuali."
         )
     if kde_score == 0.0:
         return (
-            "Lo storico degli accessi e' presente ma insufficiente per una "
+            "Lo storico degli accessi è presente ma insufficiente per una "
             "valutazione statistica del pattern temporale."
         )
     prefisso = (
@@ -475,7 +478,7 @@ def testo_pattern(has_history: bool, kde_score: float, num_accessi_90d: int) -> 
     if kde_score < 0.3:
         return prefisso + "La frequenza degli accessi rientra nei valori attesi per la popolazione pediatrica di riferimento."
     if kde_score < 0.7:
-        return prefisso + "La frequenza degli accessi e' leggermente superiore alla norma per la popolazione pediatrica di riferimento."
+        return prefisso + "La frequenza degli accessi è leggermente superiore alla norma per la popolazione pediatrica di riferimento."
     return (
         prefisso
         + "La frequenza degli accessi risulta statisticamente anomala rispetto alla "
