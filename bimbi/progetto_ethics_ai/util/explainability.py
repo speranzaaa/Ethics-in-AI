@@ -83,8 +83,8 @@ def genera_pdf(
     sezione_dati_visita(pdf, paziente)
     sezione_livello_rischio(pdf, risk_level)
     sezione_sintesi(pdf, risk_level, indicatori, has_history, kde_score)
-    sezione_indicatori_clinici(pdf, indicatori)
     sezione_pattern_accessi(pdf, has_history, kde_score, num_accessi_90d)
+    sezione_indicatori_clinici(pdf, indicatori)
     sezione_checklist(pdf, risk_level, indicatori, checklist_ai)
     sezione_disclaimer(pdf)
 
