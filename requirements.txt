@@ -1,0 +1,15 @@
+numpy
+pandas
+pyarrow
+scikit-learn==1.6.1
+joblib
+fpdf2
+pydantic
+matplotlib
+tqdm
+streamlit
+
+# LLM layer (GPU)
+unsloth
+torch
+transformers
