@@ -77,9 +77,9 @@ streamlit run app/streamlit_app.py
 The demo simulates model loading and scoring (all values come from `app/demo_config.py`).
 The only real computation is PDF generation.  No GPU required.
 
-## Full pipeline (GPU, from the notebook)
+## Full pipeline (GPU)
 
-The original `notebooks/Ethics_Complete.ipynb` is the intended way to run the end-to-end
+The notebook `notebooks/Ethics_Complete.ipynb` is the intended way to run the end-to-end
 pipeline with the real LLM. It requires a CUDA GPU.
 The `src.pipeline.run(patient_id)` function replicates the same flow as an importable
 module, also requiring a GPU.
