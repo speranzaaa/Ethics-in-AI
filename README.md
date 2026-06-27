@@ -1,4 +1,4 @@
-# ETHICS — Sistema di Supporto Decisionale Pediatrico
+# GUARDIAN - Guided Understanding And Risk Detection In Abuse Identification Network
 
 Decision-support system for pediatric emergency departments that flags potential
 non-accidental pathology (NAP) cases.
@@ -30,57 +30,35 @@ A PDF explainability report is then generated for the clinician.
 ```
 ethics-project/
 ├── requirements.txt
-├── notebooks/              # original Colab notebooks (reference)
+├── notebooks/              # Colab notebooks (reference)
 ├── assets/
-│   └── fonts/              # place DejaVuSans .ttf files here for Unicode PDF support
+│   └── fonts/              # place DejaVuSans font
 ├── app/
-│   ├── streamlit_app.py    # Streamlit demo (simulated inference)
-│   └── demo_config.py      # edit this to change demo defaults / fixed scores / rules
+│   ├── streamlit_app.py    # Streamlit demo
+│   └── demo_config.py
 └── src/
-    ├── config.py           # all paths and shared constants
+    ├── config.py
     ├── preprocessing.py    # data cleaning pipeline (from raw Excel)
-    ├── kde.py              # EthicalKDEAnomalyDetector + train/load helpers
-    ├── llm.py              # LLM layer (requires GPU + unsloth)
+    ├── kde.py              # KDE layer
+    ├── llm.py              # LLM layer
     ├── pdf_report.py       # PDF explainability report
-    ├── pipeline.py         # end-to-end orchestration (GPU path)
-    ├── data/               # add datasets here by hand (not committed)
-    ├── models/             # trained KDE model goes here (not committed)
+    ├── pipeline.py         # end-to-end pipeline
+    ├── data/
+    ├── models/
     ├── scoring/
-    │   └── scores.py       # compute_score, compute_score_kde, risk_level
+    │   └── scores.py       # score helpers
     └── utils/
-        ├── text.py         # estrai_tupla + CheckRegolaOutput
-        ├── fonts.py        # DejaVu → Helvetica font setup
-        └── dates.py        # age computation helpers
+        ├── text.py
+        ├── fonts.py
+        └── dates.py
 ```
 
-## Files to add manually
-
-### `src/data/`
-| File | Description |
-|------|-------------|
-| `prior_rules_categorized.json` | Clinical rules — schema: `{"regole": [{"id", "descrizione", "gravità"}], "definizioni": {}}` |
-| `nap_negativi_windows.parquet` | Temporal windows for KDE training (output of preprocessing) |
-| `test_LLM.parquet` | Test visit records for LLM inference |
-| `test_KDE.parquet` | Test KDE windows |
-| `test_results.parquet` | Pre-computed test scores for evaluation plots |
-
-### `src/models/`
-| File | Description |
-|------|-------------|
-| `kde_model.joblib` | Trained `EthicalKDEAnomalyDetector` (produced by `train_kde()` or copied from Colab) |
-
-### `assets/fonts/` (optional)
-Place `DejaVuSans.ttf`, `DejaVuSans-Bold.ttf`, `DejaVuSans-Oblique.ttf` here for full
-Unicode support in the PDF. Without them the PDF falls back to Helvetica (Latin-1 only).
 
 ## Installation
 
 ```bash
 pip install -r requirements.txt
 ```
-
-> The LLM dependencies (`unsloth`, `torch`, `transformers`) require a CUDA GPU.
-> For CPU-only use (KDE training, scoring, PDF, Streamlit demo) you can skip them.
 
 ## Train the KDE model
 
